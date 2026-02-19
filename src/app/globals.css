@@ -1,12 +1,16 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
+  --background: #fafaf8;
   --foreground: #1a1a2e;
   --navy: #1a1a2e;
   --navy-light: #2d2d44;
-  --gold: #d4a853;
-  --gold-light: #e8c57b;
+  --gold: #e5a527;
+  --gold-light: #f5c04a;
+  --gold-dark: #c78c1c;
+  --orange: #e85d04;
+  --orange-light: #f77f3a;
+  --warm-white: #fffef9;
   --gray-50: #f9fafb;
   --gray-100: #f3f4f6;
   --gray-200: #e5e7eb;
@@ -26,6 +30,10 @@
   --color-navy-light: var(--navy-light);
   --color-gold: var(--gold);
   --color-gold-light: var(--gold-light);
+  --color-gold-dark: var(--gold-dark);
+  --color-orange: var(--orange);
+  --color-orange-light: var(--orange-light);
+  --color-warm-white: var(--warm-white);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
@@ -38,17 +46,58 @@ body {
 
 /* Star rating styles */
 .star-rating {
-  color: #d4a853;
+  color: #e5a527;
 }
 
 /* Featured badge */
 .featured-badge {
-  background: linear-gradient(135deg, #d4a853 0%, #e8c57b 100%);
-  color: #1a1a2e;
-  font-weight: 600;
-  padding: 0.25rem 0.75rem;
+  background: linear-gradient(135deg, #e85d04 0%, #f77f3a 100%);
+  color: #ffffff;
+  font-weight: 700;
+  padding: 0.35rem 0.85rem;
   border-radius: 9999px;
   font-size: 0.75rem;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.08em;
+  box-shadow: 0 2px 8px rgba(232, 93, 4, 0.35);
+}
+
+/* Enhanced card shadows */
+.card-shadow {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08), 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.card-shadow-hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1), 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+/* CTA button styles */
+.btn-primary {
+  background: linear-gradient(135deg, #e85d04 0%, #f77f3a 100%);
+  color: white;
+  font-weight: 700;
+  padding: 0.875rem 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 14px rgba(232, 93, 4, 0.4);
+  transition: all 0.2s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(232, 93, 4, 0.5);
+}
+
+.btn-secondary {
+  background: #1a1a2e;
+  color: white;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 8px rgba(26, 26, 46, 0.25);
+  transition: all 0.2s ease;
+}
+
+.btn-secondary:hover {
+  background: #2d2d44;
+  transform: translateY(-1px);
 }

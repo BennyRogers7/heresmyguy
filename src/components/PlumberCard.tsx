@@ -9,9 +9,11 @@ interface PlumberCardProps {
 export default function PlumberCard({ plumber }: PlumberCardProps) {
   return (
     <div
-      className={`bg-white rounded-xl shadow-sm border ${
-        plumber.isFeatured ? "border-[#d4a853] border-2" : "border-gray-200"
-      } p-6 hover:shadow-md transition-shadow`}
+      className={`bg-white rounded-xl border-2 p-6 transition-all duration-200 ${
+        plumber.isFeatured
+          ? "border-[#e85d04] shadow-[0_4px_20px_rgba(232,93,4,0.15)]"
+          : "border-gray-100 shadow-[0_2px_8px_rgba(0,0,0,0.06)] hover:shadow-[0_8px_24px_rgba(0,0,0,0.1)] hover:border-[#e5a527]"
+      }`}
     >
       <div className="flex justify-between items-start mb-3">
         <div className="flex-1">
@@ -19,7 +21,7 @@ export default function PlumberCard({ plumber }: PlumberCardProps) {
             {plumber.isFeatured && <span className="featured-badge">Featured</span>}
           </div>
           <Link href={`/profile/${plumber.slug}`}>
-            <h3 className="text-lg font-semibold text-[#1a1a2e] hover:text-[#d4a853] transition-colors">
+            <h3 className="text-xl font-bold text-[#1a1a2e] hover:text-[#e85d04] transition-colors">
               {plumber.name}
             </h3>
           </Link>
@@ -32,7 +34,7 @@ export default function PlumberCard({ plumber }: PlumberCardProps) {
       <div className="flex items-center gap-4 mb-4">
         <a
           href={`tel:${plumber.phone}`}
-          className="flex items-center gap-2 text-[#1a1a2e] font-medium hover:text-[#d4a853]"
+          className="flex items-center gap-2 text-[#1a1a2e] font-semibold hover:text-[#e85d04] transition-colors"
         >
           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path
@@ -49,7 +51,7 @@ export default function PlumberCard({ plumber }: PlumberCardProps) {
             href={plumber.website}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 text-[#d4a853] hover:text-[#e8c57b]"
+            className="flex items-center gap-2 text-[#e5a527] font-medium hover:text-[#f5c04a] transition-colors"
           >
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
@@ -59,10 +61,10 @@ export default function PlumberCard({ plumber }: PlumberCardProps) {
         )}
       </div>
 
-      <div className="flex gap-2">
+      <div className="flex gap-3">
         <a
           href={`tel:${plumber.phone}`}
-          className="flex-1 bg-[#1a1a2e] text-white text-center py-2 px-4 rounded-lg font-medium hover:bg-[#2d2d44] transition-colors"
+          className="flex-1 bg-gradient-to-r from-[#e85d04] to-[#f77f3a] text-white text-center py-3 px-4 rounded-lg font-bold hover:shadow-lg hover:shadow-orange-500/25 transition-all duration-200"
         >
           Call Now
         </a>
@@ -71,10 +73,10 @@ export default function PlumberCard({ plumber }: PlumberCardProps) {
             href={plumber.website}
             target="_blank"
             rel="noopener noreferrer"
-            className={`flex-1 text-center py-2 px-4 rounded-lg font-medium transition-colors ${
+            className={`flex-1 text-center py-3 px-4 rounded-lg font-semibold transition-all duration-200 ${
               plumber.isFeatured
-                ? "bg-[#d4a853] text-[#1a1a2e] hover:bg-[#e8c57b]"
-                : "border border-[#d4a853] text-[#d4a853] hover:bg-[#d4a853] hover:text-[#1a1a2e]"
+                ? "bg-[#1a1a2e] text-white hover:bg-[#2d2d44]"
+                : "border-2 border-[#1a1a2e] text-[#1a1a2e] hover:bg-[#1a1a2e] hover:text-white"
             }`}
           >
             Visit Website
@@ -82,7 +84,7 @@ export default function PlumberCard({ plumber }: PlumberCardProps) {
         ) : (
           <Link
             href={`/profile/${plumber.slug}`}
-            className="flex-1 border border-gray-300 text-gray-700 text-center py-2 px-4 rounded-lg font-medium hover:bg-gray-50 transition-colors"
+            className="flex-1 border-2 border-[#e5a527] text-[#1a1a2e] text-center py-3 px-4 rounded-lg font-semibold hover:bg-[#e5a527] hover:text-white transition-all duration-200"
           >
             View Details
           </Link>

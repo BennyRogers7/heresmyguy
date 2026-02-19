@@ -22,7 +22,7 @@ export default function StarRating({ rating, showNumber = true }: StarRatingProp
           <svg className="w-4 h-4" viewBox="0 0 20 20">
             <defs>
               <linearGradient id="halfGrad">
-                <stop offset="50%" stopColor="#d4a853" />
+                <stop offset="50%" stopColor="#e5a527" />
                 <stop offset="50%" stopColor="#e5e7eb" />
               </linearGradient>
             </defs>
