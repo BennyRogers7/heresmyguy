@@ -2,16 +2,19 @@ import { readFileSync } from "fs";
 import path from "path";
 import { Plumber, City } from "./types";
 
-// Featured plumbers - these appear at the top of city pages with a badge
-// In production, this would come from a database based on paid subscriptions
-const FEATURED_PLUMBER_SLUGS = new Set([
-  "erik-nelson-plumbing-llc",           // Minneapolis - 4.9
-  "paul-bunyan-plumbing-drains",        // Minneapolis - 4.9
-  "kelly-plumbing-heating-inc",         // Saint Paul - 4.9
-  "elsmore-plumbing-llc",               // Rochester - 5.0
-  "champion-plumbing",                  // Eagan/Saint Paul area - 4.9
-  "roto-rooter-plumbing-water-cleanup", // Multiple locations - 4.8
-]);
+// Load featured plumbers from JSON file (synced from Supabase at build time)
+function loadFeaturedSlugs(): Set<string> {
+  try {
+    const featuredPath = path.join(process.cwd(), "src/data/featured.json");
+    const content = readFileSync(featuredPath, "utf-8");
+    const slugs: string[] = JSON.parse(content);
+    return new Set(slugs);
+  } catch {
+    return new Set();
+  }
+}
+
+const FEATURED_PLUMBER_SLUGS = loadFeaturedSlugs();
 
 function generateSlug(name: string): string {
   return name

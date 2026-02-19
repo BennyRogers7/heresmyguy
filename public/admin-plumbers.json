@@ -1,0 +1,4058 @@
+[
+  {
+    "slug": "1-tom-plumber",
+    "name": "1-Tom-Plumber",
+    "city": "Minneapolis",
+    "rating": 5
+  },
+  {
+    "slug": "1-tom-plumber",
+    "name": "1-Tom-Plumber",
+    "city": "Minnetonka",
+    "rating": 5
+  },
+  {
+    "slug": "1st-class-plumbing-heating",
+    "name": "1st Class Plumbing & Heating",
+    "city": "Rochester",
+    "rating": 4.7
+  },
+  {
+    "slug": "4front-energy",
+    "name": "4Front Energy",
+    "city": "Chaska",
+    "rating": 4.9
+  },
+  {
+    "slug": "5-star-plumbing-heating-air",
+    "name": "5 Star Plumbing Heating & Air",
+    "city": "Saint Cloud",
+    "rating": 4.6
+  },
+  {
+    "slug": "a-e-plumbing-heating-sheetmetal",
+    "name": "A & E Plumbing Heating & Sheetmetal",
+    "city": "Alexandria",
+    "rating": 4.5
+  },
+  {
+    "slug": "a-k-plumbing",
+    "name": "A & K Plumbing",
+    "city": "Saint Cloud",
+    "rating": 5
+  },
+  {
+    "slug": "a-g-obrien-plumbing-heating-co",
+    "name": "A G O'Brien Plumbing & Heating Co",
+    "city": "Duluth",
+    "rating": 4.8
+  },
+  {
+    "slug": "a-1-rooter",
+    "name": "A-1 Rooter",
+    "city": "Virginia",
+    "rating": 5
+  },
+  {
+    "slug": "a-aarons-plumbing",
+    "name": "A-Aarons Plumbing",
+    "city": "Minneapolis",
+    "rating": 5
+  },
+  {
+    "slug": "aa-mechanical-llc-plumbing-and-heating",
+    "name": "A&A Mechanical LLC-Plumbing and Heating",
+    "city": "Grand Rapids",
+    "rating": null
+  },
+  {
+    "slug": "aaa-plumbing-hvac",
+    "name": "AAA Plumbing & HVAC",
+    "city": "Saint Cloud",
+    "rating": 3.2
+  },
+  {
+    "slug": "aaa-sewer-drain-cleaning",
+    "name": "AAA Sewer & Drain Cleaning",
+    "city": "Saint Cloud",
+    "rating": 4.8
+  },
+  {
+    "slug": "aaron-anderson-sewer-and-drain-cleaning-inc",
+    "name": "Aaron Anderson Sewer and Drain Cleaning, Inc.",
+    "city": "Minneapolis",
+    "rating": 5
+  },
+  {
+    "slug": "able-plumbing",
+    "name": "Able Plumbing",
+    "city": "Minneapolis",
+    "rating": 4.6
+  },
+  {
+    "slug": "ace-plumbers-duluth-mn",
+    "name": "Ace Plumbers Duluth MN",
+    "city": "Duluth",
+    "rating": 4.9
+  },
+  {
+    "slug": "ackerman-plumbing-heating",
+    "name": "Ackerman Plumbing & Heating",
+    "city": "Grand Rapids",
+    "rating": 4.9
+  },
+  {
+    "slug": "action-plumbing-heating",
+    "name": "Action Plumbing & Heating",
+    "city": "Rochester",
+    "rating": 4.2
+  },
+  {
+    "slug": "admiral-electrical-hvac-plumbing-services",
+    "name": "Admiral Electrical, HVAC, & Plumbing Services",
+    "city": "Prior Lake",
+    "rating": 5
+  },
+  {
+    "slug": "adrians-plumbing",
+    "name": "Adrian's Plumbing",
+    "city": "Willmar",
+    "rating": 4.1
+  },
+  {
+    "slug": "advanced-plumbing-systems-llc",
+    "name": "Advanced Plumbing Systems, LLC",
+    "city": "Winona",
+    "rating": 4.9
+  },
+  {
+    "slug": "advantage-air-plumbing-heating-and-cooling",
+    "name": "Advantage Air Plumbing, Heating and Cooling",
+    "city": "Duluth",
+    "rating": 4.4
+  },
+  {
+    "slug": "advantage-air-plumbing-heating-cooling",
+    "name": "Advantage Air Plumbing, Heating, & Cooling",
+    "city": "Duluth",
+    "rating": 4.6
+  },
+  {
+    "slug": "advantage-plumbing-heating",
+    "name": "Advantage Plumbing & Heating",
+    "city": "Hutchinson",
+    "rating": 4
+  },
+  {
+    "slug": "aem-mechanical-services-inc",
+    "name": "AEM Mechanical Services, Inc.",
+    "city": "Hutchinson",
+    "rating": 3.2
+  },
+  {
+    "slug": "affinity-plumbing-water-conditioning",
+    "name": "Affinity Plumbing & Water Conditioning",
+    "city": "Minneapolis",
+    "rating": 5
+  },
+  {
+    "slug": "affordable-plumbing-llc",
+    "name": "Affordable Plumbing LLC",
+    "city": "Austin",
+    "rating": 5
+  },
+  {
+    "slug": "affordable-plumbing-solutions",
+    "name": "Affordable Plumbing Solutions",
+    "city": "Minneapolis",
+    "rating": 4.9
+  },
+  {
+    "slug": "aj-alberts-plumbing",
+    "name": "AJ Alberts Plumbing",
+    "city": "Saint Paul",
+    "rating": 4.9
+  },
+  {
+    "slug": "ajax-twin-city-sewer-services",
+    "name": "Ajax Twin City Sewer Services",
+    "city": "Minneapolis",
+    "rating": 5
+  },
+  {
+    "slug": "alexandria-sanitary-services",
+    "name": "Alexandria Sanitary Services",
+    "city": "Alexandria",
+    "rating": 5
+  },
+  {
+    "slug": "all-ways-drains",
+    "name": "All Ways Drains",
+    "city": "Minneapolis",
+    "rating": 4.7
+  },
+  {
+    "slug": "all-ways-plumbing-inc-maple-grove",
+    "name": "All Ways Plumbing, Inc – Maple Grove",
+    "city": "Maple Grove",
+    "rating": 5
+  },
+  {
+    "slug": "all-ways-plumbing-inc-plymouth",
+    "name": "All Ways Plumbing, Inc – Plymouth",
+    "city": "Minneapolis",
+    "rating": 5
+  },
+  {
+    "slug": "alpha-plumbingheatingcooling",
+    "name": "Alpha Plumbing.Heating.Cooling",
+    "city": "Minneapolis",
+    "rating": 5
+  },
+  {
+    "slug": "alpine-plumbing",
+    "name": "Alpine Plumbing",
+    "city": "Grand Rapids",
+    "rating": 4.9
+  },
+  {
+    "slug": "alto-sewer-service-mn-drain-cleaning-company",
+    "name": "Alto Sewer Service - MN Drain Cleaning Company",
+    "city": "Saint Paul",
+    "rating": 4.4
+  },
+  {
+    "slug": "american-plumbing-inc",
+    "name": "American Plumbing Inc",
+    "city": "Saint Paul",
+    "rating": 4.9
+  },
+  {
+    "slug": "american-sewer-llc",
+    "name": "American Sewer LLC",
+    "city": "Minneapolis",
+    "rating": 4.8
+  },
+  {
+    "slug": "anchor-plumbing-heating-llc",
+    "name": "Anchor Plumbing & Heating LLC",
+    "city": "Duluth",
+    "rating": 5
+  },
+  {
+    "slug": "andys-plumbing-heating-ac",
+    "name": "Andy's Plumbing Heating & AC",
+    "city": "Fergus Falls",
+    "rating": 4.7
+  },
+  {
+    "slug": "anoka-plumbing-and-services",
+    "name": "Anoka Plumbing and Services",
+    "city": "Champlin",
+    "rating": 5
+  },
+  {
+    "slug": "ap-plumbing",
+    "name": "AP Plumbing",
+    "city": "Minneapolis",
+    "rating": 5
+  },
+  {
+    "slug": "apollo-heating-air-plumbing",
+    "name": "Apollo Heating, Air & Plumbing",
+    "city": "Saint Paul",
+    "rating": 4.8
+  },
+  {
+    "slug": "apple-valley-plumbing-company",
+    "name": "Apple Valley Plumbing Company",
+    "city": "Saint Paul",
+    "rating": 4.4
+  },
+  {
+    "slug": "approve-home-services",
+    "name": "Approve Home Services",
+    "city": "Virginia",
+    "rating": 4.8
+  },
+  {
+    "slug": "aqua-city-plumbing",
+    "name": "Aqua City Plumbing",
+    "city": "Minneapolis",
+    "rating": 4.3
+  },
+  {
+    "slug": "aqua-pro",
+    "name": "Aqua Pro",
+    "city": "Minneapolis",
+    "rating": 5
+  },
+  {
+    "slug": "aqua-wizards-plumbing",
+    "name": "Aqua Wizards Plumbing",
+    "city": "Minneapolis",
+    "rating": 4.8
+  },
+  {
+    "slug": "aqua-wizards-plumbing-anoka",
+    "name": "Aqua Wizards Plumbing Anoka",
+    "city": "Andover",
+    "rating": 4.3
+  },
+  {
+    "slug": "aquarius-84-inc",
+    "name": "Aquarius 84 Inc",
+    "city": "Alexandria",
+    "rating": 4.3
+  },
+  {
+    "slug": "aquarius-home-services",
+    "name": "Aquarius Home Services",
+    "city": "Brainerd",
+    "rating": 4.9
+  },
+  {
+    "slug": "aquarius-home-services",
+    "name": "Aquarius Home Services",
+    "city": "Alexandria",
+    "rating": 4.9
+  },
+  {
+    "slug": "aquarius-home-services-kinetico",
+    "name": "Aquarius Home Services, Kinetico",
+    "city": "Saint Paul",
+    "rating": 4.4
+  },
+  {
+    "slug": "aquarius-home-services-kinetico",
+    "name": "Aquarius Home Services, Kinetico",
+    "city": "Marshall",
+    "rating": 5
+  },
+  {
+    "slug": "aquarius-home-services-kinetico",
+    "name": "Aquarius Home Services, Kinetico",
+    "city": "Bemidji",
+    "rating": 5
+  },
+  {
+    "slug": "aquarius-home-services-kinetico",
+    "name": "Aquarius Home Services, Kinetico",
+    "city": "Alexandria",
+    "rating": 4.9
+  },
+  {
+    "slug": "aqueduct-plumbing-co",
+    "name": "Aqueduct Plumbing Co",
+    "city": "Lakeville",
+    "rating": 5
+  },
+  {
+    "slug": "ar-contracting",
+    "name": "AR Contracting",
+    "city": "Moorhead",
+    "rating": 5
+  },
+  {
+    "slug": "arctic-spas-of-bemidji",
+    "name": "Arctic Spas Of Bemidji",
+    "city": "Bemidji",
+    "rating": 5
+  },
+  {
+    "slug": "armz-plumbing",
+    "name": "Armz Plumbing",
+    "city": "Mankato",
+    "rating": 4.9
+  },
+  {
+    "slug": "arrowhead-plumbing-heating-refrigeration",
+    "name": "Arrowhead Plumbing, Heating, & Refrigeration",
+    "city": "Virginia",
+    "rating": 3.6
+  },
+  {
+    "slug": "asp-mechanical",
+    "name": "ASP Mechanical",
+    "city": "Duluth",
+    "rating": 4.8
+  },
+  {
+    "slug": "associated-mechanical-contractors-inc",
+    "name": "Associated Mechanical Contractors, Inc.",
+    "city": "Shakopee",
+    "rating": 4.3
+  },
+  {
+    "slug": "athena-care-plumbing",
+    "name": "Athena Care Plumbing",
+    "city": "Minneapolis",
+    "rating": 4.7
+  },
+  {
+    "slug": "augusta-plumbing-heating-air-conditioning",
+    "name": "Augusta Plumbing Heating Air Conditioning",
+    "city": "Saint Cloud",
+    "rating": 4.9
+  },
+  {
+    "slug": "aune-plumbing-heating-drains",
+    "name": "Aune Plumbing, Heating & Drains",
+    "city": "Elk River",
+    "rating": 5
+  },
+  {
+    "slug": "austin-plumbing",
+    "name": "Austin Plumbing",
+    "city": "Austin",
+    "rating": 5
+  },
+  {
+    "slug": "austin-plumbing-heating-llc",
+    "name": "Austin Plumbing & Heating LLC",
+    "city": "Austin",
+    "rating": 4.2
+  },
+  {
+    "slug": "b-c-plumbing-inc",
+    "name": "B & C Plumbing Inc",
+    "city": "Hutchinson",
+    "rating": 4.3
+  },
+  {
+    "slug": "b-d-plumbing-heating-ac",
+    "name": "B & D Plumbing, Heating & A/C",
+    "city": "Plymouth",
+    "rating": 4.8
+  },
+  {
+    "slug": "b-d-plumbing-heating-ac",
+    "name": "B & D Plumbing, Heating & A/C",
+    "city": "Elk River",
+    "rating": 4.8
+  },
+  {
+    "slug": "b-and-c-plumbing-and-heating",
+    "name": "B and C Plumbing and Heating",
+    "city": "Rochester",
+    "rating": 4.9
+  },
+  {
+    "slug": "babe-plumbing-heating-and-air",
+    "name": "Babe Plumbing Heating and Air",
+    "city": "Mankato",
+    "rating": 4.6
+  },
+  {
+    "slug": "babe-plumbing-drains-water-heaters",
+    "name": "Babe Plumbing, Drains, Water Heaters",
+    "city": "Shakopee",
+    "rating": 4.9
+  },
+  {
+    "slug": "baker-heating-air-conditioning",
+    "name": "Baker Heating & Air Conditioning",
+    "city": "Bemidji",
+    "rating": 5
+  },
+  {
+    "slug": "barnes-plumbing-co-inc",
+    "name": "Barnes Plumbing Co, Inc.",
+    "city": "Minneapolis",
+    "rating": 4.1
+  },
+  {
+    "slug": "barr-web-industries",
+    "name": "Barr Web Industries",
+    "city": "Minneapolis",
+    "rating": 5
+  },
+  {
+    "slug": "bartylla-plumbing-heating-inc",
+    "name": "Bartylla Plumbing & Heating, Inc.",
+    "city": "Saint Paul",
+    "rating": 5
+  },
+  {
+    "slug": "bauer-plumbing-heating",
+    "name": "Bauer Plumbing & Heating",
+    "city": "Faribault",
+    "rating": 5
+  },
+  {
+    "slug": "bedrock-plumbing-drain-cleaning",
+    "name": "Bedrock Plumbing & Drain Cleaning",
+    "city": "Minneapolis",
+    "rating": 4.9
+  },
+  {
+    "slug": "bedrock-plumbing-drain-cleaning",
+    "name": "Bedrock Plumbing & Drain Cleaning",
+    "city": "Minneapolis",
+    "rating": 5
+  },
+  {
+    "slug": "behms-plumbing",
+    "name": "Behm's Plumbing",
+    "city": "Alexandria",
+    "rating": 4.2
+  },
+  {
+    "slug": "belknap-plumbing-heating-cooling",
+    "name": "Belknap Plumbing, Heating & Cooling",
+    "city": "Duluth",
+    "rating": 4.4
+  },
+  {
+    "slug": "bemidji-sewer-waterworks",
+    "name": "Bemidji Sewer & Waterworks",
+    "city": "Bemidji",
+    "rating": 5
+  },
+  {
+    "slug": "benjamin-franklin-plumbing",
+    "name": "Benjamin Franklin Plumbing",
+    "city": "Faribault",
+    "rating": 4.9
+  },
+  {
+    "slug": "benjamin-franklin-plumbing",
+    "name": "Benjamin Franklin Plumbing",
+    "city": "Faribault",
+    "rating": 3
+  },
+  {
+    "slug": "benjamin-franklin-plumbing-of-grand-rapids",
+    "name": "Benjamin Franklin Plumbing of Grand Rapids",
+    "city": "Grand Rapids",
+    "rating": 4.9
+  },
+  {
+    "slug": "berg-plumbing",
+    "name": "Berg Plumbing",
+    "city": "Alexandria",
+    "rating": 4.5
+  },
+  {
+    "slug": "berger-plumbing-heating-air-conditioning",
+    "name": "Berger Plumbing, Heating & Air Conditioning",
+    "city": "Hutchinson",
+    "rating": 4.9
+  },
+  {
+    "slug": "bernier-plumbing-llc",
+    "name": "Bernier Plumbing LLC",
+    "city": "Thief River Falls",
+    "rating": 4.5
+  },
+  {
+    "slug": "best-plumbing",
+    "name": "Best Plumbing",
+    "city": "Moorhead",
+    "rating": 4.7
+  },
+  {
+    "slug": "bifrost-plumbing-llc",
+    "name": "Bifrost Plumbing LLC",
+    "city": "Moorhead",
+    "rating": 5
+  },
+  {
+    "slug": "bill-olson-plumbing",
+    "name": "Bill Olson Plumbing",
+    "city": "Alexandria",
+    "rating": 5
+  },
+  {
+    "slug": "bill-rascher-mechanical-inc-plumbing-heating-cooling",
+    "name": "Bill Rascher Mechanical Inc Plumbing, Heating, Cooling",
+    "city": "Inver Grove Heights",
+    "rating": 3
+  },
+  {
+    "slug": "bills-plumbing-heating-llc",
+    "name": "Bill's Plumbing & Heating LLC",
+    "city": "Duluth",
+    "rating": 5
+  },
+  {
+    "slug": "billodeau-plumbing-llc",
+    "name": "Billodeau Plumbing LLC",
+    "city": "Minneapolis",
+    "rating": 4.6
+  },
+  {
+    "slug": "binz-plumbing-llc",
+    "name": "Binz Plumbing, Llc",
+    "city": "Prior Lake",
+    "rating": 5
+  },
+  {
+    "slug": "bisbee-plumbing-heating",
+    "name": "Bisbee Plumbing & Heating",
+    "city": "Marshall",
+    "rating": 4.8
+  },
+  {
+    "slug": "bjorns-heating-air-conditioning",
+    "name": "Bjorn's Heating & Air Conditioning",
+    "city": "Fergus Falls",
+    "rating": 4.1
+  },
+  {
+    "slug": "blaylock-plumbing-co",
+    "name": "Blaylock Plumbing Co",
+    "city": "Minneapolis",
+    "rating": 4.2
+  },
+  {
+    "slug": "block-plumbing-heating",
+    "name": "Block Plumbing & Heating",
+    "city": "Faribault",
+    "rating": 4.1
+  },
+  {
+    "slug": "blue-rain-plumbing",
+    "name": "Blue Rain Plumbing",
+    "city": "Minneapolis",
+    "rating": 5
+  },
+  {
+    "slug": "blue-star-plumbing",
+    "name": "Blue Star Plumbing",
+    "city": "Saint Cloud",
+    "rating": 4.9
+  },
+  {
+    "slug": "blue-yeti-hvac-plumbing-services",
+    "name": "Blue Yeti HVAC & Plumbing Services",
+    "city": "Minneapolis",
+    "rating": 4.9
+  },
+  {
+    "slug": "bnj-plumbing-heating-inc",
+    "name": "BNJ Plumbing & Heating Inc",
+    "city": "Thief River Falls",
+    "rating": 4.6
+  },
+  {
+    "slug": "bob-the-plumber",
+    "name": "Bob the Plumber",
+    "city": "Minneapolis",
+    "rating": 4.1
+  },
+  {
+    "slug": "bobs-econo-pump",
+    "name": "Bob's Econo Pump",
+    "city": "Bemidji",
+    "rating": 4.3
+  },
+  {
+    "slug": "bobs-plumbing",
+    "name": "Bob's Plumbing",
+    "city": "Lakeville",
+    "rating": 4.5
+  },
+  {
+    "slug": "bobs-sewer-services",
+    "name": "Bob's Sewer Services",
+    "city": "Minneapolis",
+    "rating": 4.6
+  },
+  {
+    "slug": "boldts-plumbing-heating-inc",
+    "name": "Boldt's Plumbing & Heating Inc.",
+    "city": "Stillwater",
+    "rating": 4.9
+  },
+  {
+    "slug": "bonfe-underground",
+    "name": "Bonfe Underground",
+    "city": "Minneapolis",
+    "rating": 4.7
+  },
+  {
+    "slug": "boomers-quality-plumbing",
+    "name": "Boomer's Quality Plumbing",
+    "city": "Winona",
+    "rating": 4.3
+  },
+  {
+    "slug": "br-plumbing",
+    "name": "BR Plumbing",
+    "city": "Champlin",
+    "rating": 5
+  },
+  {
+    "slug": "brads-plumbing-inc",
+    "name": "Brad's Plumbing Inc",
+    "city": "Willmar",
+    "rating": 3.6
+  },
+  {
+    "slug": "brandau-plumbing-heating",
+    "name": "Brandau Plumbing & Heating",
+    "city": "Virginia",
+    "rating": 5
+  },
+  {
+    "slug": "brass-tacks-plumbing",
+    "name": "Brass Tacks Plumbing",
+    "city": "Minneapolis",
+    "rating": 4.8
+  },
+  {
+    "slug": "bredahl-plumbing-inc",
+    "name": "Bredahl Plumbing Inc",
+    "city": "Minneapolis",
+    "rating": 4.5
+  },
+  {
+    "slug": "breski-plumbing",
+    "name": "Breski Plumbing",
+    "city": "Saint Paul",
+    "rating": 5
+  },
+  {
+    "slug": "brikk-mechanical-llc",
+    "name": "Brikk Mechanical, LLC",
+    "city": "Hastings",
+    "rating": 5
+  },
+  {
+    "slug": "britton-plumbing-heating",
+    "name": "Britton Plumbing & Heating",
+    "city": "Faribault",
+    "rating": 4.5
+  },
+  {
+    "slug": "brownlee-plumbing-llc",
+    "name": "Brownlee Plumbing LLC",
+    "city": "Alexandria",
+    "rating": 4.8
+  },
+  {
+    "slug": "bruce-nelson-plumbing-heating-services-llc",
+    "name": "Bruce Nelson Plumbing & Heating Services, LLC.",
+    "city": "Saint Paul",
+    "rating": 4.8
+  },
+  {
+    "slug": "bruckmueller-plumbing-inc",
+    "name": "Bruckmueller Plumbing, Inc.",
+    "city": "Saint Paul",
+    "rating": 4.8
+  },
+  {
+    "slug": "budget-plumbing-corporation",
+    "name": "Budget Plumbing Corporation",
+    "city": "Minneapolis",
+    "rating": 3.4
+  },
+  {
+    "slug": "burkhardt-plumbing",
+    "name": "Burkhardt Plumbing",
+    "city": "Minneapolis",
+    "rating": 4.9
+  },
+  {
+    "slug": "bws-plumbing-heating-air-conditioning",
+    "name": "BWS Plumbing, Heating & Air Conditioning",
+    "city": "Minneapolis",
+    "rating": 4.8
+  },
+  {
+    "slug": "c-n-plumbing-inc",
+    "name": "C & N Plumbing Inc",
+    "city": "Burnsville",
+    "rating": 5
+  },
+  {
+    "slug": "c-s-plumbing",
+    "name": "C S Plumbing",
+    "city": "Virginia",
+    "rating": 4
+  },
+  {
+    "slug": "caldwell-plumbing-heating",
+    "name": "Caldwell Plumbing & Heating",
+    "city": "Duluth",
+    "rating": 4.3
+  },
+  {
+    "slug": "callahan-drain-cleaning",
+    "name": "Callahan Drain Cleaning",
+    "city": "Austin",
+    "rating": 4.9
+  },
+  {
+    "slug": "callahan-drain-cleaning",
+    "name": "Callahan Drain Cleaning",
+    "city": "Albert Lea",
+    "rating": 5
+  },
+  {
+    "slug": "capras-utilities-inc",
+    "name": "Capra's Utilities Inc",
+    "city": "Saint Paul",
+    "rating": 4.9
+  },
+  {
+    "slug": "cardinal-plumbing-heating-air-inc",
+    "name": "Cardinal Plumbing Heating & Air Inc",
+    "city": "Alexandria",
+    "rating": 4.9
+  },
+  {
+    "slug": "cardinal-pumping-drain-cleaning",
+    "name": "Cardinal Pumping & Drain Cleaning",
+    "city": "Winona",
+    "rating": 4.8
+  },
+  {
+    "slug": "cardinal-services-inc",
+    "name": "Cardinal Services, Inc.",
+    "city": "Minneapolis",
+    "rating": 4.7
+  },
+  {
+    "slug": "carpenter-plumbing-heating-llc",
+    "name": "Carpenter Plumbing & Heating LLC",
+    "city": "Faribault",
+    "rating": 5
+  },
+  {
+    "slug": "cat-plumbing-and-heating-llc",
+    "name": "CAT Plumbing and Heating, LLC",
+    "city": "Faribault",
+    "rating": 4.8
+  },
+  {
+    "slug": "champion-plumbing",
+    "name": "Champion Plumbing",
+    "city": "Minneapolis",
+    "rating": 4.9
+  },
+  {
+    "slug": "champlin-plumbing",
+    "name": "Champlin Plumbing",
+    "city": "Grand Rapids",
+    "rating": 3.7
+  },
+  {
+    "slug": "chappell-central-inc",
+    "name": "Chappell Central Inc",
+    "city": "Willmar",
+    "rating": 4.7
+  },
+  {
+    "slug": "charles-conner-plumbing",
+    "name": "Charles Conner Plumbing",
+    "city": "Saint Paul",
+    "rating": 4.7
+  },
+  {
+    "slug": "christianson-plumbing-heating",
+    "name": "Christianson Plumbing & Heating",
+    "city": "Albert Lea",
+    "rating": 4.8
+  },
+  {
+    "slug": "cichys-water-sewer",
+    "name": "Cichy's Water & Sewer",
+    "city": "Minneapolis",
+    "rating": 5
+  },
+  {
+    "slug": "cities-1-plumbing-heating-air-conditioning",
+    "name": "Cities 1 Plumbing, Heating & Air Conditioning",
+    "city": "Saint Paul",
+    "rating": 4.3
+  },
+  {
+    "slug": "citywide-plumbing-and-water-heaters",
+    "name": "Citywide Plumbing And Water heaters",
+    "city": "Andover",
+    "rating": 4.9
+  },
+  {
+    "slug": "coequyt-plumbing-heating-ac-repairs-marshall-mn",
+    "name": "Coequyt Plumbing & Heating | AC Repairs | Marshall MN",
+    "city": "Marshall",
+    "rating": 5
+  },
+  {
+    "slug": "complete-plumbing-services-inc",
+    "name": "Complete Plumbing Services Inc.",
+    "city": "Moorhead",
+    "rating": 4.8
+  },
+  {
+    "slug": "connors-plumbing-heating-and-air",
+    "name": "Connors Plumbing, Heating and Air",
+    "city": "Mankato",
+    "rating": 4.9
+  },
+  {
+    "slug": "connors-plumbing-heating-and-air",
+    "name": "Connors Plumbing, Heating and Air",
+    "city": "Mankato",
+    "rating": 4.9
+  },
+  {
+    "slug": "cottage-plumbing",
+    "name": "Cottage Plumbing",
+    "city": "Cottage Grove",
+    "rating": 5
+  },
+  {
+    "slug": "craig-labelle-plumbing",
+    "name": "Craig Labelle Plumbing",
+    "city": "Fergus Falls",
+    "rating": 5
+  },
+  {
+    "slug": "crandall-plumbing-heating",
+    "name": "Crandall Plumbing & Heating",
+    "city": "Winona",
+    "rating": 5
+  },
+  {
+    "slug": "crimson-copper-plumbing",
+    "name": "Crimson Copper Plumbing",
+    "city": "Chaska",
+    "rating": 4.9
+  },
+  {
+    "slug": "crosstown-sewer-plumbing-services",
+    "name": "Crosstown Sewer & Plumbing Services",
+    "city": "Minneapolis",
+    "rating": 5
+  },
+  {
+    "slug": "curella-co",
+    "name": "Curella Co",
+    "city": "Saint Paul",
+    "rating": 5
+  },
+  {
+    "slug": "cutting-edge-sewer-drain-coon-rapids",
+    "name": "Cutting Edge Sewer & Drain - Coon Rapids",
+    "city": "Minneapolis",
+    "rating": 4.8
+  },
+  {
+    "slug": "cutting-edge-sewer-drain-llc",
+    "name": "Cutting Edge Sewer & Drain LLC",
+    "city": "Minneapolis",
+    "rating": 4.8
+  },
+  {
+    "slug": "d-c-annis-sewer",
+    "name": "D C Annis Sewer",
+    "city": "Burnsville",
+    "rating": 4.4
+  },
+  {
+    "slug": "daves-plumbing-heating-refrigeration",
+    "name": "Dave's Plumbing Heating & Refrigeration",
+    "city": "Austin",
+    "rating": 4.8
+  },
+  {
+    "slug": "david-c-patterson-plumbing-llc",
+    "name": "David C Patterson Plumbing LLC",
+    "city": "Austin",
+    "rating": 4.3
+  },
+  {
+    "slug": "davis-mechanical-systems",
+    "name": "Davis Mechanical Systems",
+    "city": "Owatonna",
+    "rating": 4.3
+  },
+  {
+    "slug": "deans-home-services",
+    "name": "Dean's Home Services",
+    "city": "Minneapolis",
+    "rating": 4.7
+  },
+  {
+    "slug": "deans-home-services",
+    "name": "Dean's Home Services",
+    "city": "Minneapolis",
+    "rating": 4.7
+  },
+  {
+    "slug": "deans-home-services",
+    "name": "Dean's Home Services",
+    "city": "Elk River",
+    "rating": 4.8
+  },
+  {
+    "slug": "deer-river-plumbing-heating",
+    "name": "Deer River Plumbing & Heating",
+    "city": "Grand Rapids",
+    "rating": 5
+  },
+  {
+    "slug": "dicks-plumbing-heating",
+    "name": "Dick's Plumbing & Heating",
+    "city": "Bemidji",
+    "rating": 4.3
+  },
+  {
+    "slug": "dickens-plumbing-inc",
+    "name": "Dickens Plumbing, Inc.",
+    "city": "Virginia",
+    "rating": 4.9
+  },
+  {
+    "slug": "discount-sewer-and-drain-cleaning",
+    "name": "Discount Sewer And Drain Cleaning",
+    "city": "Minneapolis",
+    "rating": 3.9
+  },
+  {
+    "slug": "do-it-all-plumbing-heating-llc",
+    "name": "Do It All Plumbing & Heating LLC",
+    "city": "Little Falls",
+    "rating": 5
+  },
+  {
+    "slug": "do-it-right-plumbing-sewer-services-llc",
+    "name": "Do It Right Plumbing Sewer & Services, LLC",
+    "city": "Saint Paul",
+    "rating": 4.5
+  },
+  {
+    "slug": "don-dunn-plumbing",
+    "name": "Don Dunn Plumbing",
+    "city": "Saint Paul",
+    "rating": 5
+  },
+  {
+    "slug": "dons-plumbing-heating",
+    "name": "Don's Plumbing & Heating",
+    "city": "Worthington",
+    "rating": 5
+  },
+  {
+    "slug": "done-right-plumbing-llc",
+    "name": "Done Right Plumbing LLC",
+    "city": "Bemidji",
+    "rating": 5
+  },
+  {
+    "slug": "dougs-plumbing-heating",
+    "name": "Doug's Plumbing & Heating",
+    "city": "Cottage Grove",
+    "rating": 5
+  },
+  {
+    "slug": "drain-king-inc",
+    "name": "Drain King Inc.",
+    "city": "Minneapolis",
+    "rating": 4.6
+  },
+  {
+    "slug": "drain-pro-plumbing-inc",
+    "name": "Drain Pro Plumbing, Inc.",
+    "city": "Saint Paul",
+    "rating": 4.9
+  },
+  {
+    "slug": "drain-solutions-llc",
+    "name": "Drain Solutions LLC",
+    "city": "Andover",
+    "rating": 5
+  },
+  {
+    "slug": "dressel-plumbing-services-repair",
+    "name": "Dressel Plumbing Services & Repair",
+    "city": "Hutchinson",
+    "rating": 4
+  },
+  {
+    "slug": "duluth-plumbing-service",
+    "name": "Duluth Plumbing Service",
+    "city": "Duluth",
+    "rating": null
+  },
+  {
+    "slug": "eagan-expert-plumbing-mn",
+    "name": "Eagan Expert Plumbing MN",
+    "city": "Saint Paul",
+    "rating": null
+  },
+  {
+    "slug": "eagan-swift-plumbing",
+    "name": "Eagan Swift Plumbing",
+    "city": "Saint Paul",
+    "rating": null
+  },
+  {
+    "slug": "edwards-plumbing",
+    "name": "Edwards Plumbing",
+    "city": "Saint Paul",
+    "rating": 4.2
+  },
+  {
+    "slug": "el-jay-plumbing-heating-inc",
+    "name": "El-Jay Plumbing & Heating Inc",
+    "city": "Saint Cloud",
+    "rating": 4.5
+  },
+  {
+    "slug": "elander-mechanical-inc",
+    "name": "Elander Mechanical Inc.",
+    "city": "Shakopee",
+    "rating": 4
+  },
+  {
+    "slug": "elite-plumber-stpaul",
+    "name": "Elite Plumber StPaul",
+    "city": "Saint Paul",
+    "rating": 5
+  },
+  {
+    "slug": "ellingson-plumbing-heating-ac-electrical",
+    "name": "Ellingson Plumbing, Heating, A/C & Electrical",
+    "city": "Alexandria",
+    "rating": 4.7
+  },
+  {
+    "slug": "elsmore-plumbing-llc",
+    "name": "Elsmore Plumbing LLC",
+    "city": "Rochester",
+    "rating": 5
+  },
+  {
+    "slug": "emergency-plumbing",
+    "name": "Emergency Plumbing",
+    "city": "Duluth",
+    "rating": 3.7
+  },
+  {
+    "slug": "ensign-johnson-plumbing-heating-co",
+    "name": "Ensign & Johnson Plumbing & Heating Co",
+    "city": "Duluth",
+    "rating": null
+  },
+  {
+    "slug": "erickson-plumbing-heating-air-electrical",
+    "name": "Erickson Plumbing, Heating, Air, Electrical",
+    "city": "Minneapolis",
+    "rating": 4.8
+  },
+  {
+    "slug": "erik-nelson-plumbing-llc",
+    "name": "Erik Nelson Plumbing LLC",
+    "city": "Minneapolis",
+    "rating": 4.9
+  },
+  {
+    "slug": "excel-plumbinginfloor-heating",
+    "name": "ExCel Plumbing/Infloor Heating",
+    "city": "Alexandria",
+    "rating": 5
+  },
+  {
+    "slug": "eyk-plumbing-grand-rapids",
+    "name": "Eyk Plumbing - Grand Rapids",
+    "city": "Grand Rapids",
+    "rating": 4.8
+  },
+  {
+    "slug": "f-richie-plumbing",
+    "name": "F. Richie Plumbing",
+    "city": "Cottage Grove",
+    "rating": 4.3
+  },
+  {
+    "slug": "falcon-plumbing-llc",
+    "name": "Falcon Plumbing LLC",
+    "city": "Saint Paul",
+    "rating": 4.8
+  },
+  {
+    "slug": "faribo-plumbing-heating",
+    "name": "Faribo Plumbing & Heating",
+    "city": "Faribault",
+    "rating": 4.5
+  },
+  {
+    "slug": "farr-plumbing-and-heating",
+    "name": "Farr Plumbing and Heating",
+    "city": "Minneapolis",
+    "rating": 4.6
+  },
+  {
+    "slug": "felton-plumbing-llc",
+    "name": "Felton Plumbing, LLC",
+    "city": "Rochester",
+    "rating": 4.8
+  },
+  {
+    "slug": "ferguson",
+    "name": "Ferguson",
+    "city": "Faribault",
+    "rating": 4.6
+  },
+  {
+    "slug": "ferguson-plumbing-supply",
+    "name": "Ferguson Plumbing Supply",
+    "city": "Plymouth",
+    "rating": 4.1
+  },
+  {
+    "slug": "ferguson-plumbing-supply",
+    "name": "Ferguson Plumbing Supply",
+    "city": "Willmar",
+    "rating": 4.5
+  },
+  {
+    "slug": "ferguson-plumbing-supply",
+    "name": "Ferguson Plumbing Supply",
+    "city": "Bemidji",
+    "rating": 5
+  },
+  {
+    "slug": "ferguson-plumbing-supply",
+    "name": "Ferguson Plumbing Supply",
+    "city": "Virginia",
+    "rating": 5
+  },
+  {
+    "slug": "ferguson-plumbing-supply",
+    "name": "Ferguson Plumbing Supply",
+    "city": "Brainerd",
+    "rating": 4.8
+  },
+  {
+    "slug": "ferguson-plumbing-supply",
+    "name": "Ferguson Plumbing Supply",
+    "city": "Worthington",
+    "rating": 3.4
+  },
+  {
+    "slug": "finken-water-treatment-plumbing-heating-cooling",
+    "name": "Finken Water Treatment, Plumbing, Heating & Cooling",
+    "city": "Saint Cloud",
+    "rating": 4.4
+  },
+  {
+    "slug": "fire-n-ice-plumbing-heating-ac-llc",
+    "name": "Fire N Ice Plumbing, Heating & AC, LLC",
+    "city": "Alexandria",
+    "rating": 4.8
+  },
+  {
+    "slug": "first-class-plumbing-llc",
+    "name": "First Class Plumbing, LLC",
+    "city": "Maple Grove",
+    "rating": 5
+  },
+  {
+    "slug": "flow-sewer-and-drain-cleaning",
+    "name": "Flow Sewer and Drain Cleaning",
+    "city": "Duluth",
+    "rating": 4.9
+  },
+  {
+    "slug": "focus-plumbing-services-llc",
+    "name": "Focus Plumbing Services, LLC",
+    "city": "Minneapolis",
+    "rating": 5
+  },
+  {
+    "slug": "fossum-plumbing-heating-llc",
+    "name": "Fossum Plumbing & Heating LLC",
+    "city": "Duluth",
+    "rating": 4.8
+  },
+  {
+    "slug": "foster-mechanical-inc",
+    "name": "Foster Mechanical Inc",
+    "city": "Hutchinson",
+    "rating": 5
+  },
+  {
+    "slug": "frankies-plumbing-repipe",
+    "name": "Frankie's Plumbing & Repipe",
+    "city": "Apple Valley",
+    "rating": 5
+  },
+  {
+    "slug": "freds-plumbing-home-furnace",
+    "name": "Fred's Plumbing & Home Furnace",
+    "city": "Little Falls",
+    "rating": 4.5
+  },
+  {
+    "slug": "freds-plumbing-and-home-furnace",
+    "name": "Fred's Plumbing and Home Furnace",
+    "city": "Little Falls",
+    "rating": 3.8
+  },
+  {
+    "slug": "freds-plumbing-heating-ac",
+    "name": "Fred's Plumbing, Heating & AC",
+    "city": "Saint Cloud",
+    "rating": 4.6
+  },
+  {
+    "slug": "freedom-plumbing-and-water-conditioning",
+    "name": "Freedom Plumbing and Water Conditioning",
+    "city": "Saint Paul",
+    "rating": 5
+  },
+  {
+    "slug": "friemel-plumbing-drain-service-llc",
+    "name": "Friemel Plumbing & Drain Service LLC",
+    "city": "Red Wing",
+    "rating": 5
+  },
+  {
+    "slug": "gadient-plumbing-llc",
+    "name": "Gadient Plumbing LLC",
+    "city": "Red Wing",
+    "rating": 5
+  },
+  {
+    "slug": "gander-plumbing-heating",
+    "name": "Gander Plumbing & Heating",
+    "city": "Rochester",
+    "rating": 4.2
+  },
+  {
+    "slug": "gardner-plumbing",
+    "name": "Gardner Plumbing",
+    "city": "Bemidji",
+    "rating": null
+  },
+  {
+    "slug": "garys-plumbing",
+    "name": "Gary's Plumbing",
+    "city": "Marshall",
+    "rating": 5
+  },
+  {
+    "slug": "genes-water-sewer",
+    "name": "Gene's Water & Sewer",
+    "city": "Minneapolis",
+    "rating": 4.5
+  },
+  {
+    "slug": "general-rooter-of-southern-mn",
+    "name": "General Rooter of Southern MN",
+    "city": "Owatonna",
+    "rating": 5
+  },
+  {
+    "slug": "general-rooter-of-southern-mn-sewer-drain-cleaning",
+    "name": "General Rooter of Southern MN - Sewer & Drain Cleaning",
+    "city": "Mankato",
+    "rating": 5
+  },
+  {
+    "slug": "general-rooter-of-southern-mn-sewer-drain-cleaning",
+    "name": "General Rooter of Southern MN - Sewer & Drain Cleaning",
+    "city": "Albert Lea",
+    "rating": 4.7
+  },
+  {
+    "slug": "genos-plumbing-heating",
+    "name": "Geno's Plumbing & Heating",
+    "city": "Albert Lea",
+    "rating": 4.4
+  },
+  {
+    "slug": "genz-ryan-heating-cooling-plumbing-electrical",
+    "name": "Genz-Ryan Heating, Cooling, Plumbing, & Electrical",
+    "city": "Minneapolis",
+    "rating": 4.7
+  },
+  {
+    "slug": "gilbertson-plumbing-heating-inc",
+    "name": "Gilbertson Plumbing & Heating Inc",
+    "city": "Red Wing",
+    "rating": 4.5
+  },
+  {
+    "slug": "gladiator-plumbing-heating",
+    "name": "Gladiator Plumbing & Heating",
+    "city": "Saint Cloud",
+    "rating": 5
+  },
+  {
+    "slug": "glenn-klair-plumbing-heating-inc",
+    "name": "Glenn Klair Plumbing & Heating Inc",
+    "city": "Red Wing",
+    "rating": 4.4
+  },
+  {
+    "slug": "good-quality-plumbing",
+    "name": "Good Quality Plumbing",
+    "city": "Minneapolis",
+    "rating": 5
+  },
+  {
+    "slug": "gopher-sewer-and-drain",
+    "name": "Gopher Sewer and Drain",
+    "city": "Minneapolis",
+    "rating": 4.9
+  },
+  {
+    "slug": "grabow-plumbing",
+    "name": "Grabow Plumbing",
+    "city": "Minneapolis",
+    "rating": 3.7
+  },
+  {
+    "slug": "grand-river-plumbing",
+    "name": "Grand River Plumbing",
+    "city": "Grand Rapids",
+    "rating": 5
+  },
+  {
+    "slug": "grass-lake-plumbing",
+    "name": "Grass Lake Plumbing",
+    "city": "Bemidji",
+    "rating": 4.9
+  },
+  {
+    "slug": "gray-duck-plumbing",
+    "name": "Gray Duck Plumbing",
+    "city": "Saint Paul",
+    "rating": 4.8
+  },
+  {
+    "slug": "greggs-plumbing-heating-inc",
+    "name": "Gregg's Plumbing & Heating INC",
+    "city": "Bemidji",
+    "rating": 4.8
+  },
+  {
+    "slug": "grupa-mechanical-contractors",
+    "name": "Grupa Mechanical Contractors",
+    "city": "Elk River",
+    "rating": 5
+  },
+  {
+    "slug": "gsm-inc",
+    "name": "GSM, Inc.",
+    "city": "New Ulm",
+    "rating": 4.4
+  },
+  {
+    "slug": "guthrie-plumbing-heating",
+    "name": "Guthrie Plumbing & Heating",
+    "city": "Duluth",
+    "rating": 4.8
+  },
+  {
+    "slug": "guys-sewer-drain",
+    "name": "Guy's Sewer & Drain",
+    "city": "Minneapolis",
+    "rating": 5
+  },
+  {
+    "slug": "guyes-plumbing-heating-inc",
+    "name": "Guye's Plumbing & Heating Inc",
+    "city": "Hibbing",
+    "rating": 3.8
+  },
+  {
+    "slug": "h-n-quality-plumbing",
+    "name": "H N Quality Plumbing",
+    "city": "Crookston",
+    "rating": 4.7
+  },
+  {
+    "slug": "haas-plumbing-llc",
+    "name": "Haas Plumbing LLC",
+    "city": "Andover",
+    "rating": 5
+  },
+  {
+    "slug": "hamilton-plumbing-and-heating",
+    "name": "Hamilton Plumbing and Heating",
+    "city": "Rochester",
+    "rating": 4.3
+  },
+  {
+    "slug": "handyman-connection-of-eden-prairie",
+    "name": "Handyman Connection of Eden Prairie",
+    "city": "Eden Prairie",
+    "rating": 4.5
+  },
+  {
+    "slug": "hanson-brothers-plumbing-inc",
+    "name": "Hanson Brothers Plumbing Inc",
+    "city": "New Ulm",
+    "rating": 5
+  },
+  {
+    "slug": "hansons-plumbing-heating-vergas",
+    "name": "Hanson's Plumbing & Heating - Vergas",
+    "city": "Fergus Falls",
+    "rating": 4.9
+  },
+  {
+    "slug": "harbor-mechanical-inc",
+    "name": "Harbor Mechanical Inc",
+    "city": "Duluth",
+    "rating": 4.8
+  },
+  {
+    "slug": "harrison-plumbing",
+    "name": "Harrison Plumbing",
+    "city": "Minneapolis",
+    "rating": 4.9
+  },
+  {
+    "slug": "harts-heating-refrigeration",
+    "name": "Hart's Heating & Refrigeration",
+    "city": "Marshall",
+    "rating": 4.6
+  },
+  {
+    "slug": "harty-mechanical-inc",
+    "name": "Harty Mechanical Inc",
+    "city": "Austin",
+    "rating": 4.7
+  },
+  {
+    "slug": "hawks-services",
+    "name": "Hawk's Services",
+    "city": "Rochester",
+    "rating": 4.8
+  },
+  {
+    "slug": "hawks-services",
+    "name": "Hawk's Services",
+    "city": "Rochester",
+    "rating": 4.9
+  },
+  {
+    "slug": "hayes-mechanical",
+    "name": "Hayes Mechanical",
+    "city": "Brooklyn Center",
+    "rating": null
+  },
+  {
+    "slug": "haynes-plumbing-heating",
+    "name": "Haynes Plumbing & Heating",
+    "city": "New Ulm",
+    "rating": 5
+  },
+  {
+    "slug": "heartland-mechanical-inc-plumbing",
+    "name": "Heartland Mechanical, Inc. - Plumbing",
+    "city": "Marshall",
+    "rating": 3.7
+  },
+  {
+    "slug": "heisel-brothers",
+    "name": "Heisel Brothers",
+    "city": "Virginia",
+    "rating": 2.8
+  },
+  {
+    "slug": "hero-plumbing-heating-cooling-drains-ducts-electrical",
+    "name": "Hero: Plumbing, Heating, Cooling, Drains, Ducts & Electrical",
+    "city": "Minneapolis",
+    "rating": 4.7
+  },
+  {
+    "slug": "hero-plumbing-heating-cooling-drains-ducts-electrical",
+    "name": "Hero: Plumbing, Heating, Cooling, Drains, Ducts & Electrical",
+    "city": "Saint Paul",
+    "rating": 4.9
+  },
+  {
+    "slug": "hero-plumbing-heating-cooling-drains-ducts-electrical",
+    "name": "Hero: Plumbing, Heating, Cooling, Drains, Ducts & Electrical",
+    "city": "Rochester",
+    "rating": 4.8
+  },
+  {
+    "slug": "herrema-plumbing-llc",
+    "name": "Herrema Plumbing LLC",
+    "city": "Grand Rapids",
+    "rating": 4.7
+  },
+  {
+    "slug": "hiawatha-plumbing-drain-sewer",
+    "name": "Hiawatha Plumbing Drain-Sewer",
+    "city": "Minneapolis",
+    "rating": 3.7
+  },
+  {
+    "slug": "hibbing-heating-ac-inc",
+    "name": "Hibbing Heating & AC, Inc.",
+    "city": "Hibbing",
+    "rating": 4.5
+  },
+  {
+    "slug": "higgins-heating-air-conditioning-refrigeration-inc",
+    "name": "Higgins Heating, Air Conditioning & Refrigeration, Inc.",
+    "city": "Bemidji",
+    "rating": 4.5
+  },
+  {
+    "slug": "highview-plumbing-inc",
+    "name": "Highview Plumbing Inc",
+    "city": "Minneapolis",
+    "rating": 4.9
+  },
+  {
+    "slug": "hill-side-sewer-and-drain-service",
+    "name": "Hill Side Sewer and Drain Service",
+    "city": "Duluth",
+    "rating": 4.8
+  },
+  {
+    "slug": "hills-plumbing-heating-inc",
+    "name": "Hill's Plumbing & Heating, Inc.",
+    "city": "Bemidji",
+    "rating": 4.5
+  },
+  {
+    "slug": "home-heating-plumbing-ac-inc",
+    "name": "Home Heating, Plumbing & A/C, Inc.",
+    "city": "Moorhead",
+    "rating": 4.8
+  },
+  {
+    "slug": "home-services-at-the-home-depot",
+    "name": "Home Services at The Home Depot",
+    "city": "Willmar",
+    "rating": 3.7
+  },
+  {
+    "slug": "homepro-plumbing",
+    "name": "HomePro Plumbing",
+    "city": "Minneapolis",
+    "rating": 5
+  },
+  {
+    "slug": "hometown-plumbing-inc",
+    "name": "Hometown Plumbing Inc",
+    "city": "Minneapolis",
+    "rating": 4.7
+  },
+  {
+    "slug": "homeworks-heating-air",
+    "name": "HomeWorks Heating & Air",
+    "city": "Saint Paul",
+    "rating": 4.7
+  },
+  {
+    "slug": "hopke-sewer-drain-co",
+    "name": "Hopke Sewer & Drain Co",
+    "city": "Hastings",
+    "rating": 3
+  },
+  {
+    "slug": "hovde-plumbing-heating-inc",
+    "name": "Hovde Plumbing & Heating Inc",
+    "city": "Minneapolis",
+    "rating": 4
+  },
+  {
+    "slug": "hovs-plumbing",
+    "name": "Hovs Plumbing",
+    "city": "Rochester",
+    "rating": 4.3
+  },
+  {
+    "slug": "hunt-plumbing-drain",
+    "name": "Hunt Plumbing & Drain",
+    "city": "Mankato",
+    "rating": 4.6
+  },
+  {
+    "slug": "hunt-plumbing-drain-of-mankato",
+    "name": "Hunt Plumbing & Drain of Mankato",
+    "city": "Mankato",
+    "rating": 5
+  },
+  {
+    "slug": "hurlburt-heating-plumbing",
+    "name": "Hurlburt Heating & Plumbing",
+    "city": "Minneapolis",
+    "rating": 4.9
+  },
+  {
+    "slug": "hurlburt-heating-plumbing",
+    "name": "Hurlburt Heating & Plumbing",
+    "city": "Minneapolis",
+    "rating": 5
+  },
+  {
+    "slug": "hurlburt-heating-plumbing",
+    "name": "Hurlburt Heating & Plumbing",
+    "city": "Saint Paul",
+    "rating": 4.9
+  },
+  {
+    "slug": "hurlburt-heating-plumbing",
+    "name": "Hurlburt Heating & Plumbing",
+    "city": "Saint Paul",
+    "rating": 5
+  },
+  {
+    "slug": "hurlburt-heating-plumbing",
+    "name": "Hurlburt Heating & Plumbing",
+    "city": "Burnsville",
+    "rating": 4.9
+  },
+  {
+    "slug": "i-gotta-guy-handyman",
+    "name": "I Gotta Guy Handyman",
+    "city": "Saint Paul",
+    "rating": 5
+  },
+  {
+    "slug": "ikes-plumbing-drain-cleaning-inc",
+    "name": "Ikes Plumbing Drain Cleaning, Inc",
+    "city": "Minneapolis",
+    "rating": 4.5
+  },
+  {
+    "slug": "innovative-plumbing-heating-inc",
+    "name": "Innovative Plumbing & Heating Inc",
+    "city": "Elk River",
+    "rating": 5
+  },
+  {
+    "slug": "iron-range-plumbing-heating-inc",
+    "name": "Iron Range Plumbing & Heating Inc",
+    "city": "Virginia",
+    "rating": 4.4
+  },
+  {
+    "slug": "itasca-plumbing",
+    "name": "Itasca Plumbing",
+    "city": "Grand Rapids",
+    "rating": 4.8
+  },
+  {
+    "slug": "iversons-sewer-cleaning",
+    "name": "Iverson's Sewer Cleaning",
+    "city": "Austin",
+    "rating": 4.5
+  },
+  {
+    "slug": "jm-plumbing-llc",
+    "name": "J&M Plumbing LLC",
+    "city": "Mankato",
+    "rating": 4.7
+  },
+  {
+    "slug": "jack-shermans-custom-plumbing",
+    "name": "Jack Sherman's Custom Plumbing",
+    "city": "Winona",
+    "rating": 5
+  },
+  {
+    "slug": "jake-the-plumber",
+    "name": "Jake The Plumber",
+    "city": "Minneapolis",
+    "rating": 4.5
+  },
+  {
+    "slug": "janecky-plumbing-services",
+    "name": "Janecky Plumbing Services",
+    "city": "Saint Paul",
+    "rating": 4.5
+  },
+  {
+    "slug": "janecky-plumbing-services-inc",
+    "name": "Janecky Plumbing Services Inc",
+    "city": "Saint Paul",
+    "rating": 5
+  },
+  {
+    "slug": "jeffs-good-works",
+    "name": "Jeff's Good Works",
+    "city": "Bemidji",
+    "rating": 5
+  },
+  {
+    "slug": "jeffs-plumbing-drain-cleaning-inc",
+    "name": "Jeff's Plumbing & Drain Cleaning Inc.",
+    "city": "Moorhead",
+    "rating": 4.3
+  },
+  {
+    "slug": "jetter-clean-advanced-drain-cleaning",
+    "name": "Jetter Clean Advanced Drain Cleaning",
+    "city": "Mankato",
+    "rating": 4.9
+  },
+  {
+    "slug": "jetter-clean-advanced-drain-cleaning-lakeville",
+    "name": "Jetter Clean Advanced Drain Cleaning Lakeville",
+    "city": "Lakeville",
+    "rating": 5
+  },
+  {
+    "slug": "jetter-clean-inc",
+    "name": "Jetter Clean Inc",
+    "city": "Rochester",
+    "rating": 4.8
+  },
+  {
+    "slug": "jim-dudes-plumbing-heating-air-conditioning",
+    "name": "Jim & Dude's Plumbing Heating & Air Conditioning",
+    "city": "Albert Lea",
+    "rating": 4.3
+  },
+  {
+    "slug": "jim-keilen-plumbing-heating",
+    "name": "Jim Keilen Plumbing & Heating",
+    "city": "Faribault",
+    "rating": 4.8
+  },
+  {
+    "slug": "jmj-sewer-services",
+    "name": "JMJ Sewer Services",
+    "city": "Minneapolis",
+    "rating": 5
+  },
+  {
+    "slug": "jms-plumbing",
+    "name": "JMS Plumbing",
+    "city": "Elk River",
+    "rating": 5
+  },
+  {
+    "slug": "joes-plumbing-heating-llc",
+    "name": "Joe's Plumbing & Heating LLC",
+    "city": "Hibbing",
+    "rating": 4.8
+  },
+  {
+    "slug": "johns-heating-air-conditioning",
+    "name": "John's Heating & Air Conditioning",
+    "city": "Fergus Falls",
+    "rating": 4.6
+  },
+  {
+    "slug": "johns-sewer-drain-cleaning",
+    "name": "John's Sewer & Drain Cleaning",
+    "city": "Saint Paul",
+    "rating": 4.6
+  },
+  {
+    "slug": "johns-sewer-drain-cleaning-inc",
+    "name": "John's Sewer & Drain Cleaning, Inc.",
+    "city": "Minneapolis",
+    "rating": 4.9
+  },
+  {
+    "slug": "johnson-plumbing-heating-co",
+    "name": "Johnson Plumbing & Heating Co",
+    "city": "Cottage Grove",
+    "rating": 5
+  },
+  {
+    "slug": "johnsons-plumbing-heating",
+    "name": "Johnson's Plumbing Heating",
+    "city": "Willmar",
+    "rating": 3.6
+  },
+  {
+    "slug": "jp-plumbing-heating-inc",
+    "name": "JP Plumbing & Heating Inc",
+    "city": "New Ulm",
+    "rating": 4.2
+  },
+  {
+    "slug": "justen-plumbing-inc",
+    "name": "Justen Plumbing Inc",
+    "city": "Stillwater",
+    "rating": 4.7
+  },
+  {
+    "slug": "k-q-plumbing-and-heating",
+    "name": "K & Q Plumbing and Heating",
+    "city": "Minnetonka",
+    "rating": 4.1
+  },
+  {
+    "slug": "k-s-heating-air-conditioning-plumbing-electrical",
+    "name": "K & S Heating, Air Conditioning, Plumbing & Electrical",
+    "city": "Rochester",
+    "rating": 4.8
+  },
+  {
+    "slug": "kc-plumbing",
+    "name": "K&C Plumbing",
+    "city": "Mankato",
+    "rating": 4.9
+  },
+  {
+    "slug": "km-heating-air-conditioning",
+    "name": "K&M Heating & Air Conditioning",
+    "city": "Faribault",
+    "rating": 4.9
+  },
+  {
+    "slug": "kalkbrenner-plumbing-heating-inc",
+    "name": "Kalkbrenner Plumbing & Heating Inc",
+    "city": "Duluth",
+    "rating": 5
+  },
+  {
+    "slug": "karpinski-plumbing-llc",
+    "name": "Karpinski Plumbing LLC",
+    "city": "Little Falls",
+    "rating": 5
+  },
+  {
+    "slug": "kasper-plumbing",
+    "name": "Kasper Plumbing",
+    "city": "Owatonna",
+    "rating": 4
+  },
+  {
+    "slug": "kdrains-llc",
+    "name": "Kdrains, LLC",
+    "city": "Saint Paul",
+    "rating": 5
+  },
+  {
+    "slug": "keith-pumper-plumbing-heating",
+    "name": "Keith Pumper Plumbing & Heating",
+    "city": "Faribault",
+    "rating": 4.4
+  },
+  {
+    "slug": "keiths-finest-plumbing",
+    "name": "Keith's Finest Plumbing",
+    "city": "Minneapolis",
+    "rating": 4.8
+  },
+  {
+    "slug": "kelley-plumbing-heating-cooling",
+    "name": "Kelley Plumbing Heating & Cooling",
+    "city": "Albert Lea",
+    "rating": 3.9
+  },
+  {
+    "slug": "kelly-plumbing-heating-inc",
+    "name": "Kelly Plumbing & Heating, Inc.",
+    "city": "Minneapolis",
+    "rating": 4.9
+  },
+  {
+    "slug": "kens-plumbing-heating",
+    "name": "Ken's Plumbing & Heating",
+    "city": "Marshall",
+    "rating": 5
+  },
+  {
+    "slug": "kens-sewer-service",
+    "name": "Ken's Sewer Service",
+    "city": "Minneapolis",
+    "rating": 4.7
+  },
+  {
+    "slug": "kevins-plumbing",
+    "name": "Kevins Plumbing",
+    "city": "Moorhead",
+    "rating": 5
+  },
+  {
+    "slug": "kirk-flom-septic-drain",
+    "name": "Kirk Flom Septic & Drain",
+    "city": "Faribault",
+    "rating": 4.8
+  },
+  {
+    "slug": "klassen-plumbing-heating-ac",
+    "name": "Klassen Plumbing & Heating & AC",
+    "city": "New Ulm",
+    "rating": 4.1
+  },
+  {
+    "slug": "klimek-plumbing",
+    "name": "Klimek Plumbing",
+    "city": "Alexandria",
+    "rating": 5
+  },
+  {
+    "slug": "krinkies-heating-air-conditioning-and-plumbing",
+    "name": "Krinkie's Heating, Air Conditioning and Plumbing",
+    "city": "Saint Paul",
+    "rating": 4.9
+  },
+  {
+    "slug": "kroll-plumbing",
+    "name": "Kroll Plumbing",
+    "city": "Little Falls",
+    "rating": 4
+  },
+  {
+    "slug": "kuznia-plumbing",
+    "name": "Kuznia Plumbing",
+    "city": "Savage",
+    "rating": 5
+  },
+  {
+    "slug": "l-l-mechanical",
+    "name": "L & L Mechanical",
+    "city": "Mankato",
+    "rating": 4.6
+  },
+  {
+    "slug": "l-o-plumbing-heating-inc",
+    "name": "L & O Plumbing & Heating Inc",
+    "city": "Alexandria",
+    "rating": 4.5
+  },
+  {
+    "slug": "l-s-plumbing-heating-of-hibbing-inc",
+    "name": "L & S Plumbing & Heating Of Hibbing Inc.",
+    "city": "Virginia",
+    "rating": 4.8
+  },
+  {
+    "slug": "lb-plumbing-stillwater-ok",
+    "name": "L&B Plumbing Stillwater, OK",
+    "city": "Stillwater",
+    "rating": 4.9
+  },
+  {
+    "slug": "ls-plumbing-heating-llc",
+    "name": "L&S Plumbing & Heating LLC",
+    "city": "Duluth",
+    "rating": 5
+  },
+  {
+    "slug": "la-roches-sewer-drain-services",
+    "name": "La Roche's Sewer & Drain Services",
+    "city": "Northfield",
+    "rating": 4.2
+  },
+  {
+    "slug": "labrash-plumbing",
+    "name": "LaBrash Plumbing",
+    "city": "Saint Paul",
+    "rating": 4.8
+  },
+  {
+    "slug": "lakes-area-home-improvement",
+    "name": "Lakes Area Home Improvement",
+    "city": "Chanhassen",
+    "rating": 3.9
+  },
+  {
+    "slug": "lakeside-plumbing-heating-inc",
+    "name": "LakeSide Plumbing & Heating Inc.",
+    "city": "Fergus Falls",
+    "rating": 4.4
+  },
+  {
+    "slug": "lakeville-plumbing-drain-pros",
+    "name": "Lakeville Plumbing & Drain Pros",
+    "city": "Lakeville",
+    "rating": 4.8
+  },
+  {
+    "slug": "laneys-inc",
+    "name": "Laney's Inc.",
+    "city": "Moorhead",
+    "rating": 4.9
+  },
+  {
+    "slug": "latitude-44-plumbing-heating",
+    "name": "Latitude 44 Plumbing & Heating",
+    "city": "Mankato",
+    "rating": 5
+  },
+  {
+    "slug": "lee-plumbing-heating-co",
+    "name": "Lee Plumbing & Heating Co",
+    "city": "Thief River Falls",
+    "rating": 4.1
+  },
+  {
+    "slug": "legacy-plumbing-heating",
+    "name": "LEGACY PLUMBING & HEATING",
+    "city": "Moorhead",
+    "rating": 5
+  },
+  {
+    "slug": "levahn-bros-plumbing-and-hardware-hank",
+    "name": "LeVahn Bros. Plumbing and Hardware Hank",
+    "city": "Minneapolis",
+    "rating": 4.7
+  },
+  {
+    "slug": "lindman-plumbing",
+    "name": "Lindman Plumbing",
+    "city": "Minneapolis",
+    "rating": 3.8
+  },
+  {
+    "slug": "ling-plumbing-heating",
+    "name": "Ling Plumbing & Heating",
+    "city": "Worthington",
+    "rating": 1
+  },
+  {
+    "slug": "little-falls-plumbing-heating",
+    "name": "Little Falls Plumbing & Heating",
+    "city": "Little Falls",
+    "rating": 3.3
+  },
+  {
+    "slug": "loch-monster-plumbing-llc",
+    "name": "Loch Monster Plumbing LLC",
+    "city": "Minneapolis",
+    "rating": 4.4
+  },
+  {
+    "slug": "lon-tharaldson-plumbing-and-heating-llc",
+    "name": "Lon Tharaldson Plumbing and Heating LLC",
+    "city": "Chanhassen",
+    "rating": 3.9
+  },
+  {
+    "slug": "louwagie-drain-cleaning",
+    "name": "Louwagie Drain Cleaning",
+    "city": "Marshall",
+    "rating": 4.6
+  },
+  {
+    "slug": "luikens-mechanical-heating-cooling-plumbing-water",
+    "name": "Luiken’s Mechanical Heating, Cooling, Plumbing, & Water",
+    "city": "Faribault",
+    "rating": 4.9
+  },
+  {
+    "slug": "lundeen-plumbing",
+    "name": "Lundeen Plumbing",
+    "city": "Bemidji",
+    "rating": null
+  },
+  {
+    "slug": "lyles-plumbing-heating",
+    "name": "Lyle's Plumbing & Heating",
+    "city": "Willmar",
+    "rating": 4.5
+  },
+  {
+    "slug": "magnell-plumbing",
+    "name": "Magnell Plumbing",
+    "city": "Moorhead",
+    "rating": 5
+  },
+  {
+    "slug": "majeski-plumbing-heating-inc",
+    "name": "Majeski Plumbing & Heating Inc",
+    "city": "Hastings",
+    "rating": 4.5
+  },
+  {
+    "slug": "mankato-plumbing-appliance",
+    "name": "Mankato Plumbing & Appliance",
+    "city": "Mankato",
+    "rating": 5
+  },
+  {
+    "slug": "manship-plumbing-heating-inc",
+    "name": "Manship Plumbing & Heating Inc",
+    "city": "Saint Paul",
+    "rating": 4.8
+  },
+  {
+    "slug": "maple-grove-plumbing-pros",
+    "name": "Maple Grove Plumbing Pros",
+    "city": "Minneapolis",
+    "rating": 5
+  },
+  {
+    "slug": "marcs-master-plumbing",
+    "name": "Marc's Master Plumbing",
+    "city": "Bemidji",
+    "rating": 5
+  },
+  {
+    "slug": "marg-plumbing-heating",
+    "name": "Marg Plumbing & Heating",
+    "city": "Winona",
+    "rating": 3.2
+  },
+  {
+    "slug": "marks-plumbing",
+    "name": "Mark's Plumbing",
+    "city": "Willmar",
+    "rating": 5
+  },
+  {
+    "slug": "marks-plumbing-service-repair",
+    "name": "Mark's Plumbing Service & Repair",
+    "city": "Minneapolis",
+    "rating": 4.8
+  },
+  {
+    "slug": "marshall-heating-air-conditioning",
+    "name": "Marshall Heating & Air Conditioning",
+    "city": "Marshall",
+    "rating": 4.5
+  },
+  {
+    "slug": "marvel-sewer-and-drain",
+    "name": "Marvel Sewer and Drain",
+    "city": "Minneapolis",
+    "rating": 5
+  },
+  {
+    "slug": "master-plumbing",
+    "name": "Master Plumbing",
+    "city": "Albert Lea",
+    "rating": 3.8
+  },
+  {
+    "slug": "master-pro-plumbing-heating",
+    "name": "Master Pro Plumbing & Heating",
+    "city": "Prior Lake",
+    "rating": 4.3
+  },
+  {
+    "slug": "masters-plumbing",
+    "name": "Masters Plumbing",
+    "city": "Alexandria",
+    "rating": null
+  },
+  {
+    "slug": "masters-plumbing-heating-cooling-llc",
+    "name": "Masters Plumbing Heating & Cooling LLC",
+    "city": "Alexandria",
+    "rating": 4.7
+  },
+  {
+    "slug": "maynard-brothers-plumbing-llc",
+    "name": "Maynard Brothers Plumbing LLC",
+    "city": "Moorhead",
+    "rating": 4.8
+  },
+  {
+    "slug": "mcdonald-plumbing",
+    "name": "McDonald Plumbing",
+    "city": "Grand Rapids",
+    "rating": 4.9
+  },
+  {
+    "slug": "mcdonoughs-mn-drain-cleaning-services",
+    "name": "McDonough’s - MN Drain Cleaning Services",
+    "city": "Saint Paul",
+    "rating": 4.9
+  },
+  {
+    "slug": "mcquillan-home-services-llc",
+    "name": "McQuillan Home Services LLC.",
+    "city": "Saint Paul",
+    "rating": 4.6
+  },
+  {
+    "slug": "mechanical-energy-systems",
+    "name": "Mechanical Energy Systems",
+    "city": "Saint Cloud",
+    "rating": 4.8
+  },
+  {
+    "slug": "meier-plumbing-heating-co",
+    "name": "Meier Plumbing & Heating Co",
+    "city": "Winona",
+    "rating": 5
+  },
+  {
+    "slug": "metro-heating-cooling",
+    "name": "Metro Heating & Cooling",
+    "city": "Saint Paul",
+    "rating": 4.9
+  },
+  {
+    "slug": "metro-plumbing-drains",
+    "name": "Metro Plumbing & Drains",
+    "city": "Saint Paul",
+    "rating": 4.9
+  },
+  {
+    "slug": "midstate-plumbing-heating-cooling-drain-cleaning",
+    "name": "Midstate Plumbing, Heating, Cooling, Drain Cleaning",
+    "city": "Cottage Grove",
+    "rating": 4.9
+  },
+  {
+    "slug": "midway-sewer-services",
+    "name": "Midway Sewer Services",
+    "city": "Duluth",
+    "rating": 4.6
+  },
+  {
+    "slug": "midway-sewer-services-co-of-st-paul",
+    "name": "Midway Sewer Services Co of St Paul",
+    "city": "Saint Paul",
+    "rating": 4.7
+  },
+  {
+    "slug": "midwest-plumbing-dirt-llc",
+    "name": "Midwest Plumbing & Dirt LLC",
+    "city": "Willmar",
+    "rating": 5
+  },
+  {
+    "slug": "mighty-plumbing",
+    "name": "Mighty Plumbing",
+    "city": "Winona",
+    "rating": 5
+  },
+  {
+    "slug": "mikes-plumbing-plus",
+    "name": "Mike's Plumbing Plus",
+    "city": "Burnsville",
+    "rating": 4.2
+  },
+  {
+    "slug": "mikes-septic-mckinley-sewer-services",
+    "name": "Mike's Septic & McKinley Sewer Services",
+    "city": "Prior Lake",
+    "rating": 4.9
+  },
+  {
+    "slug": "minneapolis-suburban-sewer-and-water",
+    "name": "Minneapolis & Suburban Sewer and Water",
+    "city": "Minneapolis",
+    "rating": 4.9
+  },
+  {
+    "slug": "minnesota-plumbing-and-heating",
+    "name": "Minnesota Plumbing and Heating",
+    "city": "Eden Prairie",
+    "rating": 4.3
+  },
+  {
+    "slug": "minnesota-plumbing-llc",
+    "name": "Minnesota Plumbing LLC",
+    "city": "Mankato",
+    "rating": 4.9
+  },
+  {
+    "slug": "mission-mechanical",
+    "name": "Mission Mechanical",
+    "city": "Alexandria",
+    "rating": 4.9
+  },
+  {
+    "slug": "mj-oconnor-inc",
+    "name": "MJ O'Connor, Inc.",
+    "city": "Austin",
+    "rating": 4.4
+  },
+  {
+    "slug": "mn-plumbing-home-services",
+    "name": "MN Plumbing & Home Services",
+    "city": "Minneapolis",
+    "rating": 4.5
+  },
+  {
+    "slug": "mn-plumbing-home-services",
+    "name": "MN Plumbing & Home Services",
+    "city": "Burnsville",
+    "rating": 3.3
+  },
+  {
+    "slug": "mn-plumbing-home-services",
+    "name": "MN Plumbing & Home Services",
+    "city": "Lakeville",
+    "rating": 5
+  },
+  {
+    "slug": "modern-plumbing-heating",
+    "name": "Modern Plumbing & Heating",
+    "city": "Minneapolis",
+    "rating": 5
+  },
+  {
+    "slug": "monkey-wrench-plumbing-inc",
+    "name": "Monkey Wrench Plumbing, Inc.",
+    "city": "Shakopee",
+    "rating": 4.9
+  },
+  {
+    "slug": "moorhead-plumbing-heating-inc",
+    "name": "Moorhead Plumbing & Heating, Inc.",
+    "city": "Moorhead",
+    "rating": 4.2
+  },
+  {
+    "slug": "motley-plumbing-heating",
+    "name": "Motley Plumbing & Heating",
+    "city": "Little Falls",
+    "rating": null
+  },
+  {
+    "slug": "mountaineer-plumbing-drains-water-heater-services",
+    "name": "Mountaineer Plumbing, Drains, & Water Heater Services",
+    "city": "Grand Rapids",
+    "rating": 4.6
+  },
+  {
+    "slug": "mr-mechanical-plumbing-heating-cooling",
+    "name": "MR Mechanical Plumbing, Heating & Cooling",
+    "city": "Saint Cloud",
+    "rating": 4.9
+  },
+  {
+    "slug": "mr-plumbing-and-drains",
+    "name": "Mr Plumbing and Drains",
+    "city": "Minneapolis",
+    "rating": 4.7
+  },
+  {
+    "slug": "mr-maison-plumbing-and-drain",
+    "name": "Mr. Maison Plumbing and Drain",
+    "city": "Minneapolis",
+    "rating": 4.9
+  },
+  {
+    "slug": "mr-rooter-plumbing-of-grand-rapids",
+    "name": "Mr. Rooter Plumbing of Grand Rapids",
+    "city": "Grand Rapids",
+    "rating": 4.7
+  },
+  {
+    "slug": "mr-rooter-plumbing-of-rochester-mn",
+    "name": "Mr. Rooter Plumbing of Rochester-MN",
+    "city": "Rochester",
+    "rating": 4.7
+  },
+  {
+    "slug": "mr-rooter-plumbing-of-the-twin-cities",
+    "name": "Mr. Rooter Plumbing of The Twin Cities",
+    "city": "Minneapolis",
+    "rating": 4.8
+  },
+  {
+    "slug": "msp-plumbing-heating-air",
+    "name": "MSP Plumbing Heating Air",
+    "city": "Saint Paul",
+    "rating": 4.8
+  },
+  {
+    "slug": "muska-plumbing",
+    "name": "Muska Plumbing",
+    "city": "Minneapolis",
+    "rating": 4.4
+  },
+  {
+    "slug": "my-plumber-inc",
+    "name": "My Plumber Inc",
+    "city": "Minnetonka",
+    "rating": 4.6
+  },
+  {
+    "slug": "my-plumbing-training",
+    "name": "My Plumbing Training",
+    "city": "Moorhead",
+    "rating": 5
+  },
+  {
+    "slug": "natures-call-septic-service-inc",
+    "name": "Nature's Call Septic Service, Inc",
+    "city": "Fergus Falls",
+    "rating": 4.8
+  },
+  {
+    "slug": "naylor-heating-refrigeration",
+    "name": "Naylor Heating & Refrigeration",
+    "city": "Bemidji",
+    "rating": 4.6
+  },
+  {
+    "slug": "neighborhood-plumbing-heating-air-conditioning-and-electrical",
+    "name": "Neighborhood Plumbing, Heating, Air Conditioning and Electrical",
+    "city": "Saint Cloud",
+    "rating": 4.8
+  },
+  {
+    "slug": "new-concept-plumbing-llc",
+    "name": "New Concept Plumbing Llc",
+    "city": "Prior Lake",
+    "rating": 5
+  },
+  {
+    "slug": "next-plumbing-heating",
+    "name": "Next Plumbing & Heating",
+    "city": "Minneapolis",
+    "rating": 5
+  },
+  {
+    "slug": "next-plumbing-heating",
+    "name": "Next Plumbing & Heating",
+    "city": "Saint Paul",
+    "rating": 5
+  },
+  {
+    "slug": "nielsen-plumbing-inc",
+    "name": "Nielsen Plumbing Inc",
+    "city": "Willmar",
+    "rating": 3.5
+  },
+  {
+    "slug": "norblom-plumbing",
+    "name": "Norblom Plumbing",
+    "city": "Minneapolis",
+    "rating": 4.3
+  },
+  {
+    "slug": "north-country-heating-cooling-refrigeration-inc",
+    "name": "North Country Heating Cooling & Refrigeration Inc",
+    "city": "Virginia",
+    "rating": 2.9
+  },
+  {
+    "slug": "north-country-plumbing-heating",
+    "name": "North Country Plumbing & Heating",
+    "city": "Brainerd",
+    "rating": 4.9
+  },
+  {
+    "slug": "north-star-plumbing-and-heating-co-inc",
+    "name": "North Star Plumbing And Heating Co Inc",
+    "city": "Saint Paul",
+    "rating": 3
+  },
+  {
+    "slug": "northern-air-plumbing-heating",
+    "name": "Northern Air Plumbing & Heating",
+    "city": "Grand Rapids",
+    "rating": 4.3
+  },
+  {
+    "slug": "northern-air-plumbing-heating",
+    "name": "Northern Air Plumbing & Heating",
+    "city": "Brainerd",
+    "rating": 4.9
+  },
+  {
+    "slug": "northern-benjamin-franklin-plumbing",
+    "name": "Northern Benjamin Franklin Plumbing",
+    "city": "Champlin",
+    "rating": 4.9
+  },
+  {
+    "slug": "northern-comfort-inc-plumbing-heating-cooling-southern-mn",
+    "name": "Northern Comfort Inc - Plumbing, Heating & Cooling Southern MN",
+    "city": "Mankato",
+    "rating": 4.6
+  },
+  {
+    "slug": "northern-plumbing-softening",
+    "name": "Northern Plumbing & Softening",
+    "city": "Minneapolis",
+    "rating": 4.9
+  },
+  {
+    "slug": "northstar-plumbing-drain-cleaning",
+    "name": "NorthStar Plumbing & Drain Cleaning",
+    "city": "Moorhead",
+    "rating": 4.9
+  },
+  {
+    "slug": "northwest-pipe-fittings",
+    "name": "Northwest Pipe Fittings",
+    "city": "Marshall",
+    "rating": 5
+  },
+  {
+    "slug": "northwinds-plumbing-heating-air",
+    "name": "Northwinds Plumbing, Heating & Air",
+    "city": "Mankato",
+    "rating": 4.8
+  },
+  {
+    "slug": "nowthen-plumbing",
+    "name": "Nowthen Plumbing",
+    "city": "Elk River",
+    "rating": 4.5
+  },
+  {
+    "slug": "nrh-plumbing-inc",
+    "name": "NRH Plumbing, Inc.",
+    "city": "Elk River",
+    "rating": 4.7
+  },
+  {
+    "slug": "nybo-peterson-plumbing-inc",
+    "name": "Nybo Peterson Plumbing, Inc",
+    "city": "Minneapolis",
+    "rating": 5
+  },
+  {
+    "slug": "oboys-plumbing-furnace-ac-repair",
+    "name": "O'Boys Plumbing, Furnace & AC Repair",
+    "city": "Minneapolis",
+    "rating": 5
+  },
+  {
+    "slug": "oboys-plumbing-furnace-ac-repair",
+    "name": "O'Boys Plumbing, Furnace & AC Repair",
+    "city": "Minneapolis",
+    "rating": 5
+  },
+  {
+    "slug": "oakland-plumbing-llc",
+    "name": "Oakland Plumbing LLC",
+    "city": "Burnsville",
+    "rating": 5
+  },
+  {
+    "slug": "okie-plumbing-utilities",
+    "name": "Okie Plumbing & Utilities",
+    "city": "Stillwater",
+    "rating": 4.9
+  },
+  {
+    "slug": "on-time-plumbing-heating-cooling-electric",
+    "name": "On Time Plumbing, Heating, Cooling & Electric",
+    "city": "Hutchinson",
+    "rating": 4.7
+  },
+  {
+    "slug": "on-time-service-pros-electrical",
+    "name": "On Time Service Pros Electrical",
+    "city": "Saint Paul",
+    "rating": 4.9
+  },
+  {
+    "slug": "on-time-service-pros-heating-and-air",
+    "name": "On Time Service Pros Heating and Air",
+    "city": "Saint Paul",
+    "rating": 4.9
+  },
+  {
+    "slug": "on-time-service-pros-plumbing",
+    "name": "On Time Service Pros Plumbing",
+    "city": "Saint Paul",
+    "rating": 4.9
+  },
+  {
+    "slug": "one-hour-heating-and-air-conditioning-southsota",
+    "name": "One Hour Heating and Air Conditioning SouthSota",
+    "city": "Faribault",
+    "rating": 4.9
+  },
+  {
+    "slug": "one-hour-rooter-plumbing-drain-cleaning-sewer-repair",
+    "name": "One Hour Rooter Plumbing Drain Cleaning Sewer Repair",
+    "city": "Minneapolis",
+    "rating": 4.5
+  },
+  {
+    "slug": "oneka-plumbing",
+    "name": "Oneka Plumbing",
+    "city": "Saint Paul",
+    "rating": 5
+  },
+  {
+    "slug": "onyx-plumbing-gas",
+    "name": "ONYX PLUMBING & GAS",
+    "city": "Minneapolis",
+    "rating": 4.9
+  },
+  {
+    "slug": "ouverson-sewer-water",
+    "name": "Ouverson Sewer & Water",
+    "city": "Minneapolis",
+    "rating": 5
+  },
+  {
+    "slug": "overland-mechanical-services",
+    "name": "Overland Mechanical Services",
+    "city": "Fergus Falls",
+    "rating": 2.5
+  },
+  {
+    "slug": "owners-plumbing-inc",
+    "name": "Owners Plumbing Inc.",
+    "city": "Rochester",
+    "rating": 5
+  },
+  {
+    "slug": "p-s-plumbing-heating-sewer-cleaning",
+    "name": "P & S Plumbing, Heating & Sewer Cleaning",
+    "city": "Chaska",
+    "rating": 1
+  },
+  {
+    "slug": "pr-plumbing-heating-inc",
+    "name": "P&R Plumbing & Heating INC.",
+    "city": "Duluth",
+    "rating": 5
+  },
+  {
+    "slug": "palmer-plumbing",
+    "name": "Palmer Plumbing",
+    "city": "Willmar",
+    "rating": null
+  },
+  {
+    "slug": "paramount-plumbing-heating",
+    "name": "Paramount Plumbing & Heating",
+    "city": "Prior Lake",
+    "rating": 5
+  },
+  {
+    "slug": "paskar-plumbing-llc",
+    "name": "Paskar Plumbing LLC",
+    "city": "Minneapolis",
+    "rating": 5
+  },
+  {
+    "slug": "patricki-plumbing",
+    "name": "Patricki Plumbing",
+    "city": "Minneapolis",
+    "rating": 4.3
+  },
+  {
+    "slug": "patriot-plumbing-heating-ac",
+    "name": "Patriot Plumbing, Heating, & AC",
+    "city": "Brainerd",
+    "rating": 5
+  },
+  {
+    "slug": "pattim-plumbing",
+    "name": "Pattim Plumbing",
+    "city": "Eden Prairie",
+    "rating": 4.5
+  },
+  {
+    "slug": "patzers-outdoor-lawn-and-power-formerly-patzers-hardware-hank",
+    "name": "Patzer's Outdoor Lawn and Power formerly Patzers Hardware Hank",
+    "city": "Marshall",
+    "rating": 4.8
+  },
+  {
+    "slug": "paul-bunyan-plumbing-drains",
+    "name": "Paul Bunyan Plumbing & Drains",
+    "city": "Minneapolis",
+    "rating": 4.9
+  },
+  {
+    "slug": "paul-bunyan-plumbing-drains",
+    "name": "Paul Bunyan Plumbing & Drains",
+    "city": "Rochester",
+    "rating": 4.9
+  },
+  {
+    "slug": "paul-vadnais-plumbing-well-inc",
+    "name": "Paul Vadnais Plumbing & Well Inc.",
+    "city": "Saint Paul",
+    "rating": 4.6
+  },
+  {
+    "slug": "peine-plumbing-heating-inc",
+    "name": "Peine Plumbing & Heating Inc",
+    "city": "Lakeville",
+    "rating": 4.8
+  },
+  {
+    "slug": "penning-plumbing-heating-cooling-electric",
+    "name": "Penning Plumbing, Heating, Cooling & Electric",
+    "city": "Grand Rapids",
+    "rating": 4.4
+  },
+  {
+    "slug": "petersen-plumbing-inc",
+    "name": "Petersen Plumbing Inc",
+    "city": "Grand Rapids",
+    "rating": 4.7
+  },
+  {
+    "slug": "peterson-plumbing",
+    "name": "Peterson Plumbing",
+    "city": "Saint Paul",
+    "rating": 4.9
+  },
+  {
+    "slug": "peterson-sheet-metal-inc",
+    "name": "Peterson Sheet Metal, Inc.",
+    "city": "Bemidji",
+    "rating": 4.9
+  },
+  {
+    "slug": "phils-plumbing",
+    "name": "Phil's Plumbing",
+    "city": "Worthington",
+    "rating": 2.3
+  },
+  {
+    "slug": "phils-plumbing-heatingac-llc",
+    "name": "Phil's Plumbing & Heating/AC, LLC",
+    "city": "Elk River",
+    "rating": 4.9
+  },
+  {
+    "slug": "pike-plumbing-and-heating",
+    "name": "Pike Plumbing and Heating",
+    "city": "Brainerd",
+    "rating": 4.2
+  },
+  {
+    "slug": "pipe-and-water-plumbing",
+    "name": "Pipe and Water Plumbing",
+    "city": "Champlin",
+    "rating": 5
+  },
+  {
+    "slug": "pipe-dreamz-plumbing-heating",
+    "name": "Pipe Dreamz Plumbing & Heating",
+    "city": "Marshall",
+    "rating": null
+  },
+  {
+    "slug": "piperight-plumbing-inc",
+    "name": "PipeRight Plumbing, Inc.",
+    "city": "Minneapolis",
+    "rating": 4.6
+  },
+  {
+    "slug": "pipers-inc-of-st-cloud",
+    "name": "Pipers Inc of St Cloud",
+    "city": "Saint Cloud",
+    "rating": 4.8
+  },
+  {
+    "slug": "plaas-incorporated",
+    "name": "Plaas Incorporated",
+    "city": "Red Wing",
+    "rating": 3.9
+  },
+  {
+    "slug": "plante-plumbing-llc",
+    "name": "Plante Plumbing LLC",
+    "city": "Crookston",
+    "rating": 5
+  },
+  {
+    "slug": "platinum-plumbing-solutions-llc",
+    "name": "Platinum Plumbing Solutions LLC",
+    "city": "Albert Lea",
+    "rating": 4.6
+  },
+  {
+    "slug": "plaunt-plumbing-heating",
+    "name": "Plaunt Plumbing & Heating",
+    "city": "Duluth",
+    "rating": 5
+  },
+  {
+    "slug": "plumb-krazy",
+    "name": "Plumb Krazy",
+    "city": "Hutchinson",
+    "rating": 4.3
+  },
+  {
+    "slug": "plumb-right",
+    "name": "Plumb Right",
+    "city": "Minneapolis",
+    "rating": 4.8
+  },
+  {
+    "slug": "plumb-rite-plumbing-llc",
+    "name": "Plumb-Rite Plumbing, LLC",
+    "city": "Mankato",
+    "rating": 4.9
+  },
+  {
+    "slug": "plumbers-inc",
+    "name": "Plumbers Inc",
+    "city": "Fergus Falls",
+    "rating": 3.9
+  },
+  {
+    "slug": "plumbers-mechanical-group-llc",
+    "name": "Plumbers Mechanical Group, LLC",
+    "city": "Winona",
+    "rating": 4.8
+  },
+  {
+    "slug": "plumbers-local-589",
+    "name": "Plumbers, Local 589",
+    "city": "Virginia",
+    "rating": 5
+  },
+  {
+    "slug": "plumbing-heating-of-willmar-inc",
+    "name": "Plumbing & Heating of Willmar, Inc.",
+    "city": "Willmar",
+    "rating": 4
+  },
+  {
+    "slug": "plumbing-and-heating-by-craig-inc",
+    "name": "Plumbing and Heating by Craig, Inc.",
+    "city": "Hutchinson",
+    "rating": 4.9
+  },
+  {
+    "slug": "plumbing-and-heating-solutions-inc",
+    "name": "Plumbing and Heating Solutions Inc",
+    "city": "Duluth",
+    "rating": 5
+  },
+  {
+    "slug": "plumbing-mysteries-solutions",
+    "name": "Plumbing Mysteries & Solutions",
+    "city": "Hutchinson",
+    "rating": 5
+  },
+  {
+    "slug": "plumbing-plus-llc",
+    "name": "Plumbing Plus LLC",
+    "city": "Little Falls",
+    "rating": 3
+  },
+  {
+    "slug": "plumbing-response-team-llc",
+    "name": "Plumbing Response Team LLC",
+    "city": "Saint Cloud",
+    "rating": 4.7
+  },
+  {
+    "slug": "plumbing-service-today",
+    "name": "Plumbing Service Today",
+    "city": "Saint Paul",
+    "rating": 2.3
+  },
+  {
+    "slug": "plumbing-solutions-llc",
+    "name": "Plumbing Solutions LLC",
+    "city": "Rochester",
+    "rating": 4.8
+  },
+  {
+    "slug": "plumbing-west",
+    "name": "Plumbing West",
+    "city": "Hutchinson",
+    "rating": 5
+  },
+  {
+    "slug": "plumbrite-llc",
+    "name": "PlumbRite, LLC",
+    "city": "Hutchinson",
+    "rating": 4.5
+  },
+  {
+    "slug": "plumbwise",
+    "name": "Plumbwise",
+    "city": "Moorhead",
+    "rating": 5
+  },
+  {
+    "slug": "plumbx-llc",
+    "name": "PlumbX LLC.",
+    "city": "Saint Paul",
+    "rating": 4.9
+  },
+  {
+    "slug": "polar-plumbing-co",
+    "name": "Polar Plumbing Co",
+    "city": "Saint Paul",
+    "rating": 4.9
+  },
+  {
+    "slug": "polestar-handyman-services",
+    "name": "Polestar Handyman Services",
+    "city": "Virginia",
+    "rating": 5
+  },
+  {
+    "slug": "precise-heating-ac-plumbing-refrigeration-inc",
+    "name": "Precise Heating, A/C, Plumbing & Refrigeration, Inc.",
+    "city": "Saint Cloud",
+    "rating": 4.8
+  },
+  {
+    "slug": "precision-lining-sewer",
+    "name": "Precision Lining & Sewer",
+    "city": "Faribault",
+    "rating": 4.1
+  },
+  {
+    "slug": "precision-plumbing-co-llc",
+    "name": "Precision Plumbing CO LLC",
+    "city": "Fergus Falls",
+    "rating": 5
+  },
+  {
+    "slug": "preferred-plumbing-inc",
+    "name": "Preferred Plumbing, Inc.",
+    "city": "Prior Lake",
+    "rating": 3.7
+  },
+  {
+    "slug": "prime-plumbing-llc",
+    "name": "Prime Plumbing LLC",
+    "city": "Moorhead",
+    "rating": 5
+  },
+  {
+    "slug": "pro-master-plumbing-north-st-paul",
+    "name": "Pro Master Plumbing - North St. Paul",
+    "city": "Saint Paul",
+    "rating": 5
+  },
+  {
+    "slug": "pro-master-plumbing-white-bear-lake",
+    "name": "Pro Master Plumbing - White Bear Lake",
+    "city": "Saint Paul",
+    "rating": 5
+  },
+  {
+    "slug": "pro-plumbing-heating",
+    "name": "Pro Plumbing & Heating",
+    "city": "Austin",
+    "rating": 4.5
+  },
+  {
+    "slug": "pro-water-solutions-formerly-kandi-water-conditioning-inc",
+    "name": "Pro Water Solutions formerly Kandi Water Conditioning, Inc.",
+    "city": "Willmar",
+    "rating": 4.6
+  },
+  {
+    "slug": "pure-plumbing-llc",
+    "name": "Pure Plumbing LLC",
+    "city": "Saint Paul",
+    "rating": 4.9
+  },
+  {
+    "slug": "r-j-mehrman-sons-plumbing",
+    "name": "R J Mehrman & Sons Plumbing",
+    "city": "Duluth",
+    "rating": 3.9
+  },
+  {
+    "slug": "rainy-water-conditioning-inc",
+    "name": "Rainy Water Conditioning, Inc.",
+    "city": "Hutchinson",
+    "rating": 4.9
+  },
+  {
+    "slug": "randys-electric-plumbing",
+    "name": "Randy's Electric & Plumbing",
+    "city": "Saint Paul",
+    "rating": 4.8
+  },
+  {
+    "slug": "randys-plumbing-heating",
+    "name": "Randy's Plumbing & Heating",
+    "city": "Brainerd",
+    "rating": 3.6
+  },
+  {
+    "slug": "range-water-conditioning",
+    "name": "Range Water Conditioning",
+    "city": "Grand Rapids",
+    "rating": 4.9
+  },
+  {
+    "slug": "rapid-response-plumbing-heating-air",
+    "name": "Rapid Response Plumbing Heating & Air",
+    "city": "Alexandria",
+    "rating": 4.9
+  },
+  {
+    "slug": "rapid-response-plumbing-heating-air",
+    "name": "Rapid Response Plumbing, Heating & Air",
+    "city": "Willmar",
+    "rating": 4.2
+  },
+  {
+    "slug": "rapid-rooter-sewer-drain",
+    "name": "Rapid Rooter Sewer & Drain",
+    "city": "Grand Rapids",
+    "rating": 5
+  },
+  {
+    "slug": "rapids-plumbing-heating-inc",
+    "name": "Rapids Plumbing & Heating, Inc.",
+    "city": "Grand Rapids",
+    "rating": 4.2
+  },
+  {
+    "slug": "rascher-plumbing-and-heating-inc",
+    "name": "Rascher Plumbing and Heating Inc.",
+    "city": "Saint Paul",
+    "rating": 4.9
+  },
+  {
+    "slug": "ray-vin-zant-plumbing",
+    "name": "Ray Vin Zant Plumbing",
+    "city": "Saint Paul",
+    "rating": 4.3
+  },
+  {
+    "slug": "real-plumbing",
+    "name": "REAL Plumbing",
+    "city": "Lakeville",
+    "rating": 5
+  },
+  {
+    "slug": "red-wing-plumbing-and-heating",
+    "name": "Red Wing Plumbing and Heating",
+    "city": "Red Wing",
+    "rating": 4.7
+  },
+  {
+    "slug": "regal-plumbers",
+    "name": "Regal Plumbers",
+    "city": "Lakeville",
+    "rating": 5
+  },
+  {
+    "slug": "reliable-plumbing-heating",
+    "name": "Reliable Plumbing & Heating",
+    "city": "Saint Paul",
+    "rating": 4.8
+  },
+  {
+    "slug": "right-away-sewer-drain-cleaning",
+    "name": "Right Away Sewer & Drain Cleaning",
+    "city": "Minneapolis",
+    "rating": 5
+  },
+  {
+    "slug": "rightmark-plumbing",
+    "name": "RightMark Plumbing",
+    "city": "Minneapolis",
+    "rating": 4.5
+  },
+  {
+    "slug": "rimbeys-drain-cleaning-inc",
+    "name": "Rimbey's Drain Cleaning Inc",
+    "city": "Champlin",
+    "rating": 4.9
+  },
+  {
+    "slug": "rise-and-shine-heating-cooling-plumbing",
+    "name": "Rise and Shine Heating Cooling Plumbing",
+    "city": "Minneapolis",
+    "rating": 5
+  },
+  {
+    "slug": "rite-way-plumbing-inc",
+    "name": "Rite-Way Plumbing Inc",
+    "city": "Saint Paul",
+    "rating": 5
+  },
+  {
+    "slug": "roark-plumbing-inc",
+    "name": "Roark Plumbing, Inc.",
+    "city": "Minneapolis",
+    "rating": null
+  },
+  {
+    "slug": "roberts-hamilton-company",
+    "name": "Roberts-Hamilton Company",
+    "city": "Fridley",
+    "rating": 5
+  },
+  {
+    "slug": "robillard-plumbing",
+    "name": "Robillard Plumbing",
+    "city": "Maple Grove",
+    "rating": 4.6
+  },
+  {
+    "slug": "rochester-drain-rite",
+    "name": "Rochester Drain Rite",
+    "city": "Rochester",
+    "rating": 5
+  },
+  {
+    "slug": "rochester-plumbing-heating",
+    "name": "Rochester Plumbing & Heating",
+    "city": "Rochester",
+    "rating": 4.7
+  },
+  {
+    "slug": "roger-einck-plumbing-llc",
+    "name": "Roger Einck Plumbing LLC",
+    "city": "Rochester",
+    "rating": 5
+  },
+  {
+    "slug": "rol-air-plumbing-heating",
+    "name": "Rol Air Plumbing & Heating",
+    "city": "Saint Cloud",
+    "rating": 4.9
+  },
+  {
+    "slug": "ron-the-sewer-rat",
+    "name": "Ron the Sewer Rat",
+    "city": "Minneapolis",
+    "rating": 5
+  },
+  {
+    "slug": "rons-plumbing-hvac-electric",
+    "name": "Ron's Plumbing, HVAC & Electric",
+    "city": "Albert Lea",
+    "rating": 4.9
+  },
+  {
+    "slug": "rooterworks-plumbing-drains",
+    "name": "RooterWorks Plumbing & Drains",
+    "city": "Minneapolis",
+    "rating": 5
+  },
+  {
+    "slug": "rose-plumbing-heating",
+    "name": "Rose Plumbing & Heating",
+    "city": "Saint Paul",
+    "rating": 4.7
+  },
+  {
+    "slug": "roto-rooter-plumbing-water-cleanup",
+    "name": "Roto-Rooter Plumbing & Water Cleanup",
+    "city": "Minneapolis",
+    "rating": 4.8
+  },
+  {
+    "slug": "roto-rooter-plumbing-water-cleanup",
+    "name": "Roto-Rooter Plumbing & Water Cleanup",
+    "city": "Minneapolis",
+    "rating": 4.8
+  },
+  {
+    "slug": "roto-rooter-plumbing-water-cleanup",
+    "name": "Roto-Rooter Plumbing & Water Cleanup",
+    "city": "Minneapolis",
+    "rating": 4.8
+  },
+  {
+    "slug": "roto-rooter-plumbing-water-cleanup",
+    "name": "Roto-Rooter Plumbing & Water Cleanup",
+    "city": "Minneapolis",
+    "rating": 4.9
+  },
+  {
+    "slug": "roto-rooter-plumbing-water-cleanup",
+    "name": "Roto-Rooter Plumbing & Water Cleanup",
+    "city": "Saint Paul",
+    "rating": 4.9
+  },
+  {
+    "slug": "roto-rooter-plumbing-water-cleanup",
+    "name": "Roto-Rooter Plumbing & Water Cleanup",
+    "city": "Saint Paul",
+    "rating": 4.9
+  },
+  {
+    "slug": "roto-rooter-plumbing-water-cleanup",
+    "name": "Roto-Rooter Plumbing & Water Cleanup",
+    "city": "Saint Paul",
+    "rating": 5
+  },
+  {
+    "slug": "roto-rooter-plumbing-water-cleanup",
+    "name": "Roto-Rooter Plumbing & Water Cleanup",
+    "city": "Saint Paul",
+    "rating": 4.8
+  },
+  {
+    "slug": "roto-rooter-plumbing-water-cleanup",
+    "name": "Roto-Rooter Plumbing & Water Cleanup",
+    "city": "Eden Prairie",
+    "rating": 4.9
+  },
+  {
+    "slug": "roto-rooter-plumbing-and-water-cleanup",
+    "name": "Roto-Rooter Plumbing and Water Cleanup",
+    "city": "Saint Cloud",
+    "rating": 4.7
+  },
+  {
+    "slug": "roto-rooter-plumbing-drain-water-damage-cleanup-service",
+    "name": "Roto-Rooter Plumbing, Drain, & Water Damage Cleanup Service",
+    "city": "Elk River",
+    "rating": 4.9
+  },
+  {
+    "slug": "roto-rooter-sewer-drain-services",
+    "name": "Roto-Rooter Sewer & Drain Services",
+    "city": "Rochester",
+    "rating": 4
+  },
+  {
+    "slug": "route-52-plumbing-heating-inc",
+    "name": "Route 52 Plumbing & Heating Inc",
+    "city": "Rochester",
+    "rating": 3.8
+  },
+  {
+    "slug": "rumpca-services-inc",
+    "name": "Rumpca Services, Inc.",
+    "city": "Cottage Grove",
+    "rating": 5
+  },
+  {
+    "slug": "rush-point-plumbing",
+    "name": "Rush Point Plumbing",
+    "city": "Champlin",
+    "rating": 5
+  },
+  {
+    "slug": "rushmore-plumbing-inc",
+    "name": "Rushmore Plumbing Inc",
+    "city": "Worthington",
+    "rating": null
+  },
+  {
+    "slug": "ryan-mechanical-inc",
+    "name": "Ryan Mechanical, Inc.",
+    "city": "Red Wing",
+    "rating": 4.5
+  },
+  {
+    "slug": "ryan-plumbing-heating-co",
+    "name": "Ryan Plumbing & Heating Co.",
+    "city": "Saint Paul",
+    "rating": 5
+  },
+  {
+    "slug": "sabastian-and-sons-plumbing-service-llc",
+    "name": "Sabastian and Sons Plumbing Service LLC",
+    "city": "Minneapolis",
+    "rating": 4.6
+  },
+  {
+    "slug": "sabastian-and-sons-plumbing-services-llc",
+    "name": "Sabastian and Sons Plumbing services LLC",
+    "city": "Minneapolis",
+    "rating": 4.6
+  },
+  {
+    "slug": "sabre-plumbing-heating-air-conditioning-inc",
+    "name": "Sabre Plumbing, Heating & Air Conditioning Inc",
+    "city": "Minneapolis",
+    "rating": 4.2
+  },
+  {
+    "slug": "saint-paul-master-plumber",
+    "name": "Saint Paul Master Plumber",
+    "city": "Saint Paul",
+    "rating": 5
+  },
+  {
+    "slug": "saint-paul-plumbing-services",
+    "name": "Saint Paul Plumbing Services",
+    "city": "Saint Paul",
+    "rating": null
+  },
+  {
+    "slug": "salzer-plumbing-llc",
+    "name": "Salzer Plumbing, LLC",
+    "city": "Savage",
+    "rating": 3.5
+  },
+  {
+    "slug": "salzer-plumbing-llc",
+    "name": "Salzer Plumbing, LLC",
+    "city": "Savage",
+    "rating": 4
+  },
+  {
+    "slug": "schanus-plumbing-heating-inc",
+    "name": "Schanus Plumbing & Heating Inc",
+    "city": "New Ulm",
+    "rating": 2.7
+  },
+  {
+    "slug": "schlomka-services-llc",
+    "name": "Schlomka Services Llc",
+    "city": "Hastings",
+    "rating": 4
+  },
+  {
+    "slug": "schroeders-home-services",
+    "name": "Schroeder's Home Services",
+    "city": "Brainerd",
+    "rating": 4.9
+  },
+  {
+    "slug": "schultz-plumbing-heating",
+    "name": "Schultz Plumbing & Heating",
+    "city": "New Ulm",
+    "rating": 4.8
+  },
+  {
+    "slug": "schwalbach-plumbing-heating",
+    "name": "Schwalbach Plumbing & Heating",
+    "city": "Worthington",
+    "rating": 4.8
+  },
+  {
+    "slug": "scr-northern-division",
+    "name": "SCR Northern Division",
+    "city": "Brainerd",
+    "rating": 4.3
+  },
+  {
+    "slug": "sertich-plumbing-heating",
+    "name": "Sertich Plumbing & Heating",
+    "city": "Virginia",
+    "rating": 5
+  },
+  {
+    "slug": "service-pros-plumbing-and-heating",
+    "name": "Service Pros Plumbing and Heating",
+    "city": "Rochester",
+    "rating": 4.8
+  },
+  {
+    "slug": "service-star-plumbing",
+    "name": "Service Star Plumbing",
+    "city": "Minneapolis",
+    "rating": 4.8
+  },
+  {
+    "slug": "service-today-heating-cooling-electrical-repair",
+    "name": "Service Today - Heating, Cooling, & Electrical Repair",
+    "city": "Minneapolis",
+    "rating": 4.6
+  },
+  {
+    "slug": "service-today-heating-cooling-electrical-repair",
+    "name": "Service Today Heating, Cooling, & Electrical Repair",
+    "city": "Brainerd",
+    "rating": 4.5
+  },
+  {
+    "slug": "shimon-plumbing-water-care",
+    "name": "Shimon Plumbing & Water Care",
+    "city": "Saint Paul",
+    "rating": 4.8
+  },
+  {
+    "slug": "shimon-plumbing-inc",
+    "name": "Shimon Plumbing Inc",
+    "city": "Saint Paul",
+    "rating": 4.2
+  },
+  {
+    "slug": "shubitz-plumbing-heating",
+    "name": "Shubitz Plumbing & Heating",
+    "city": "Duluth",
+    "rating": 3.4
+  },
+  {
+    "slug": "silver-tree-plumbing-heating",
+    "name": "Silver Tree Plumbing & Heating",
+    "city": "Saint Paul",
+    "rating": 4.3
+  },
+  {
+    "slug": "sink-connections",
+    "name": "Sink Connections",
+    "city": "Cottage Grove",
+    "rating": 5
+  },
+  {
+    "slug": "soderlin-plumbing-heating-air-conditioning",
+    "name": "Soderlin Plumbing, Heating & Air Conditioning",
+    "city": "Minneapolis",
+    "rating": 4.7
+  },
+  {
+    "slug": "solutions-plumbing-mechanical",
+    "name": "Solutions Plumbing & Mechanical",
+    "city": "Virginia",
+    "rating": 5
+  },
+  {
+    "slug": "southtown-plumbing-inc",
+    "name": "Southtown Plumbing inc.",
+    "city": "Minneapolis",
+    "rating": 4.5
+  },
+  {
+    "slug": "spearhead-sewer-and-drain",
+    "name": "Spearhead Sewer and Drain",
+    "city": "Minneapolis",
+    "rating": 5
+  },
+  {
+    "slug": "speedy-plumbing-service-inc",
+    "name": "Speedy Plumbing Service Inc.",
+    "city": "Moorhead",
+    "rating": 4.6
+  },
+  {
+    "slug": "spetz-plumbing-corporation",
+    "name": "Spetz Plumbing Corporation",
+    "city": "Minneapolis",
+    "rating": 4.9
+  },
+  {
+    "slug": "spring-plumbing-llc",
+    "name": "Spring Plumbing LLC",
+    "city": "Minneapolis",
+    "rating": 4.3
+  },
+  {
+    "slug": "sps-companies-inc",
+    "name": "SPS Companies Inc",
+    "city": "Saint Louis Park",
+    "rating": 4.5
+  },
+  {
+    "slug": "st-paul-pipeworks",
+    "name": "St Paul Pipeworks",
+    "city": "Saint Paul",
+    "rating": 4.9
+  },
+  {
+    "slug": "st-croix-plumbing-and-drain-cleaning",
+    "name": "St. Croix Plumbing and Drain Cleaning",
+    "city": "Stillwater",
+    "rating": 4.4
+  },
+  {
+    "slug": "standard-plumbing-appliance",
+    "name": "Standard Plumbing & Appliance",
+    "city": "Saint Louis Park",
+    "rating": 2
+  },
+  {
+    "slug": "steelpoint-plumbing",
+    "name": "SteelPoint Plumbing",
+    "city": "Mankato",
+    "rating": 4.9
+  },
+  {
+    "slug": "steinkraus-plumbing-inc",
+    "name": "Steinkraus Plumbing Inc",
+    "city": "Minneapolis",
+    "rating": 3.5
+  },
+  {
+    "slug": "stern-heating-cooling-inc",
+    "name": "Stern Heating & Cooling, Inc.",
+    "city": "Red Wing",
+    "rating": 4.8
+  },
+  {
+    "slug": "stewarts-plumbing-services-llc",
+    "name": "Stewart's Plumbing Services, LLC",
+    "city": "Saint Paul",
+    "rating": 4.2
+  },
+  {
+    "slug": "stoa-plumbing-heating",
+    "name": "Stoa Plumbing & Heating",
+    "city": "Fergus Falls",
+    "rating": null
+  },
+  {
+    "slug": "stone-plumbing-and-heating-inc",
+    "name": "Stone Plumbing and Heating Inc.",
+    "city": "Duluth",
+    "rating": 4.9
+  },
+  {
+    "slug": "stoyks-plumbing",
+    "name": "Stoyks Plumbing",
+    "city": "Owatonna",
+    "rating": 4
+  },
+  {
+    "slug": "street-plumbing-inc",
+    "name": "Street Plumbing Inc",
+    "city": "Minneapolis",
+    "rating": 5
+  },
+  {
+    "slug": "streety-plumbing",
+    "name": "Streety Plumbing",
+    "city": "Marshall",
+    "rating": 4.9
+  },
+  {
+    "slug": "stuve-plumbing-co",
+    "name": "Stuve Plumbing Co",
+    "city": "Mankato",
+    "rating": 5
+  },
+  {
+    "slug": "sun-ray-plumbing-heating",
+    "name": "Sun Ray Plumbing & Heating",
+    "city": "Saint Paul",
+    "rating": 4.5
+  },
+  {
+    "slug": "sunderland-plumbing",
+    "name": "Sunderland Plumbing",
+    "city": "Minneapolis",
+    "rating": 5
+  },
+  {
+    "slug": "superior-mechanical",
+    "name": "Superior Mechanical",
+    "city": "Rochester",
+    "rating": 4.3
+  },
+  {
+    "slug": "superior-mechanical",
+    "name": "Superior Mechanical",
+    "city": "Red Wing",
+    "rating": null
+  },
+  {
+    "slug": "superior-plumbing-stillwater",
+    "name": "Superior Plumbing Stillwater",
+    "city": "Stillwater",
+    "rating": null
+  },
+  {
+    "slug": "t-n-g-plumbing",
+    "name": "T 'N G Plumbing",
+    "city": "Austin",
+    "rating": 4.5
+  },
+  {
+    "slug": "taps-plumbing-heating",
+    "name": "TAPS Plumbing & Heating",
+    "city": "Winona",
+    "rating": 5
+  },
+  {
+    "slug": "tatge-plumbing-heating-well",
+    "name": "Tatge Plumbing Heating & Well",
+    "city": "Faribault",
+    "rating": 4.2
+  },
+  {
+    "slug": "tek-mechanical-service-inc",
+    "name": "TEK Mechanical Service Inc.",
+    "city": "Hutchinson",
+    "rating": 3.1
+  },
+  {
+    "slug": "terry-overacker-plumbing-inc",
+    "name": "Terry Overacker Plumbing, Inc.",
+    "city": "Minneapolis",
+    "rating": 3.8
+  },
+  {
+    "slug": "the-drain-machine",
+    "name": "The Drain Machine",
+    "city": "Minneapolis",
+    "rating": 5
+  },
+  {
+    "slug": "the-pleasant-plumber-inc",
+    "name": "The Pleasant Plumber Inc.",
+    "city": "Minneapolis",
+    "rating": 5
+  },
+  {
+    "slug": "the-sewer-dude-sewer-and-drain-cleaning",
+    "name": "The Sewer Dude Sewer and Drain Cleaning",
+    "city": "Minneapolis",
+    "rating": 5
+  },
+  {
+    "slug": "thelen-plumbing-heating-air",
+    "name": "Thelen Plumbing, Heating & Air",
+    "city": "Elk River",
+    "rating": 4.9
+  },
+  {
+    "slug": "thoreson-plumbing",
+    "name": "Thoreson Plumbing",
+    "city": "Moorhead",
+    "rating": 4.9
+  },
+  {
+    "slug": "tiger-plumbing-heating-air",
+    "name": "Tiger Plumbing Heating & Air",
+    "city": "Minneapolis",
+    "rating": 4.8
+  },
+  {
+    "slug": "tim-thompson-plumbing-heating",
+    "name": "Tim Thompson Plumbing & Heating",
+    "city": "Brainerd",
+    "rating": 4.5
+  },
+  {
+    "slug": "tims-home-services",
+    "name": "Tim's Home Services",
+    "city": "Minneapolis",
+    "rating": 4.9
+  },
+  {
+    "slug": "timesaver-home-services",
+    "name": "TimeSaver Home Services",
+    "city": "Hutchinson",
+    "rating": 4.8
+  },
+  {
+    "slug": "tj-plumbing-and-heating",
+    "name": "TJ Plumbing and Heating",
+    "city": "Saint Paul",
+    "rating": 4.9
+  },
+  {
+    "slug": "tj-plumbing-and-heating",
+    "name": "TJ Plumbing and Heating",
+    "city": "Saint Paul",
+    "rating": 4.8
+  },
+  {
+    "slug": "tjk-plumbing-inc",
+    "name": "TJK Plumbing, Inc.",
+    "city": "Minneapolis",
+    "rating": 4.9
+  },
+  {
+    "slug": "tonna-mechanical-heating-ac-water-treatment-plumbing-duct-cleaning",
+    "name": "Tonna Mechanical: Heating, A/C, Water Treatment, Plumbing & Duct Cleaning",
+    "city": "Rochester",
+    "rating": 4.9
+  },
+  {
+    "slug": "tonys-plumbing-heating",
+    "name": "Tony's Plumbing & Heating",
+    "city": "Saint Paul",
+    "rating": 4.8
+  },
+  {
+    "slug": "top-choice-plumbing-llc",
+    "name": "Top Choice Plumbing LLC",
+    "city": "Shakopee",
+    "rating": 5
+  },
+  {
+    "slug": "trace-plumbing-and-heating-inc",
+    "name": "Trace Plumbing and Heating inc",
+    "city": "Willmar",
+    "rating": 4.1
+  },
+  {
+    "slug": "trenk-mechanical-llc",
+    "name": "Trenk Mechanical LLC",
+    "city": "Shakopee",
+    "rating": 5
+  },
+  {
+    "slug": "tri-county-water-conditioning",
+    "name": "Tri County Water Conditioning",
+    "city": "Hutchinson",
+    "rating": 4.9
+  },
+  {
+    "slug": "trio-plumbing-heating",
+    "name": "Trio Plumbing & Heating",
+    "city": "Marshall",
+    "rating": 4.3
+  },
+  {
+    "slug": "trioz-minneapolis-plumbers-drain-clean-co",
+    "name": "Trioz Minneapolis Plumbers & Drain Clean Co.",
+    "city": "Minneapolis",
+    "rating": 4.9
+  },
+  {
+    "slug": "truewater-plumbing",
+    "name": "TrueWater Plumbing",
+    "city": "Minneapolis",
+    "rating": 5
+  },
+  {
+    "slug": "tschida-brothers-plumbing",
+    "name": "Tschida Brothers Plumbing",
+    "city": "Saint Paul",
+    "rating": 3.7
+  },
+  {
+    "slug": "twin-city-drain",
+    "name": "Twin City Drain",
+    "city": "Minneapolis",
+    "rating": 5
+  },
+  {
+    "slug": "twin-city-pipeworks",
+    "name": "Twin City Pipeworks",
+    "city": "Saint Paul",
+    "rating": 5
+  },
+  {
+    "slug": "ua-local-11",
+    "name": "UA Local 11",
+    "city": "Duluth",
+    "rating": 4.6
+  },
+  {
+    "slug": "uden-plumbing-heating",
+    "name": "Uden Plumbing & Heating",
+    "city": "Hastings",
+    "rating": 5
+  },
+  {
+    "slug": "ugstad-plumbing-inc",
+    "name": "Ugstad Plumbing Inc",
+    "city": "Fergus Falls",
+    "rating": 5
+  },
+  {
+    "slug": "unclogdrainscom",
+    "name": "Unclogdrains.com",
+    "city": "Minneapolis",
+    "rating": 4.5
+  },
+  {
+    "slug": "urban-pine-plumbing-mechanical",
+    "name": "Urban Pine Plumbing & Mechanical",
+    "city": "Saint Paul",
+    "rating": 4.3
+  },
+  {
+    "slug": "valley-rich-co-inc",
+    "name": "Valley Rich Co Inc",
+    "city": "Chaska",
+    "rating": 4.2
+  },
+  {
+    "slug": "veteran-drain-and-sewer-llc",
+    "name": "Veteran Drain and Sewer LLC",
+    "city": "Minneapolis",
+    "rating": 5
+  },
+  {
+    "slug": "veteran-services",
+    "name": "Veteran Services",
+    "city": "Saint Paul",
+    "rating": 4.2
+  },
+  {
+    "slug": "victoria-plumbing-inc",
+    "name": "Victoria Plumbing Inc",
+    "city": "Chaska",
+    "rating": 3.7
+  },
+  {
+    "slug": "viking-plumbing",
+    "name": "Viking Plumbing",
+    "city": "Minneapolis",
+    "rating": 4.9
+  },
+  {
+    "slug": "visionary-plumbing",
+    "name": "Visionary Plumbing",
+    "city": "Hastings",
+    "rating": 4
+  },
+  {
+    "slug": "voda-plumbing-inc",
+    "name": "Voda Plumbing Inc.",
+    "city": "Minneapolis",
+    "rating": 5
+  },
+  {
+    "slug": "voda-sewer-and-drain",
+    "name": "Voda Sewer and Drain",
+    "city": "Minneapolis",
+    "rating": 5
+  },
+  {
+    "slug": "wagner-plumbing-heating-inc",
+    "name": "Wagner Plumbing & Heating Inc",
+    "city": "Bemidji",
+    "rating": 4.6
+  },
+  {
+    "slug": "wallys-sewer-drain-cleaning",
+    "name": "Wally's Sewer & Drain Cleaning",
+    "city": "Hibbing",
+    "rating": 4.4
+  },
+  {
+    "slug": "walsh-plumbing-inc",
+    "name": "Walsh Plumbing Inc.",
+    "city": "Minneapolis",
+    "rating": 4.2
+  },
+  {
+    "slug": "warrior-drain-cleaning-plumbing-services",
+    "name": "Warrior Drain Cleaning & Plumbing Services",
+    "city": "Saint Cloud",
+    "rating": 5
+  },
+  {
+    "slug": "water-heaters-now",
+    "name": "Water Heaters Now!",
+    "city": "Minneapolis",
+    "rating": 4.9
+  },
+  {
+    "slug": "water-heaters-now",
+    "name": "Water Heaters Now!",
+    "city": "Saint Paul",
+    "rating": 4.9
+  },
+  {
+    "slug": "water-heaters-now",
+    "name": "Water Heaters Now!",
+    "city": "Stillwater",
+    "rating": 4.9
+  },
+  {
+    "slug": "water-works-plumbing",
+    "name": "Water Works Plumbing",
+    "city": "Rochester",
+    "rating": 5
+  },
+  {
+    "slug": "waters-plumbing-llc",
+    "name": "Waters Plumbing, LLC",
+    "city": "Saint Paul",
+    "rating": 4.2
+  },
+  {
+    "slug": "weidners-mechanical-contractors",
+    "name": "Weidner's Mechanical Contractors",
+    "city": "Saint Cloud",
+    "rating": 4.4
+  },
+  {
+    "slug": "welch-plumbing-inc",
+    "name": "Welch Plumbing Inc",
+    "city": "Northfield",
+    "rating": 5
+  },
+  {
+    "slug": "weld-sons-plumbing",
+    "name": "Weld & Sons Plumbing",
+    "city": "Minneapolis",
+    "rating": 4.8
+  },
+  {
+    "slug": "wencl-plumbing-inc",
+    "name": "Wencl Plumbing Inc",
+    "city": "Owatonna",
+    "rating": 4
+  },
+  {
+    "slug": "wenzel-plumbing-llc",
+    "name": "Wenzel Plumbing Llc",
+    "city": "Saint Paul",
+    "rating": 4.3
+  },
+  {
+    "slug": "wes-plumbing-heating-inc",
+    "name": "Wes' Plumbing & Heating Inc",
+    "city": "Bemidji",
+    "rating": 4.2
+  },
+  {
+    "slug": "weston-plumbing-llc",
+    "name": "WESTON PLUMBING LLC",
+    "city": "Lakeville",
+    "rating": 4.7
+  },
+  {
+    "slug": "wetland-plumbing",
+    "name": "Wetland Plumbing",
+    "city": "Grand Rapids",
+    "rating": 5
+  },
+  {
+    "slug": "white-bear-plumbing-inc",
+    "name": "WHITE BEAR PLUMBING INC.",
+    "city": "Saint Paul",
+    "rating": 4.9
+  },
+  {
+    "slug": "winsupply-of-albert-lea",
+    "name": "Winsupply of Albert Lea",
+    "city": "Albert Lea",
+    "rating": 5
+  },
+  {
+    "slug": "winsupply-of-alexandria",
+    "name": "Winsupply of Alexandria",
+    "city": "Alexandria",
+    "rating": 4.4
+  },
+  {
+    "slug": "wix-plumbing",
+    "name": "Wix Plumbing",
+    "city": "Hastings",
+    "rating": 5
+  },
+  {
+    "slug": "worthington-plumbing-heating",
+    "name": "Worthington Plumbing & Heating",
+    "city": "Worthington",
+    "rating": 5
+  },
+  {
+    "slug": "young-plumbing-and-heating",
+    "name": "Young Plumbing and Heating",
+    "city": "Duluth",
+    "rating": 3.8
+  },
+  {
+    "slug": "your-favorite-plumber-llc",
+    "name": "Your Favorite Plumber LLC",
+    "city": "Elk River",
+    "rating": 3
+  },
+  {
+    "slug": "your-handyman",
+    "name": "Your Handyman",
+    "city": "Chaska",
+    "rating": 4.6
+  },
+  {
+    "slug": "zs-plumbing-llc",
+    "name": "Z's Plumbing LLC",
+    "city": "Minneapolis",
+    "rating": 4.8
+  },
+  {
+    "slug": "ziemer-heating-cooling-inc",
+    "name": "Ziemer Heating & Cooling Inc.",
+    "city": "Red Wing",
+    "rating": 4.4
+  },
+  {
+    "slug": "ziemer-plumbing-heating",
+    "name": "Ziemer Plumbing & Heating",
+    "city": "Hutchinson",
+    "rating": 4.3
+  },
+  {
+    "slug": "ziemer-plumbing-llc",
+    "name": "Ziemer Plumbing L.L.C",
+    "city": "Hutchinson",
+    "rating": 5
+  },
+  {
+    "slug": "zumbro-valley-plumbing-llc",
+    "name": "Zumbro Valley Plumbing LLC",
+    "city": "Rochester",
+    "rating": 4.8
+  }
+]
