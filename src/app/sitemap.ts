@@ -5,7 +5,7 @@ import { SERVICES } from "@/lib/types";
 export const dynamic = "force-static";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://mnplumbersdirectory.com";
+  const baseUrl = "https://mnplumb.com";
 
   const plumbers = getAllPlumbers();
   const cities = getAllCities();
