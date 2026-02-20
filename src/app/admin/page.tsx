@@ -18,10 +18,13 @@ export default function AdminPage() {
 
   const [plumbers, setPlumbers] = useState<PlumberMinimal[]>([]);
   const [featuredSlugs, setFeaturedSlugs] = useState<Set<string>>(new Set());
+  const [verifiedSlugs, setVerifiedSlugs] = useState<Set<string>>(new Set());
   const [search, setSearch] = useState("");
   const [loading, setLoading] = useState(true);
-  const [copied, setCopied] = useState(false);
-  const [hasChanges, setHasChanges] = useState(false);
+  const [copiedFeatured, setCopiedFeatured] = useState(false);
+  const [copiedVerified, setCopiedVerified] = useState(false);
+  const [hasFeaturedChanges, setHasFeaturedChanges] = useState(false);
+  const [hasVerifiedChanges, setHasVerifiedChanges] = useState(false);
 
   // Check if already authenticated
   useEffect(() => {
@@ -61,6 +64,11 @@ export default function AdminPage() {
       const featuredRes = await fetch("/featured.json");
       const featuredData: string[] = await featuredRes.json();
       setFeaturedSlugs(new Set(featuredData));
+
+      // Load current verified list from JSON
+      const verifiedRes = await fetch("/verified.json");
+      const verifiedData: string[] = await verifiedRes.json();
+      setVerifiedSlugs(new Set(verifiedData));
     } catch (err) {
       console.error("Error loading data:", err);
     }
@@ -79,15 +87,38 @@ export default function AdminPage() {
       }
       return next;
     });
-    setHasChanges(true);
-    setCopied(false);
+    setHasFeaturedChanges(true);
+    setCopiedFeatured(false);
   };
 
-  const copyJson = () => {
+  const toggleVerified = (slug: string) => {
+    const isVerified = verifiedSlugs.has(slug);
+
+    setVerifiedSlugs((prev) => {
+      const next = new Set(prev);
+      if (isVerified) {
+        next.delete(slug);
+      } else {
+        next.add(slug);
+      }
+      return next;
+    });
+    setHasVerifiedChanges(true);
+    setCopiedVerified(false);
+  };
+
+  const copyFeaturedJson = () => {
     const json = JSON.stringify([...featuredSlugs].sort(), null, 2);
     navigator.clipboard.writeText(json);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
+    setCopiedFeatured(true);
+    setTimeout(() => setCopiedFeatured(false), 2000);
+  };
+
+  const copyVerifiedJson = () => {
+    const json = JSON.stringify([...verifiedSlugs].sort(), null, 2);
+    navigator.clipboard.writeText(json);
+    setCopiedVerified(true);
+    setTimeout(() => setCopiedVerified(false), 2000);
   };
 
   const filteredPlumbers = plumbers.filter((p) => {
@@ -142,8 +173,9 @@ export default function AdminPage() {
           <h1 className="text-xl font-bold">
             <span className="text-[#e5a527]">MN</span> Plumbers Admin
           </h1>
-          <div className="text-sm text-gray-300">
-            {featuredSlugs.size} featured plumbers
+          <div className="text-sm text-gray-300 flex gap-4">
+            <span>{featuredSlugs.size} featured</span>
+            <span>{verifiedSlugs.size} verified</span>
           </div>
         </div>
       </div>
@@ -179,8 +211,10 @@ export default function AdminPage() {
                       key={p.slug}
                       plumber={p}
                       isFeatured={true}
-                      onToggle={() => toggleFeatured(p.slug)}
-                                          />
+                      isVerified={verifiedSlugs.has(p.slug)}
+                      onToggleFeatured={() => toggleFeatured(p.slug)}
+                      onToggleVerified={() => toggleVerified(p.slug)}
+                    />
                   ))}
                 </div>
               </div>
@@ -197,8 +231,10 @@ export default function AdminPage() {
                     key={p.slug}
                     plumber={p}
                     isFeatured={false}
-                    onToggle={() => toggleFeatured(p.slug)}
-                                      />
+                    isVerified={verifiedSlugs.has(p.slug)}
+                    onToggleFeatured={() => toggleFeatured(p.slug)}
+                    onToggleVerified={() => toggleVerified(p.slug)}
+                  />
                 ))}
                 {regularPlumbers.length > 100 && (
                   <div className="px-4 py-3 text-center text-gray-500 text-sm border-t">
@@ -210,23 +246,43 @@ export default function AdminPage() {
           </>
         )}
 
-        {/* Copy JSON Button */}
-        {hasChanges && (
-          <div className="fixed bottom-6 right-6 left-6 md:left-auto md:w-96">
+        {/* Copy JSON Buttons */}
+        {(hasFeaturedChanges || hasVerifiedChanges) && (
+          <div className="fixed bottom-6 right-6 left-6 md:left-auto md:w-[450px]">
             <div className="bg-white rounded-xl shadow-2xl border-2 border-[#e85d04] p-4">
               <p className="text-sm text-gray-600 mb-3">
-                You have unsaved changes. Copy the JSON and paste into <code className="bg-gray-100 px-1 rounded">src/data/featured.json</code>
+                You have unsaved changes. Copy the JSON and paste into the respective files.
               </p>
-              <button
-                onClick={copyJson}
-                className={`w-full py-3 rounded-lg font-bold transition-all ${
-                  copied
-                    ? "bg-green-500 text-white"
-                    : "bg-gradient-to-r from-[#e85d04] to-[#f77f3a] text-white hover:shadow-lg"
-                }`}
-              >
-                {copied ? "Copied!" : "Copy JSON"}
-              </button>
+              <div className="flex gap-2">
+                {hasFeaturedChanges && (
+                  <button
+                    onClick={copyFeaturedJson}
+                    className={`flex-1 py-3 rounded-lg font-bold transition-all ${
+                      copiedFeatured
+                        ? "bg-green-500 text-white"
+                        : "bg-gradient-to-r from-[#e85d04] to-[#f77f3a] text-white hover:shadow-lg"
+                    }`}
+                  >
+                    {copiedFeatured ? "Copied!" : "Copy Featured"}
+                  </button>
+                )}
+                {hasVerifiedChanges && (
+                  <button
+                    onClick={copyVerifiedJson}
+                    className={`flex-1 py-3 rounded-lg font-bold transition-all ${
+                      copiedVerified
+                        ? "bg-green-500 text-white"
+                        : "bg-green-600 text-white hover:bg-green-700 hover:shadow-lg"
+                    }`}
+                  >
+                    {copiedVerified ? "Copied!" : "Copy Verified"}
+                  </button>
+                )}
+              </div>
+              <p className="text-xs text-gray-500 mt-2">
+                Featured → <code className="bg-gray-100 px-1 rounded">src/data/featured.json</code><br />
+                Verified → <code className="bg-gray-100 px-1 rounded">src/data/verified.json</code>
+              </p>
             </div>
           </div>
         )}
@@ -238,30 +294,56 @@ export default function AdminPage() {
 function PlumberRow({
   plumber,
   isFeatured,
-  onToggle,
+  isVerified,
+  onToggleFeatured,
+  onToggleVerified,
 }: {
   plumber: PlumberMinimal;
   isFeatured: boolean;
-  onToggle: () => void;
+  isVerified: boolean;
+  onToggleFeatured: () => void;
+  onToggleVerified: () => void;
 }) {
   return (
     <div className="flex items-center justify-between px-4 py-3 border-b border-gray-100 last:border-b-0 hover:bg-gray-50">
       <div className="flex-1 min-w-0">
-        <div className="font-semibold text-[#1a1a2e] truncate">{plumber.name}</div>
+        <div className="flex items-center gap-2">
+          <span className="font-semibold text-[#1a1a2e] truncate">{plumber.name}</span>
+          {isVerified && (
+            <span className="inline-flex items-center gap-0.5 bg-green-100 text-green-700 text-xs font-medium px-1.5 py-0.5 rounded-full">
+              <svg className="w-2.5 h-2.5" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+              </svg>
+            </span>
+          )}
+        </div>
         <div className="text-sm text-gray-500">
           {plumber.city} {plumber.rating && `· ${plumber.rating} stars`}
         </div>
       </div>
-      <button
-        onClick={onToggle}
-        className={`ml-4 px-4 py-2 rounded-lg font-semibold text-sm transition-all ${
-          isFeatured
-            ? "bg-red-100 text-red-600 hover:bg-red-200"
-            : "bg-gradient-to-r from-[#e85d04] to-[#f77f3a] text-white hover:shadow-md"
-        }`}
-      >
-        {isFeatured ? "Remove" : "Feature"}
-      </button>
+      <div className="flex gap-2 ml-4">
+        <button
+          onClick={onToggleVerified}
+          className={`px-3 py-2 rounded-lg font-semibold text-sm transition-all ${
+            isVerified
+              ? "bg-green-100 text-green-700 hover:bg-green-200"
+              : "bg-gray-100 text-gray-600 hover:bg-gray-200"
+          }`}
+          title={isVerified ? "Remove verification" : "Mark as verified"}
+        >
+          {isVerified ? "Unverify" : "Verify"}
+        </button>
+        <button
+          onClick={onToggleFeatured}
+          className={`px-3 py-2 rounded-lg font-semibold text-sm transition-all ${
+            isFeatured
+              ? "bg-red-100 text-red-600 hover:bg-red-200"
+              : "bg-gradient-to-r from-[#e85d04] to-[#f77f3a] text-white hover:shadow-md"
+          }`}
+        >
+          {isFeatured ? "Unfeature" : "Feature"}
+        </button>
+      </div>
     </div>
   );
 }

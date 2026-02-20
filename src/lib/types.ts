@@ -11,6 +11,7 @@ export interface Plumber {
   rating: number | null;
   slug: string;
   isFeatured: boolean;
+  isVerified: boolean;
 }
 
 export interface City {

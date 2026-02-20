@@ -6,9 +6,10 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
-            <h3 className="text-xl font-bold mb-4 tracking-tight">
-              <span className="text-[#e5a527]">MN</span> Plumbers
+            <h3 className="text-xl font-bold mb-1 tracking-tight">
+              <span className="text-[#e5a527]">MN</span> Plumbers Directory
             </h3>
+            <p className="text-[#e5a527] text-sm font-medium mb-3">Minnesota&apos;s #1 Resource for Trusted Plumbers</p>
             <p className="text-gray-400 text-sm leading-relaxed">
               The most comprehensive directory of licensed plumbers in Minnesota. Find trusted professionals in your city.
             </p>

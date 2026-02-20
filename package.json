@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "npm run prebuild && next build",
-    "prebuild": "npx tsx scripts/generate-admin-data.ts && cp src/data/featured.json public/featured.json",
+    "prebuild": "npx tsx scripts/generate-admin-data.ts && cp src/data/featured.json public/featured.json && cp src/data/verified.json public/verified.json",
     "start": "next start",
     "lint": "eslint"
   },

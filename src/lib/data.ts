@@ -2,7 +2,7 @@ import { readFileSync } from "fs";
 import path from "path";
 import { Plumber, City } from "./types";
 
-// Load featured plumbers from JSON file (synced from Supabase at build time)
+// Load featured plumbers from JSON file
 function loadFeaturedSlugs(): Set<string> {
   try {
     const featuredPath = path.join(process.cwd(), "src/data/featured.json");
@@ -14,7 +14,20 @@ function loadFeaturedSlugs(): Set<string> {
   }
 }
 
+// Load verified plumbers from JSON file
+function loadVerifiedSlugs(): Set<string> {
+  try {
+    const verifiedPath = path.join(process.cwd(), "src/data/verified.json");
+    const content = readFileSync(verifiedPath, "utf-8");
+    const slugs: string[] = JSON.parse(content);
+    return new Set(slugs);
+  } catch {
+    return new Set();
+  }
+}
+
 const FEATURED_PLUMBER_SLUGS = loadFeaturedSlugs();
+const VERIFIED_PLUMBER_SLUGS = loadVerifiedSlugs();
 
 function generateSlug(name: string): string {
   return name
@@ -83,6 +96,7 @@ function parseCSV(): Plumber[] {
       rating: row.rating ? parseFloat(row.rating) : null,
       slug,
       isFeatured: FEATURED_PLUMBER_SLUGS.has(slug),
+      isVerified: VERIFIED_PLUMBER_SLUGS.has(slug),
     });
   }
 
