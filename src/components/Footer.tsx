@@ -56,6 +56,7 @@ export default function Footer() {
         </div>
         <div className="border-t border-gray-700 mt-10 pt-8 text-center text-sm text-gray-400">
           <p>&copy; {new Date().getFullYear()} MN Plumbers Directory. All rights reserved.</p>
+          <p className="mt-2 text-gray-500">Powered by <a href="https://websimpleai.com" target="_blank" rel="noopener noreferrer" className="text-[#e5a527] hover:underline">Websimple AI</a></p>
         </div>
       </div>
     </footer>

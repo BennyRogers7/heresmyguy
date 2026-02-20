@@ -38,3 +38,31 @@ export const SERVICES: Service[] = [
   { name: "Leak Detection & Repair", slug: "leak-detection", description: "Professional leak detection and repair services" },
   { name: "Toilet Repair & Installation", slug: "toilet-repair", description: "Toilet repair, replacement, and installation" },
 ];
+
+// Chat-related types
+export interface ChatMessage {
+  id: string;
+  type: 'bot' | 'user';
+  content: string;
+  timestamp: Date;
+}
+
+export interface UserIntent {
+  issue?: string;
+  isEmergency?: boolean;
+  city?: string;
+  citySlug?: string;
+}
+
+export type ChatStep =
+  | 'welcome'
+  | 'emergency'
+  | 'location'
+  | 'results'
+  | 'followup';
+
+export interface ChatState {
+  step: ChatStep;
+  messages: ChatMessage[];
+  intent: UserIntent;
+}

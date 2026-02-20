@@ -38,6 +38,9 @@ export async function generateMetadata({ params }: ServicePageProps): Promise<Me
       title: `${service.name} in Minnesota`,
       description: `Find Minnesota plumbers specializing in ${service.name.toLowerCase()}.`,
     },
+    alternates: {
+      canonical: `/services/${service.slug}`,
+    },
   };
 }
 
@@ -162,6 +165,60 @@ export default async function ServicePage({ params }: ServicePageProps) {
           </div>
         </div>
       </div>
+
+      {/* Breadcrumb Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              {
+                "@type": "ListItem",
+                position: 1,
+                name: "Home",
+                item: "https://mnplumb.com",
+              },
+              {
+                "@type": "ListItem",
+                position: 2,
+                name: "Services",
+                item: "https://mnplumb.com/#services",
+              },
+              {
+                "@type": "ListItem",
+                position: 3,
+                name: service.name,
+                item: `https://mnplumb.com/services/${service.slug}`,
+              },
+            ],
+          }),
+        }}
+      />
+
+      {/* Service Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            name: service.name,
+            description: service.description,
+            areaServed: {
+              "@type": "State",
+              name: "Minnesota",
+              addressCountry: "US",
+            },
+            provider: {
+              "@type": "Organization",
+              name: "MN Plumbers Directory",
+              url: "https://mnplumb.com",
+            },
+          }),
+        }}
+      />
     </div>
   );
 }

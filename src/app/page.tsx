@@ -1,43 +1,35 @@
 import Link from "next/link";
-import { getAllCities, getTotalPlumbersCount } from "@/lib/data";
+import { getAllCities, getTotalPlumbersCount, getAllPlumbers } from "@/lib/data";
 import { SERVICES } from "@/lib/types";
 import CityGrid from "@/components/CityGrid";
+import Chat from "@/components/Chat";
 
 export default function HomePage() {
   const cities = getAllCities();
+  const plumbers = getAllPlumbers();
   const totalPlumbers = getTotalPlumbersCount();
   const totalCities = cities.length;
 
   return (
     <div>
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-[#1a1a2e] via-[#232340] to-[#2d2d44] text-white py-20 md:py-28">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 tracking-tight">
-            Find a Licensed Plumber in{" "}
-            <span className="text-[#e5a527]">Minnesota</span>
-          </h1>
-          <p className="text-xl text-gray-300 mb-10 max-w-2xl mx-auto leading-relaxed">
-            Browse {totalPlumbers}+ trusted plumbers across {totalCities} Minnesota cities.
-            Read reviews, compare ratings, and connect with local professionals.
-          </p>
-
-          {/* Search Box */}
-          <div className="max-w-xl mx-auto">
-            <div className="flex flex-col sm:flex-row gap-3">
-              <input
-                type="text"
-                placeholder="Enter city or zip code..."
-                className="flex-1 px-5 py-4 rounded-lg text-gray-900 text-lg focus:outline-none focus:ring-2 focus:ring-[#e5a527] shadow-lg"
-              />
-              <button className="bg-gradient-to-r from-[#e85d04] to-[#f77f3a] text-white px-8 py-4 rounded-lg font-bold text-lg hover:shadow-xl hover:shadow-orange-500/30 transition-all duration-200">
-                Search
-              </button>
-            </div>
+      {/* Hero Section with Chat */}
+      <section className="bg-gradient-to-br from-[#1a1a2e] via-[#232340] to-[#2d2d44] text-white py-12 md:py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-8">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-4 tracking-tight">
+              Find a Licensed Plumber in{" "}
+              <span className="text-[#e5a527]">Minnesota</span>
+            </h1>
+            <p className="text-lg text-gray-300 max-w-2xl mx-auto leading-relaxed">
+              Tell us about your plumbing issue and we'll match you with the best local professionals.
+            </p>
           </div>
 
+          {/* Chat Interface */}
+          <Chat cities={cities} plumbers={plumbers} />
+
           {/* Trust Signals */}
-          <div className="flex flex-wrap justify-center gap-8 mt-14 text-sm font-medium">
+          <div className="flex flex-wrap justify-center gap-8 mt-10 text-sm font-medium">
             <div className="flex items-center gap-2">
               <svg className="w-6 h-6 text-[#e5a527]" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" />

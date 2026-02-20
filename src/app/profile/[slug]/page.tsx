@@ -34,6 +34,9 @@ export async function generateMetadata({ params }: ProfilePageProps): Promise<Me
       title: `${plumber.name} - Plumber in ${plumber.city}, MN`,
       description: `Licensed plumber in ${plumber.city}, Minnesota. Call ${plumber.phone} for service.`,
     },
+    alternates: {
+      canonical: `/profile/${plumber.slug}`,
+    },
   };
 }
 
@@ -46,6 +49,32 @@ export default async function ProfilePage({ params }: ProfilePageProps) {
   }
 
   const citySlug = generateCitySlug(plumber.city);
+
+  // Breadcrumb schema
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: "https://mnplumb.com",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: plumber.city,
+        item: `https://mnplumb.com/${citySlug}`,
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: plumber.name,
+        item: `https://mnplumb.com/profile/${plumber.slug}`,
+      },
+    ],
+  };
 
   // LocalBusiness schema
   const localBusinessSchema = {
@@ -241,6 +270,12 @@ export default async function ProfilePage({ params }: ProfilePageProps) {
       </div>
 
       {/* Schema Markup */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbSchema),
+        }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{

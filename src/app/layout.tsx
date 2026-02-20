@@ -15,6 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://mnplumb.com"),
   title: {
     default: "MN Plumbers Directory | Find Licensed Plumbers in Minnesota",
     template: "%s | MN Plumbers Directory",
@@ -34,6 +35,53 @@ export const metadata: Metadata = {
       "Find trusted, licensed plumbers in Minnesota. Browse 628+ plumbers across 62 cities.",
     type: "website",
     locale: "en_US",
+    siteName: "MN Plumbers Directory",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "MN Plumbers Directory - Find Licensed Plumbers in Minnesota",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "MN Plumbers Directory | Find Licensed Plumbers in Minnesota",
+    description:
+      "Find trusted, licensed plumbers in Minnesota. Browse 628+ plumbers across 62 cities.",
+    images: ["/og-image.png"],
+  },
+  alternates: {
+    canonical: "/",
+  },
+};
+
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "MN Plumbers Directory",
+  url: "https://mnplumb.com",
+  logo: "https://mnplumb.com/og-image.png",
+  description:
+    "Find trusted, licensed plumbers in Minnesota. Browse 628+ plumbers across 62 cities.",
+  areaServed: {
+    "@type": "State",
+    name: "Minnesota",
+    addressCountry: "US",
+  },
+  sameAs: [],
+};
+
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "MN Plumbers Directory",
+  url: "https://mnplumb.com",
+  potentialAction: {
+    "@type": "SearchAction",
+    target: "https://mnplumb.com/{city}",
+    "query-input": "required name=city",
   },
 };
 
@@ -44,6 +92,20 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organizationSchema),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(websiteSchema),
+          }}
+        />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gray-50`}
       >

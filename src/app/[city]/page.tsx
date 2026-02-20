@@ -33,6 +33,9 @@ export async function generateMetadata({ params }: CityPageProps): Promise<Metad
       title: `Plumbers in ${city.name}, MN`,
       description: `Find ${city.count} trusted plumbers in ${city.name}, Minnesota.`,
     },
+    alternates: {
+      canonical: `/${city.slug}`,
+    },
   };
 }
 
@@ -145,6 +148,31 @@ export default async function CityPage({ params }: CityPageProps) {
           </div>
         </div>
       </div>
+
+      {/* Breadcrumb Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              {
+                "@type": "ListItem",
+                position: 1,
+                name: "Home",
+                item: "https://mnplumb.com",
+              },
+              {
+                "@type": "ListItem",
+                position: 2,
+                name: city.name,
+                item: `https://mnplumb.com/${citySlug}`,
+              },
+            ],
+          }),
+        }}
+      />
 
       {/* FAQ Schema */}
       <script
