@@ -15,13 +15,13 @@ export default function Footer() {
             </p>
           </div>
           <div>
-            <h4 className="font-bold mb-4 text-[#e5a527]">Popular Cities</h4>
+            <h4 className="font-bold mb-4 text-[#e5a527]">Popular Areas</h4>
             <ul className="space-y-2 text-sm text-gray-400">
-              <li><Link href="/minneapolis" className="hover:text-[#e5a527] transition-colors">Minneapolis</Link></li>
-              <li><Link href="/saint-paul" className="hover:text-[#e5a527] transition-colors">Saint Paul</Link></li>
-              <li><Link href="/rochester" className="hover:text-[#e5a527] transition-colors">Rochester</Link></li>
-              <li><Link href="/duluth" className="hover:text-[#e5a527] transition-colors">Duluth</Link></li>
+              <li><Link href="/minneapolis-south" className="hover:text-[#e5a527] transition-colors">Minneapolis South</Link></li>
+              <li><Link href="/st-paul-hamline-university" className="hover:text-[#e5a527] transition-colors">St. Paul Hamline-University</Link></li>
+              <li><Link href="/plymouth" className="hover:text-[#e5a527] transition-colors">Plymouth</Link></li>
               <li><Link href="/bloomington" className="hover:text-[#e5a527] transition-colors">Bloomington</Link></li>
+              <li><Link href="/duluth" className="hover:text-[#e5a527] transition-colors">Duluth</Link></li>
             </ul>
           </div>
           <div>

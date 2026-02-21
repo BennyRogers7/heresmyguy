@@ -12,12 +12,16 @@ export interface Plumber {
   slug: string;
   isFeatured: boolean;
   isVerified: boolean;
+  zipCode?: string;
+  neighborhood?: string;
 }
 
 export interface City {
   name: string;
   slug: string;
   count: number;
+  isNeighborhood?: boolean;
+  parentCity?: string;
 }
 
 export interface Service {

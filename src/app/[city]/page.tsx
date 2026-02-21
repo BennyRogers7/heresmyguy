@@ -26,12 +26,17 @@ export async function generateMetadata({ params }: CityPageProps): Promise<Metad
     };
   }
 
+  // For neighborhoods, include parent city in description
+  const locationDesc = city.isNeighborhood && city.parentCity
+    ? `${city.name} area of ${city.parentCity}`
+    : city.name;
+
   return {
     title: `Plumbers in ${city.name}, MN - ${city.count} Local Plumbing Professionals`,
-    description: `Find ${city.count} trusted plumbers in ${city.name}, Minnesota. Compare ratings, read reviews, and get quotes from licensed local plumbing professionals.`,
+    description: `Find ${city.count} trusted plumbers in ${locationDesc}, Minnesota. Compare ratings, read reviews, and get quotes from licensed local plumbing professionals.`,
     openGraph: {
       title: `Plumbers in ${city.name}, MN`,
-      description: `Find ${city.count} trusted plumbers in ${city.name}, Minnesota.`,
+      description: `Find ${city.count} trusted plumbers in ${locationDesc}, Minnesota.`,
     },
     alternates: {
       canonical: `/${city.slug}`,
@@ -48,6 +53,20 @@ export default async function CityPage({ params }: CityPageProps) {
   }
 
   const plumbers = getPlumbersByCity(citySlug);
+
+  // Build breadcrumb items based on whether this is a neighborhood
+  const breadcrumbItems = city.isNeighborhood && city.parentCity
+    ? [
+        { label: "Home", href: "/" },
+        { label: "Minnesota Plumbers", href: "/#cities" },
+        { label: city.parentCity, href: "/#cities" },
+        { label: city.name },
+      ]
+    : [
+        { label: "Home", href: "/" },
+        { label: "Minnesota Plumbers", href: "/#cities" },
+        { label: city.name },
+      ];
 
   const faqs = [
     {
@@ -73,13 +92,7 @@ export default async function CityPage({ params }: CityPageProps) {
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-[#1a1a2e] to-[#2d2d44] text-white py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Breadcrumbs
-            items={[
-              { label: "Home", href: "/" },
-              { label: "Minnesota Plumbers", href: "/#cities" },
-              { label: city.name },
-            ]}
-          />
+          <Breadcrumbs items={breadcrumbItems} />
           <h1 className="text-3xl md:text-4xl font-bold mt-4">
             Plumbers in <span className="text-[#d4a853]">{city.name}</span>, MN
           </h1>

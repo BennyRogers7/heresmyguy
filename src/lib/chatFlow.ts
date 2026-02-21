@@ -121,31 +121,68 @@ function isEmergencyResponse(text: string): boolean | null {
   return null;
 }
 
-// Minnesota zip code to city mapping (major areas)
+// Minnesota zip code to city/neighborhood mapping
+// Minneapolis/St. Paul proper map to neighborhoods, suburbs map to corrected city names
 const ZIP_TO_CITY: Record<string, string> = {
-  // Minneapolis area
-  '55401': 'Minneapolis', '55402': 'Minneapolis', '55403': 'Minneapolis', '55404': 'Minneapolis',
-  '55405': 'Minneapolis', '55406': 'Minneapolis', '55407': 'Minneapolis', '55408': 'Minneapolis',
-  '55409': 'Minneapolis', '55410': 'Minneapolis', '55411': 'Minneapolis', '55412': 'Minneapolis',
-  '55413': 'Minneapolis', '55414': 'Minneapolis', '55415': 'Minneapolis', '55416': 'Minneapolis',
-  '55417': 'Minneapolis', '55418': 'Minneapolis', '55419': 'Minneapolis', '55420': 'Bloomington',
-  '55421': 'Minneapolis', '55422': 'Minneapolis', '55423': 'Richfield', '55424': 'Edina',
-  '55425': 'Bloomington', '55426': 'St. Louis Park', '55427': 'Golden Valley', '55428': 'Crystal',
-  '55429': 'Brooklyn Center', '55430': 'Brooklyn Center', '55431': 'Bloomington', '55432': 'Fridley',
-  '55433': 'Coon Rapids', '55434': 'Blaine', '55435': 'Edina', '55436': 'Edina',
-  '55437': 'Bloomington', '55438': 'Bloomington', '55439': 'Edina', '55440': 'Minneapolis',
-  '55441': 'Plymouth', '55442': 'Plymouth', '55443': 'Brooklyn Park', '55444': 'Brooklyn Park',
-  '55445': 'Brooklyn Park', '55446': 'Plymouth', '55447': 'Plymouth', '55448': 'Coon Rapids',
-  '55449': 'Coon Rapids',
-  // Saint Paul area
-  '55101': 'Saint Paul', '55102': 'Saint Paul', '55103': 'Saint Paul', '55104': 'Saint Paul',
-  '55105': 'Saint Paul', '55106': 'Saint Paul', '55107': 'Saint Paul', '55108': 'Saint Paul',
-  '55109': 'Maplewood', '55110': 'White Bear Lake', '55111': 'Saint Paul', '55112': 'Arden Hills',
-  '55113': 'Roseville', '55114': 'Saint Paul', '55115': 'Mahtomedi', '55116': 'Saint Paul',
-  '55117': 'Saint Paul', '55118': 'West Saint Paul', '55119': 'Saint Paul', '55120': 'Mendota Heights',
-  '55121': 'Eagan', '55122': 'Eagan', '55123': 'Eagan', '55124': 'Apple Valley',
-  '55125': 'Woodbury', '55126': 'Shoreview', '55127': 'Vadnais Heights', '55128': 'Oakdale',
-  '55129': 'Woodbury', '55130': 'Saint Paul', '55150': 'Mendota', '55155': 'Saint Paul',
+  // Minneapolis neighborhoods
+  '55413': 'Minneapolis Northeast', '55414': 'Minneapolis Northeast', '55418': 'Minneapolis Northeast',
+  '55401': 'Minneapolis Downtown', '55402': 'Minneapolis Downtown', '55403': 'Minneapolis Downtown',
+  '55404': 'Minneapolis Downtown', '55415': 'Minneapolis Downtown',
+  '55408': 'Minneapolis Uptown',
+  '55406': 'Minneapolis South', '55407': 'Minneapolis South', '55417': 'Minneapolis South', '55419': 'Minneapolis South',
+  '55409': 'Minneapolis Southwest', '55410': 'Minneapolis Southwest',
+  '55411': 'Minneapolis North', '55412': 'Minneapolis North',
+  // Saint Paul neighborhoods
+  '55101': 'St. Paul Downtown', '55102': 'St. Paul Downtown',
+  '55116': 'St. Paul Highland',
+  '55104': 'St. Paul Hamline-University', '55105': 'St. Paul Hamline-University',
+  '55103': 'St. Paul East Side', '55106': 'St. Paul East Side', '55119': 'St. Paul East Side', '55130': 'St. Paul East Side',
+  '55107': 'St. Paul West Side',
+  // Suburbs (corrected from Minneapolis/St. Paul)
+  '55449': 'Plymouth', '55441': 'Plymouth', '55447': 'Plymouth',
+  '55428': 'Crystal', '55429': 'Crystal',
+  '55426': 'St. Louis Park',
+  '55369': 'Osseo',
+  '55432': 'Fridley', '55433': 'Fridley', '55434': 'Fridley',
+  '55423': 'Richfield', '55431': 'Richfield',
+  '55112': 'Shoreview', '55113': 'Shoreview',
+  '55416': 'Golden Valley', '55427': 'Golden Valley',
+  '55421': 'Columbia Heights',
+  '55420': 'Bloomington', '55437': 'Bloomington', '55438': 'Bloomington',
+  '55337': 'Burnsville',
+  '55110': 'White Bear Lake', '55115': 'White Bear Lake',
+  '55117': 'Roseville',
+  '55121': 'Eagan', '55122': 'Eagan', '55123': 'Eagan', '55124': 'Eagan',
+  '55125': 'Woodbury', '55128': 'Woodbury', '55129': 'Woodbury',
+  '55127': 'Vadnais Heights',
+  '55042': 'Lake Elmo', '55055': 'Stillwater',
+  // Additional suburbs
+  '55443': 'Brooklyn Park', '55444': 'Brooklyn Park', '55445': 'Brooklyn Park',
+  '55430': 'Brooklyn Center',
+  '55442': 'Plymouth', '55446': 'Plymouth',
+  '55448': 'Coon Rapids',
+  '55014': 'Circle Pines',
+  '55304': 'Andover',
+  '55344': 'Eden Prairie', '55346': 'Eden Prairie', '55347': 'Eden Prairie',
+  '55391': 'Wayzata',
+  '55305': 'Hopkins', '55343': 'Hopkins',
+  '55316': 'Champlin',
+  '55311': 'Maple Grove',
+  '55303': 'Anoka',
+  '55424': 'Edina', '55425': 'Bloomington', '55435': 'Edina', '55436': 'Edina', '55439': 'Edina',
+  // Saint Paul area suburbs
+  '55109': 'Maplewood',
+  '55038': 'Hugo',
+  '55068': 'Rosemount',
+  '55075': 'South St. Paul',
+  '55120': 'Mendota Heights',
+  '55076': 'Inver Grove Heights', '55077': 'Inver Grove Heights',
+  '55016': 'Cottage Grove',
+  '55090': 'North St. Paul',
+  '55044': 'Lakeville',
+  '55024': 'Farmington',
+  '55118': 'West Saint Paul',
+  '55126': 'Shoreview', '55150': 'Mendota',
   // Duluth area
   '55801': 'Duluth', '55802': 'Duluth', '55803': 'Duluth', '55804': 'Duluth',
   '55805': 'Duluth', '55806': 'Duluth', '55807': 'Duluth', '55808': 'Duluth',
@@ -153,18 +190,13 @@ const ZIP_TO_CITY: Record<string, string> = {
   // Rochester area
   '55901': 'Rochester', '55902': 'Rochester', '55903': 'Rochester', '55904': 'Rochester',
   '55905': 'Rochester', '55906': 'Rochester',
-  // Other major cities
+  // Other major cities (non-duplicates)
   '56301': 'Saint Cloud', '56302': 'Saint Cloud', '56303': 'Saint Cloud', '56304': 'Saint Cloud',
   '55060': 'Owatonna', '55057': 'Northfield', '55082': 'Stillwater', '55379': 'Shakopee',
-  '55044': 'Lakeville', '55337': 'Burnsville', '55306': 'Burnsville', '55318': 'Chanhassen',
-  '55317': 'Chanhassen', '55343': 'Hopkins', '55344': 'Eden Prairie', '55345': 'Minnetonka',
-  '55346': 'Eden Prairie', '55347': 'Eden Prairie', '55305': 'Hopkins', '55391': 'Wayzata',
-  '55331': 'Excelsior', '55364': 'Mound', '55369': 'Osseo', '55316': 'Champlin',
-  '55303': 'Anoka', '55304': 'Andover', '55014': 'Circle Pines', '55038': 'Hugo',
-  '55042': 'Lake Elmo', '55016': 'Cottage Grove', '55076': 'Inver Grove Heights',
-  '55077': 'Inver Grove Heights', '55068': 'Rosemount', '55372': 'Prior Lake',
+  '55306': 'Burnsville', '55318': 'Chanhassen', '55317': 'Chanhassen', '55345': 'Minnetonka',
+  '55331': 'Excelsior', '55364': 'Mound', '55372': 'Prior Lake',
   '55378': 'Savage', '55021': 'Faribault', '55033': 'Hastings', '55003': 'Bayport',
-  '55055': 'Newport', '55071': 'Saint Paul Park', '55066': 'Red Wing',
+  '55071': 'Saint Paul Park', '55066': 'Red Wing',
   '56071': 'New Ulm', '56001': 'Mankato', '56002': 'Mankato', '55987': 'Winona',
   '55720': 'Cloquet', '55746': 'Hibbing', '55792': 'Virginia', '55744': 'Grand Rapids',
   '56501': 'Detroit Lakes', '56560': 'Moorhead', '56601': 'Bemidji',
@@ -196,12 +228,28 @@ function findCity(input: string, cities: City[]): City | null {
     return null;
   }
 
-  // Handle common abbreviations
+  // Handle common abbreviations and neighborhood variations
   const cityAliases: Record<string, string> = {
     'mpls': 'minneapolis',
     'stpaul': 'saint paul',
     'st paul': 'saint paul',
     'st. paul': 'saint paul',
+    // Minneapolis neighborhood aliases
+    'northeast minneapolis': 'minneapolis northeast',
+    'ne minneapolis': 'minneapolis northeast',
+    'downtown minneapolis': 'minneapolis downtown',
+    'uptown minneapolis': 'minneapolis uptown',
+    'south minneapolis': 'minneapolis south',
+    'southwest minneapolis': 'minneapolis southwest',
+    // St. Paul neighborhood aliases
+    'downtown st paul': 'st. paul downtown',
+    'downtown saint paul': 'st. paul downtown',
+    'highland park': 'st. paul highland',
+    'highland st paul': 'st. paul highland',
+    'hamline': 'st. paul hamline-university',
+    'university ave': 'st. paul hamline-university',
+    'east side st paul': 'st. paul east side',
+    'east side': 'st. paul east side',
   };
   const aliasedInput = cityAliases[normalized] || normalized;
 
