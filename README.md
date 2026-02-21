@@ -13,14 +13,29 @@ The homepage features a conversational chat interface that helps users find the 
 - **Empathetic responses** - Context-aware replies based on the issue (leaks, floods, clogs, etc.)
 - **Smart location matching** - Supports city names, abbreviations (mpls, st paul), and zip codes
 - **Emergency filtering** - Prioritizes plumbers with 24/7 service for urgent issues
-- **Ranked results** - Featured plumbers first, then sorted by Google reviews
+- **Ranked results** - Sorted by Google reviews
 
-**Powered by Websimple AI**
+### Claim Your Listing
+Business owners can claim their listing at `/claim-listing`:
+
+- Submit business information and contact details
+- Select services offered
+- Email notifications sent via Resend
+- Verification required before connecting with customers
 
 ### Directory Pages
 - City pages (`/minneapolis`, `/saint-paul`, etc.)
 - Service pages (`/services/drain-cleaning`, etc.)
 - Individual plumber profiles (`/profile/[slug]`)
+
+### SEO Optimized
+- Canonical URLs on all pages
+- Open Graph and Twitter Card metadata
+- Organization and WebSite schema
+- Breadcrumb schema on city, profile, and service pages
+- Service schema on service pages
+- FAQ schema on city pages
+- Dynamic sitemap with 700+ pages
 
 ## Getting Started
 
@@ -31,19 +46,30 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000)
 
+## Environment Variables
+
+Create a `.env.local` file:
+
+```
+RESEND_API_KEY=re_xxxxxxxxxxxxx
+NOTIFICATION_EMAIL=your-email@example.com
+```
+
+Get your Resend API key at [resend.com](https://resend.com)
+
 ## Admin
 
-Manage featured plumbers at `/admin`
+Manage featured and verified plumbers at `/admin`
 
 **Password:** `mnplumbers2024`
 
-### To feature a plumber:
+### To feature/verify a plumber:
 
 1. Go to `mnplumb.com/admin`
 2. Search for the plumber
-3. Click "Feature"
+3. Click "Feature" or "Verify"
 4. Click "Copy JSON"
-5. Paste into `src/data/featured.json`
+5. Paste into `src/data/featured.json` or `src/data/verified.json`
 6. Commit and push
 
 ## Project Structure
@@ -52,6 +78,9 @@ Manage featured plumbers at `/admin`
 src/
 ├── app/
 │   ├── admin/           # Admin dashboard
+│   ├── api/             # API routes
+│   │   └── claim-listing/  # Claim form submission
+│   ├── claim-listing/   # Claim your listing page
 │   ├── [city]/          # City pages (minneapolis, etc.)
 │   ├── profile/         # Plumber profile pages
 │   └── services/        # Service category pages
@@ -59,7 +88,7 @@ src/
 │   ├── Chat.tsx         # Main chat interface
 │   ├── ChatMessage.tsx  # Chat message bubbles
 │   ├── ChatResults.tsx  # Plumber results in chat
-│   └── ThinkingIndicator.tsx  # Typing animation
+│   └── ClaimForm.tsx    # Claim listing form
 ├── data/
 │   ├── plumbers.csv     # All plumber data
 │   ├── featured.json    # Featured plumber slugs
@@ -79,17 +108,15 @@ src/
 4. Bot asks for location (city or zip code)
 5. Bot shows top 8 matched plumbers with contact info
 
-## Future: AI Integration
-
-The architecture is ready for Claude/OpenAI integration via Cloudflare Workers:
-
-1. Create a Worker at `/api/chat`
-2. Replace `chatFlow.ts` logic with API calls
-3. Matching and results display remain unchanged
-
 ## Deployment
 
 Deploys automatically to Cloudflare Pages on push to `main`.
 
 Build command: `npm run build`
 Output directory: `out`
+
+### Environment Variables on Cloudflare
+
+Add these in Cloudflare Pages > Settings > Environment variables:
+- `RESEND_API_KEY`
+- `NOTIFICATION_EMAIL`
