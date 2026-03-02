@@ -24,9 +24,17 @@ Business owners can claim their listing at `/claim-listing`:
 - Verification required before connecting with customers
 
 ### Directory Pages
-- City pages (`/minneapolis`, `/saint-paul`, etc.)
+- **Neighborhood pages** - Minneapolis and St. Paul are split into neighborhoods:
+  - Minneapolis: South, Northeast, Downtown, North, Uptown, Southwest
+  - St. Paul: Hamline-University, East Side, Highland, West Side, Downtown
+- **Suburb pages** - Corrected from Minneapolis/St. Paul to actual cities (Plymouth, Crystal, Golden Valley, etc.)
 - Service pages (`/services/drain-cleaning`, etc.)
 - Individual plumber profiles (`/profile/[slug]`)
+
+### ZIP-Based City Resolution
+Plumber locations are determined by ZIP code extracted from their address:
+- Minneapolis/St. Paul proper ZIPs → Neighborhood pages
+- Suburban ZIPs → Corrected city pages (e.g., 55426 → St. Louis Park)
 
 ### SEO Optimized
 - Canonical URLs on all pages
@@ -97,6 +105,7 @@ src/
     ├── chatFlow.ts      # Conversation state machine
     ├── matcher.ts       # Plumber matching algorithm
     ├── data.ts          # Data loading functions
+    ├── zipConfig.ts     # ZIP to neighborhood/city mapping
     └── types.ts         # TypeScript types
 ```
 
