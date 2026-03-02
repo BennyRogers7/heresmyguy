@@ -15,6 +15,14 @@ The homepage features a conversational chat interface that helps users find the 
 - **Emergency filtering** - Prioritizes plumbers with 24/7 service for urgent issues
 - **Ranked results** - Sorted by Google reviews
 
+### Header Search
+A search icon in the header allows plumbers to quickly look up their own listing:
+
+- Click the magnifying glass icon in the navigation
+- Type at least 2 characters to search by business name
+- Results show plumber name, city, and rating
+- Click a result to go directly to that profile page
+
 ### Claim Your Listing
 Business owners can claim their listing at `/claim-listing`:
 
@@ -96,7 +104,8 @@ src/
 │   ├── Chat.tsx         # Main chat interface
 │   ├── ChatMessage.tsx  # Chat message bubbles
 │   ├── ChatResults.tsx  # Plumber results in chat
-│   └── ClaimForm.tsx    # Claim listing form
+│   ├── ClaimForm.tsx    # Claim listing form
+│   └── HeaderSearch.tsx # Header search dropdown
 ├── data/
 │   ├── plumbers.csv     # All plumber data
 │   ├── featured.json    # Featured plumber slugs
