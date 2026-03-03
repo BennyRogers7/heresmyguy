@@ -45,7 +45,7 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        from: "MN Plumbers Directory <onboarding@resend.dev>",
+        from: "MN Plumbers Directory <noreply@email.websimple.ai>",
         to: context.env.NOTIFICATION_EMAIL || "hello@mnplumbers.com",
         subject: `New Listing Claim: ${data.businessName}`,
         html: `
