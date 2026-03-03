@@ -104,6 +104,10 @@ export default function ClaimForm({ cities }: ClaimFormProps) {
 
   return (
     <div className="bg-white rounded-2xl shadow-lg p-8">
+      <div className="mb-6 p-4 bg-gray-50 rounded-lg text-sm text-gray-600">
+        <p><strong>What's public:</strong> Business name, phone, city, address, website, and services</p>
+        <p className="mt-1"><strong>What's private:</strong> Your name and email (used only for verification)</p>
+      </div>
       <form onSubmit={handleSubmit} className="space-y-6">
         <div>
           <label htmlFor="businessName" className="block text-sm font-semibold text-[#1a1a2e] mb-2">
@@ -152,6 +156,7 @@ export default function ClaimForm({ cities }: ClaimFormProps) {
               className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-[#e5a527] focus:border-transparent transition-all"
               placeholder="you@example.com"
             />
+            <p className="mt-1 text-xs text-gray-500">Not public - used only to verify your listing</p>
           </div>
 
           <div>
