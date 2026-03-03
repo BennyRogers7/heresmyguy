@@ -36,8 +36,14 @@ export default function ClaimForm({ cities }: ClaimFormProps) {
       });
 
       if (!response.ok) {
-        const data = await response.json();
-        throw new Error(data.error || "Failed to submit claim");
+        let errorMsg = "Failed to submit claim";
+        try {
+          const data = await response.json();
+          errorMsg = data.error || errorMsg;
+        } catch {
+          // Response wasn't JSON, use default error message
+        }
+        throw new Error(errorMsg);
       }
 
       setStatus("success");
@@ -203,16 +209,16 @@ export default function ClaimForm({ cities }: ClaimFormProps) {
 
         <div>
           <label htmlFor="website" className="block text-sm font-semibold text-[#1a1a2e] mb-2">
-            Website
+            Website <span className="font-normal text-gray-500">(optional)</span>
           </label>
           <input
-            type="url"
+            type="text"
             id="website"
             name="website"
             value={formData.website}
             onChange={handleChange}
             className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-[#e5a527] focus:border-transparent transition-all"
-            placeholder="https://yourwebsite.com"
+            placeholder="yourwebsite.com"
           />
         </div>
 
