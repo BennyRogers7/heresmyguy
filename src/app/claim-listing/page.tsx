@@ -17,12 +17,18 @@ export default function ClaimListingPage() {
             Claim & Verify Your Listing
           </h1>
           <p className="text-gray-600 text-lg">
-            Own a plumbing business in Minnesota? Claim and verify your listing to stand out from the competition and connect with more customers.
+            Own a plumbing business in Minnesota? Submit this form to claim and verify your listing in one simple step. It's completely free.
+          </p>
+          <p className="text-gray-600 mt-3">
+            Don't see your business listed? No problem - fill out the form below and we'll add you to the directory.
           </p>
         </div>
 
         <div className="bg-gradient-to-br from-[#1a1a2e] to-[#2d2d44] rounded-2xl p-6 mb-10 text-white">
-          <h2 className="text-xl font-bold mb-4">Why Claim & Verify?</h2>
+          <div className="flex items-center justify-between mb-4">
+            <h2 className="text-xl font-bold">Why Claim & Verify?</h2>
+            <span className="bg-[#e5a527] text-[#1a1a2e] text-sm font-bold px-3 py-1 rounded-full">100% Free</span>
+          </div>
           <ul className="space-y-3">
             <li className="flex items-start gap-3">
               <svg className="w-6 h-6 text-[#e5a527] flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
