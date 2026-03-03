@@ -23,13 +23,16 @@ A search icon in the header allows plumbers to quickly look up their own listing
 - Results show plumber name, city, and rating
 - Click a result to go directly to that profile page
 
-### Claim Your Listing
-Business owners can claim their listing at `/claim-listing`:
+### Claim & Verify Your Listing
+Business owners can claim and verify their listing at `/claim-listing`:
 
+- **100% free** for plumbers to claim and verify
 - Submit business information and contact details
 - Select services offered
-- Email notifications sent via Resend
-- Verification required before connecting with customers
+- Benefits highlighted: priority placement, verified badge, accurate info, more customers
+- Clear public/private info disclosure (email is private, used for contact only)
+- Email notifications sent via Resend through Cloudflare Pages Functions
+- New businesses not in the directory can also submit to be added
 
 ### Directory Pages
 - **Neighborhood pages** - Minneapolis and St. Paul are split into neighborhoods:
@@ -91,11 +94,13 @@ Manage featured and verified plumbers at `/admin`
 ## Project Structure
 
 ```
+functions/
+└── api/
+    └── claim-listing.ts  # Cloudflare Pages Function for form submissions
+
 src/
 ├── app/
 │   ├── admin/           # Admin dashboard
-│   ├── api/             # API routes
-│   │   └── claim-listing/  # Claim form submission
 │   ├── claim-listing/   # Claim your listing page
 │   ├── [city]/          # City pages (minneapolis, etc.)
 │   ├── profile/         # Plumber profile pages
@@ -133,8 +138,21 @@ Deploys automatically to Cloudflare Pages on push to `main`.
 Build command: `npm run build`
 Output directory: `out`
 
+The site uses static export (`output: "export"`) for the Next.js pages, with Cloudflare Pages Functions handling server-side functionality (form submissions). The `functions/` directory is automatically detected and deployed by Cloudflare.
+
 ### Environment Variables on Cloudflare
 
-Add these in Cloudflare Pages > Settings > Environment variables:
-- `RESEND_API_KEY`
-- `NOTIFICATION_EMAIL`
+Add these in Cloudflare Pages > Settings > Variables and Secrets:
+- `RESEND_API_KEY` - API key from resend.com (encrypt this)
+- `NOTIFICATION_EMAIL` - Email address to receive claim form submissions
+
+### Local Development with Functions
+
+To test Cloudflare Pages Functions locally:
+
+```bash
+npm run build
+npx wrangler pages dev out
+```
+
+Create a `.dev.vars` file for local environment variables (not committed to git).
