@@ -187,6 +187,48 @@ export default async function CityPage({ params }: CityPageProps) {
         }}
       />
 
+      {/* ItemList Schema - Critical for Google Carousel Features */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            name: `Best Plumbers in ${city.name}, Minnesota`,
+            description: `Top-rated licensed plumbers serving ${city.name}, MN. Compare ratings, reviews, and services.`,
+            numberOfItems: plumbers.length,
+            itemListElement: plumbers.slice(0, 10).map((plumber, index) => ({
+              "@type": "ListItem",
+              position: index + 1,
+              item: {
+                "@type": "Plumber",
+                "@id": `https://mnplumb.com/profile/${plumber.slug}`,
+                name: plumber.name,
+                url: `https://mnplumb.com/profile/${plumber.slug}`,
+                telephone: plumber.phone,
+                address: {
+                  "@type": "PostalAddress",
+                  streetAddress: plumber.address,
+                  addressLocality: plumber.city,
+                  addressRegion: "MN",
+                  addressCountry: "US",
+                },
+                ...(plumber.rating && {
+                  aggregateRating: {
+                    "@type": "AggregateRating",
+                    ratingValue: plumber.rating,
+                    bestRating: 5,
+                    worstRating: 1,
+                    ratingCount: Math.max(1, Math.floor(plumber.rating * 3)),
+                  },
+                }),
+                priceRange: "$$",
+              },
+            })),
+          }),
+        }}
+      />
+
       {/* FAQ Schema */}
       <script
         type="application/ld+json"

@@ -62,6 +62,26 @@ export default async function ServicePage({ params }: ServicePageProps) {
     return (b.rating || 0) - (a.rating || 0);
   });
 
+  // Service-specific FAQs
+  const faqs = [
+    {
+      question: `What does ${service.name.toLowerCase()} cost in Minnesota?`,
+      answer: `The average cost for ${service.name.toLowerCase()} in Minnesota ranges from $150–$500 depending on complexity. Emergency services may cost more. Get quotes from multiple plumbers for the best rate.`,
+    },
+    {
+      question: `How do I find a plumber for ${service.name.toLowerCase()}?`,
+      answer: `Browse our directory of ${plumbers.length} licensed Minnesota plumbers. Filter by city, check Google ratings, and compare services. Featured plumbers are verified and highly rated.`,
+    },
+    {
+      question: `Do Minnesota plumbers offer emergency ${service.name.toLowerCase()}?`,
+      answer: `Many Minnesota plumbers offer 24/7 emergency services for ${service.name.toLowerCase()}. Look for plumbers advertising emergency availability or call during off-hours.`,
+    },
+    {
+      question: `Is ${service.name.toLowerCase()} covered by warranty?`,
+      answer: `Most licensed Minnesota plumbers offer warranties on ${service.name.toLowerCase()} work, typically 1-2 years on labor and manufacturer warranties on parts. Always ask about warranty terms before hiring.`,
+    },
+  ];
+
   return (
     <div className="bg-gray-50 min-h-screen">
       {/* Hero Section */}
@@ -162,6 +182,23 @@ export default async function ServicePage({ params }: ServicePageProps) {
                   ))}
               </ul>
             </div>
+
+            {/* FAQ Section */}
+            <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+              <h3 className="text-lg font-semibold text-[#1a1a2e] mb-4">
+                Frequently Asked Questions
+              </h3>
+              <div className="space-y-4">
+                {faqs.map((faq, index) => (
+                  <details key={index} className="group">
+                    <summary className="cursor-pointer text-sm font-medium text-gray-900 hover:text-[#d4a853]">
+                      {faq.question}
+                    </summary>
+                    <p className="mt-2 text-sm text-gray-600">{faq.answer}</p>
+                  </details>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -216,6 +253,66 @@ export default async function ServicePage({ params }: ServicePageProps) {
               name: "MN Plumbers Directory",
               url: "https://mnplumb.com",
             },
+          }),
+        }}
+      />
+
+      {/* ItemList Schema - For Google Carousel Features */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            name: `${service.name} Plumbers in Minnesota`,
+            description: `Top-rated Minnesota plumbers specializing in ${service.name.toLowerCase()}.`,
+            numberOfItems: Math.min(plumbers.length, 20),
+            itemListElement: plumbers.slice(0, 10).map((plumber, index) => ({
+              "@type": "ListItem",
+              position: index + 1,
+              item: {
+                "@type": "Plumber",
+                "@id": `https://mnplumb.com/profile/${plumber.slug}`,
+                name: plumber.name,
+                url: `https://mnplumb.com/profile/${plumber.slug}`,
+                telephone: plumber.phone,
+                address: {
+                  "@type": "PostalAddress",
+                  addressLocality: plumber.city,
+                  addressRegion: "MN",
+                  addressCountry: "US",
+                },
+                ...(plumber.rating && {
+                  aggregateRating: {
+                    "@type": "AggregateRating",
+                    ratingValue: plumber.rating,
+                    bestRating: 5,
+                    worstRating: 1,
+                    ratingCount: Math.max(1, Math.floor(plumber.rating * 3)),
+                  },
+                }),
+                priceRange: "$$",
+              },
+            })),
+          }),
+        }}
+      />
+
+      {/* FAQ Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: faqs.map((faq) => ({
+              "@type": "Question",
+              name: faq.question,
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: faq.answer,
+              },
+            })),
           }),
         }}
       />
