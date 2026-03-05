@@ -228,4 +228,21 @@ export function getPlumbersByZips(zips: string[]): Plumber[] {
   });
 }
 
+// Get plumbers by city that offer a specific service (or all if no specific match)
+export function getPlumbersByCityAndService(citySlug: string, serviceName: string): Plumber[] {
+  const cityPlumbers = getPlumbersByCity(citySlug);
+
+  // First try to find plumbers that explicitly offer this service
+  const serviceKeywords = serviceName.toLowerCase().split(/[\s-]+/);
+  const matchingPlumbers = cityPlumbers.filter((p) =>
+    p.services.some((s) =>
+      serviceKeywords.some((keyword) => s.toLowerCase().includes(keyword))
+    )
+  );
+
+  // If we have matches, return them; otherwise return all city plumbers
+  // (they may offer the service but not have it listed)
+  return matchingPlumbers.length > 0 ? matchingPlumbers : cityPlumbers;
+}
+
 export { generateCitySlug };

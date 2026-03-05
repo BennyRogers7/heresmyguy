@@ -25,6 +25,9 @@ export default function Header() {
             <Link href="/#services" className="font-medium hover:text-[#e5a527] transition-colors">
               Services
             </Link>
+            <Link href="/blog" className="font-medium hover:text-[#e5a527] transition-colors">
+              Blog
+            </Link>
             <HeaderSearch plumbers={plumbers} />
             <Link
               href="/claim-listing"
