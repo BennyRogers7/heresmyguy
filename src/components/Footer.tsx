@@ -38,6 +38,7 @@ export default function Footer() {
             <h4 className="font-bold mb-4 text-[#e5a527]">For Businesses</h4>
             <ul className="space-y-2 text-sm text-gray-400">
               <li><Link href="/claim-listing" className="hover:text-[#e5a527] transition-colors">Claim Your Listing</Link></li>
+              <li><Link href="/badge" className="hover:text-[#e5a527] transition-colors">Get Verified Badge</Link></li>
               <li><Link href="/featured" className="hover:text-[#e5a527] transition-colors">Get Featured</Link></li>
             </ul>
             <div className="mt-6 p-5 bg-gradient-to-br from-[#2d2d44] to-[#3a3a5c] rounded-xl border border-[#e85d04]/20">
