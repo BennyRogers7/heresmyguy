@@ -35,26 +35,55 @@ Business owners can claim and verify their listing at `/claim-listing`:
 - New businesses not in the directory can also submit to be added
 
 ### Directory Pages
-- **Neighborhood pages** - Minneapolis and St. Paul are split into neighborhoods:
-  - Minneapolis: South, Northeast, Downtown, North, Uptown, Southwest
-  - St. Paul: Hamline-University, East Side, Highland, West Side, Downtown
-- **Suburb pages** - Corrected from Minneapolis/St. Paul to actual cities (Plymouth, Crystal, Golden Valley, etc.)
-- Service pages (`/services/drain-cleaning`, etc.)
-- Individual plumber profiles (`/profile/[slug]`)
+- **City pages** - 86 cities across Minnesota
+- **Neighborhood pages** - Minneapolis and St. Paul split into neighborhoods
+- **City + Service pages** - 500 long-tail pages (e.g., `/minneapolis/drain-cleaning`)
+- **Service pages** - 10 service categories (`/services/drain-cleaning`, etc.)
+- **Plumber profiles** - Individual pages for all 676 plumbers
+
+### Blog
+Content marketing hub at `/blog`:
+
+- **Seasonal guides** - "How to Thaw Frozen Pipes in Minnesota"
+- **Cost guides** - "Minneapolis Sewer Line Repair Costs 2026"
+- **Local insights** - "Minnesota Plumber Hourly Rates by City"
+- **Maintenance checklists** - "Spring Plumbing Checklist"
+- Full markdown rendering with tables, lists, code blocks
+- BlogPosting schema on all articles
+
+### Verified Badge System
+Plumbers can get a free badge to display on their website at `/badge`:
+
+- **3 badge styles**: Standard (200×70), Compact (150×50), Minimal (120×40)
+- **3 color themes**: Dark, Light, Gold
+- **Embed code generator** with automatic backlink to plumber's profile
+- Verified/Featured plumbers display badge on their profile pages
+
+### SEO & Structured Data
+
+**Schema markup on all pages:**
+
+| Page Type | Schemas |
+|-----------|---------|
+| Profile | BreadcrumbList, LocalBusiness/Plumber (enhanced), FAQPage |
+| City | BreadcrumbList, ItemList, FAQPage |
+| City + Service | BreadcrumbList, ItemList, Service, FAQPage |
+| Service | BreadcrumbList, Service, ItemList, FAQPage |
+| Blog | BlogPosting, BreadcrumbList |
+| Layout | Organization, WebSite |
+
+**LocalBusiness schema includes:**
+- `priceRange`, `areaServed`, `paymentAccepted`
+- `aggregateRating` with `ratingCount`
+- `hasOfferCatalog` for services
+- `knowsAbout` for expertise
+
+**ItemList schema** enables Google carousel features on listing pages.
 
 ### ZIP-Based City Resolution
 Plumber locations are determined by ZIP code extracted from their address:
 - Minneapolis/St. Paul proper ZIPs → Neighborhood pages
 - Suburban ZIPs → Corrected city pages (e.g., 55426 → St. Louis Park)
-
-### SEO Optimized
-- Canonical URLs on all pages
-- Open Graph and Twitter Card metadata
-- Organization and WebSite schema
-- Breadcrumb schema on city, profile, and service pages
-- Service schema on service pages
-- FAQ schema on city pages
-- Dynamic sitemap with 700+ pages
 
 ## Getting Started
 
@@ -96,32 +125,49 @@ Manage featured and verified plumbers at `/admin`
 ```
 functions/
 └── api/
-    └── claim-listing.ts  # Cloudflare Pages Function for form submissions
+    └── claim-listing.ts    # Cloudflare Pages Function for form submissions
 
 src/
 ├── app/
-│   ├── admin/           # Admin dashboard
-│   ├── claim-listing/   # Claim your listing page
-│   ├── [city]/          # City pages (minneapolis, etc.)
-│   ├── profile/         # Plumber profile pages
-│   └── services/        # Service category pages
+│   ├── admin/              # Admin dashboard
+│   ├── badge/              # Verified badge generator
+│   ├── blog/               # Blog listing and posts
+│   ├── claim-listing/      # Claim your listing page
+│   ├── [city]/             # City pages
+│   │   └── [service]/      # City + Service combo pages
+│   ├── profile/            # Plumber profile pages
+│   └── services/           # Service category pages
 ├── components/
-│   ├── Chat.tsx         # Main chat interface
-│   ├── ChatMessage.tsx  # Chat message bubbles
-│   ├── ChatResults.tsx  # Plumber results in chat
-│   ├── ClaimForm.tsx    # Claim listing form
-│   └── HeaderSearch.tsx # Header search dropdown
+│   ├── Chat.tsx            # Main chat interface
+│   ├── ChatMessage.tsx     # Chat message bubbles
+│   ├── ChatResults.tsx     # Plumber results in chat
+│   ├── HeaderSearch.tsx    # Header search dropdown
+│   └── ...
 ├── data/
-│   ├── plumbers.csv     # All plumber data
-│   ├── featured.json    # Featured plumber slugs
-│   └── verified.json    # Verified plumber slugs
+│   ├── plumbers.csv        # All plumber data
+│   ├── featured.json       # Featured plumber slugs
+│   └── verified.json       # Verified plumber slugs
 └── lib/
-    ├── chatFlow.ts      # Conversation state machine
-    ├── matcher.ts       # Plumber matching algorithm
-    ├── data.ts          # Data loading functions
-    ├── zipConfig.ts     # ZIP to neighborhood/city mapping
-    └── types.ts         # TypeScript types
+    ├── blog.ts             # Blog posts and helpers
+    ├── chatFlow.ts         # Conversation state machine
+    ├── data.ts             # Data loading functions
+    ├── matcher.ts          # Plumber matching algorithm
+    ├── types.ts            # TypeScript types
+    └── zipConfig.ts        # ZIP to neighborhood/city mapping
 ```
+
+## Page Count
+
+| Page Type | Count |
+|-----------|-------|
+| Homepage | 1 |
+| City pages | 86 |
+| City + Service pages | 500 |
+| Service pages | 10 |
+| Plumber profiles | 676 |
+| Blog posts | 4 |
+| Static pages | 4 |
+| **Total** | **~1,280** |
 
 ## Chat Flow
 
@@ -156,3 +202,19 @@ npx wrangler pages dev out
 ```
 
 Create a `.dev.vars` file for local environment variables (not committed to git).
+
+### Manual Deployment
+
+```bash
+npm run build
+npx wrangler pages deploy out --project-name=mn-plumbers
+```
+
+## Tech Stack
+
+- **Framework**: Next.js 16 with React 19
+- **Styling**: Tailwind CSS 4
+- **Language**: TypeScript 5
+- **Hosting**: Cloudflare Pages
+- **Functions**: Cloudflare Pages Functions
+- **Email**: Resend API
