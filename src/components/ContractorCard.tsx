@@ -26,51 +26,62 @@ function FreeCard({
 }) {
   return (
     <div className="bg-white rounded-xl border border-gray-200 p-5 hover:border-[#d4a853] hover:shadow-md transition-all duration-200">
-      {/* Header */}
-      <div className="flex justify-between items-start gap-3 mb-2">
-        <Link href={`/profile/${business.slug}`} className="flex-1 min-w-0">
-          <h3 className="text-lg font-bold text-[#1a1a2e] hover:text-[#d4a853] transition-colors truncate">
-            {business.name}
-          </h3>
-        </Link>
-        {business.rating && (
-          <div className="flex items-center gap-1 shrink-0">
-            <StarRating rating={business.rating} showNumber={false} />
-            <span className="text-sm font-medium text-gray-700">
-              {business.rating.toFixed(1)}
-            </span>
-            {business.reviewCount > 0 && (
-              <span className="text-xs text-gray-500">
-                ({business.reviewCount})
+      {/* Header with Avatar */}
+      <div className="flex gap-3 mb-3">
+        {/* Avatar */}
+        <div className="w-12 h-12 rounded-lg bg-[#1a1a2e] flex items-center justify-center shrink-0">
+          <span className="text-xl font-bold text-[#d4a853]">
+            {business.name.charAt(0).toUpperCase()}
+          </span>
+        </div>
+
+        <div className="flex-1 min-w-0">
+          <div className="flex justify-between items-start gap-2">
+            <Link href={`/profile/${business.slug}`} className="flex-1 min-w-0">
+              <h3 className="text-lg font-bold text-[#1a1a2e] hover:text-[#d4a853] transition-colors truncate">
+                {business.name}
+              </h3>
+            </Link>
+            {business.rating && (
+              <div className="flex items-center gap-1 shrink-0">
+                <StarRating rating={business.rating} showNumber={false} />
+                <span className="text-sm font-medium text-gray-700">
+                  {business.rating.toFixed(1)}
+                </span>
+                {business.reviewCount > 0 && (
+                  <span className="text-xs text-gray-500">
+                    ({business.reviewCount})
+                  </span>
+                )}
+              </div>
+            )}
+          </div>
+
+          {/* Location + Badge */}
+          <div className="flex items-center gap-2 flex-wrap mt-1">
+            <p className="text-sm text-gray-600 capitalize">
+              {verticalDisplay} · {business.city}, {business.state}
+            </p>
+            {business.isClaimed ? (
+              <img
+                src="/VerifiedBadge.png"
+                alt="Verified Owner"
+                className="h-8 w-auto"
+              />
+            ) : (
+              <img
+                src="/UnclaimedBadge.png"
+                alt="Unclaimed"
+                className="h-8 w-auto"
+              />
+            )}
+            {!business.hasWebsite && (
+              <span className="inline-flex items-center text-xs font-medium px-2 py-0.5 rounded-full bg-gray-100 text-gray-500">
+                No website
               </span>
             )}
           </div>
-        )}
-      </div>
-
-      {/* Location + Badge */}
-      <div className="flex items-center gap-2 flex-wrap mb-3">
-        <p className="text-sm text-gray-600 capitalize">
-          {verticalDisplay} · {business.city}, {business.state}
-        </p>
-        {business.isClaimed ? (
-          <img
-            src="/VerifiedBadge.png"
-            alt="Verified Owner"
-            className="h-8 w-auto"
-          />
-        ) : (
-          <img
-            src="/UnclaimedBadge.png"
-            alt="Unclaimed"
-            className="h-8 w-auto"
-          />
-        )}
-        {!business.hasWebsite && (
-          <span className="inline-flex items-center text-xs font-medium px-2 py-0.5 rounded-full bg-gray-100 text-gray-500">
-            No website
-          </span>
-        )}
+        </div>
       </div>
 
       {/* Phone */}
