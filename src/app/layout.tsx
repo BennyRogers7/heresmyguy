@@ -15,42 +15,35 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://mnplumb.com"),
+  metadataBase: new URL("https://heresmyguy.com"),
   title: {
-    default: "MN Plumbers Directory | Find Licensed Plumbers in Minnesota",
-    template: "%s | MN Plumbers Directory",
+    default: "Here's My Guy | Find Trusted Local Contractors",
+    template: "%s | Here's My Guy",
   },
   description:
-    "Find trusted, licensed plumbers in Minnesota. Browse 628+ plumbers across 62 cities. Read reviews, compare ratings, and get quotes from local plumbing professionals.",
+    "Find the contractor your neighbor swears by. Browse 2,000+ landscapers, roofers, electricians, and more across the US. Read reviews, compare ratings, and hire with confidence.",
   keywords: [
-    "Minnesota plumbers",
-    "MN plumbers",
-    "plumbers near me",
-    "licensed plumbers Minnesota",
-    "plumbing services MN",
+    "contractors near me",
+    "local contractors",
+    "landscapers",
+    "roofers",
+    "electricians",
+    "find a contractor",
+    "trusted contractors",
   ],
   openGraph: {
-    title: "MN Plumbers Directory | Find Licensed Plumbers in Minnesota",
+    title: "Here's My Guy | Find Trusted Local Contractors",
     description:
-      "Find trusted, licensed plumbers in Minnesota. Browse 628+ plumbers across 62 cities.",
+      "Find the contractor your neighbor swears by. Browse local pros, read reviews, and hire with confidence.",
     type: "website",
     locale: "en_US",
-    siteName: "MN Plumbers Directory",
-    images: [
-      {
-        url: "/images/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "MN Plumbers Directory - Find Licensed Plumbers in Minnesota",
-      },
-    ],
+    siteName: "Here's My Guy",
   },
   twitter: {
     card: "summary_large_image",
-    title: "MN Plumbers Directory | Find Licensed Plumbers in Minnesota",
+    title: "Here's My Guy | Find Trusted Local Contractors",
     description:
-      "Find trusted, licensed plumbers in Minnesota. Browse 628+ plumbers across 62 cities.",
-    images: ["/images/og-image.png"],
+      "Find the contractor your neighbor swears by. Browse local pros, read reviews, and hire with confidence.",
   },
   alternates: {
     canonical: "/",
@@ -60,28 +53,26 @@ export const metadata: Metadata = {
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  name: "MN Plumbers Directory",
-  url: "https://mnplumb.com",
-  logo: "https://mnplumb.com/images/og-image.png",
+  name: "Here's My Guy",
+  url: "https://heresmyguy.com",
+  logo: "https://heresmyguy.com/mascot.png",
   description:
-    "Find trusted, licensed plumbers in Minnesota. Browse 628+ plumbers across 62 cities.",
+    "Find the contractor your neighbor swears by. Browse trusted local contractors across the US.",
   areaServed: {
-    "@type": "State",
-    name: "Minnesota",
-    addressCountry: "US",
+    "@type": "Country",
+    name: "United States",
   },
-  sameAs: [],
 };
 
 const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  name: "MN Plumbers Directory",
-  url: "https://mnplumb.com",
+  name: "Here's My Guy",
+  url: "https://heresmyguy.com",
   potentialAction: {
     "@type": "SearchAction",
-    target: "https://mnplumb.com/{city}",
-    "query-input": "required name=city",
+    target: "https://heresmyguy.com/{state}/{city}/{vertical}",
+    "query-input": "required name=vertical",
   },
 };
 
@@ -107,7 +98,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gray-50`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#f8f7f4]`}
       >
         <Header />
         <main className="min-h-screen">{children}</main>

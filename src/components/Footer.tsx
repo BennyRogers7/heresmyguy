@@ -1,63 +1,119 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#1a1a2e] text-white mt-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+    <footer className="bg-[#1a1a2e] text-white mt-12">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          {/* Brand */}
           <div>
-            <h3 className="text-xl font-bold mb-1 tracking-tight">
-              <span className="text-[#e5a527]">MN</span> Plumbers Directory
-            </h3>
-            <p className="text-[#e5a527] text-sm font-medium mb-3">Minnesota&apos;s #1 Resource for Trusted Plumbers</p>
+            <div className="flex items-center gap-2 mb-3">
+              <Image
+                src="/mascot.png"
+                alt="Here's My Guy mascot"
+                width={36}
+                height={36}
+                className="w-9 h-9"
+              />
+              <h3 className="text-lg font-bold tracking-tight">
+                Here&apos;s My <span className="text-[#d4a853]">Guy</span>
+              </h3>
+            </div>
             <p className="text-gray-400 text-sm leading-relaxed">
-              The most comprehensive directory of licensed plumbers in Minnesota. Find trusted professionals in your city.
+              The contractor your neighbor swears by. Find trusted local pros across the country.
             </p>
           </div>
+
+          {/* Browse by State */}
           <div>
-            <h4 className="font-bold mb-4 text-[#e5a527]">Popular Areas</h4>
+            <h4 className="font-bold mb-4 text-[#d4a853]">Top States</h4>
             <ul className="space-y-2 text-sm text-gray-400">
-              <li><Link href="/minneapolis-south" className="hover:text-[#e5a527] transition-colors">Minneapolis South</Link></li>
-              <li><Link href="/st-paul-hamline-university" className="hover:text-[#e5a527] transition-colors">St. Paul Hamline-University</Link></li>
-              <li><Link href="/plymouth" className="hover:text-[#e5a527] transition-colors">Plymouth</Link></li>
-              <li><Link href="/bloomington" className="hover:text-[#e5a527] transition-colors">Bloomington</Link></li>
-              <li><Link href="/duluth" className="hover:text-[#e5a527] transition-colors">Duluth</Link></li>
+              <li>
+                <Link href="/ohio" className="hover:text-[#d4a853] transition-colors">
+                  Ohio
+                </Link>
+              </li>
+              <li>
+                <Link href="/wisconsin" className="hover:text-[#d4a853] transition-colors">
+                  Wisconsin
+                </Link>
+              </li>
+              <li>
+                <Link href="/indiana" className="hover:text-[#d4a853] transition-colors">
+                  Indiana
+                </Link>
+              </li>
+              <li>
+                <Link href="/illinois" className="hover:text-[#d4a853] transition-colors">
+                  Illinois
+                </Link>
+              </li>
             </ul>
           </div>
+
+          {/* Verticals */}
           <div>
-            <h4 className="font-bold mb-4 text-[#e5a527]">Services</h4>
+            <h4 className="font-bold mb-4 text-[#d4a853]">Find Contractors</h4>
             <ul className="space-y-2 text-sm text-gray-400">
-              <li><Link href="/services/emergency-plumbing" className="hover:text-[#e5a527] transition-colors">Emergency Plumbing</Link></li>
-              <li><Link href="/services/drain-cleaning" className="hover:text-[#e5a527] transition-colors">Drain Cleaning</Link></li>
-              <li><Link href="/services/water-heater" className="hover:text-[#e5a527] transition-colors">Water Heater</Link></li>
-              <li><Link href="/services/sewer-line-repair" className="hover:text-[#e5a527] transition-colors">Sewer Line Repair</Link></li>
-              <li><Link href="/services/leak-detection" className="hover:text-[#e5a527] transition-colors">Leak Detection</Link></li>
+              <li>
+                <Link href="/landscapers" className="hover:text-[#d4a853] transition-colors">
+                  Landscapers
+                </Link>
+              </li>
+              <li>
+                <Link href="/roofers" className="hover:text-[#d4a853] transition-colors">
+                  Roofers
+                </Link>
+              </li>
+              <li>
+                <Link href="/electricians" className="hover:text-[#d4a853] transition-colors">
+                  Electricians
+                </Link>
+              </li>
+              <li>
+                <Link href="/plumbers" className="hover:text-[#d4a853] transition-colors">
+                  Plumbers
+                </Link>
+              </li>
             </ul>
           </div>
+
+          {/* For Businesses */}
           <div>
-            <h4 className="font-bold mb-4 text-[#e5a527]">For Businesses</h4>
+            <h4 className="font-bold mb-4 text-[#d4a853]">For Businesses</h4>
             <ul className="space-y-2 text-sm text-gray-400">
-              <li><Link href="/claim-listing" className="hover:text-[#e5a527] transition-colors">Claim Your Listing</Link></li>
-              <li><Link href="/badge" className="hover:text-[#e5a527] transition-colors">Get Verified Badge</Link></li>
-              <li><Link href="/featured" className="hover:text-[#e5a527] transition-colors">Get Featured</Link></li>
+              <li>
+                <Link href="/claim-listing" className="hover:text-[#d4a853] transition-colors">
+                  Claim Your Listing
+                </Link>
+              </li>
+              <li>
+                <Link href="/featured" className="hover:text-[#d4a853] transition-colors">
+                  Get Featured
+                </Link>
+              </li>
             </ul>
-            <div className="mt-6 p-5 bg-gradient-to-br from-[#2d2d44] to-[#3a3a5c] rounded-xl border border-[#e85d04]/20">
-              <p className="text-base text-[#e5a527] font-bold mb-1">Need a website?</p>
-              <p className="text-sm text-gray-300 mb-3">We build plumber websites in 24 hours</p>
+            <div className="mt-5 p-4 bg-[#2d2d44] rounded-xl">
+              <p className="text-sm text-[#d4a853] font-semibold mb-1">Need a website?</p>
+              <p className="text-xs text-gray-400 mb-3">
+                We build contractor websites in 24 hours
+              </p>
               <a
                 href="https://websimpleai.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block bg-gradient-to-r from-[#e85d04] to-[#f77f3a] text-white text-sm font-bold px-4 py-2 rounded-lg hover:shadow-lg hover:shadow-orange-500/25 transition-all"
+                className="inline-block bg-[#d4a853] text-[#1a1a2e] text-xs font-bold px-3 py-1.5 rounded-lg hover:bg-[#e5b863] transition-colors"
               >
-                Get Started &rarr;
+                Get Started
               </a>
             </div>
           </div>
         </div>
-        <div className="border-t border-gray-700 mt-10 pt-8 text-center text-sm text-gray-400">
-          <p>&copy; {new Date().getFullYear()} MN Plumbers Directory. All rights reserved.</p>
-          <p className="mt-2 text-gray-500">Powered by <a href="https://websimpleai.com" target="_blank" rel="noopener noreferrer" className="text-[#e5a527] hover:underline">Websimple AI</a></p>
+
+        {/* Bottom */}
+        <div className="border-t border-gray-700 mt-10 pt-6 text-center text-sm text-gray-500">
+          <p>&copy; {new Date().getFullYear()} Here&apos;s My Guy. All rights reserved.</p>
         </div>
       </div>
     </footer>

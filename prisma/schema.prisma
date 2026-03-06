@@ -1,0 +1,198 @@
+// HereIsMyGuy.com - National Contractor Directory
+// Prisma Schema for PostgreSQL
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ============================================================================
+// CORE TABLES
+// ============================================================================
+
+model Business {
+  id            String   @id @default(cuid())
+  name          String
+  slug          String   @unique
+  phone         String?
+  email         String?
+  address       String?
+  city          String
+  state         String   // State abbreviation (OH, WI, etc.)
+  zip           String?
+  website       String?
+
+  // Ratings
+  rating        Float?   // Google rating (1-5)
+  reviewCount   Int      @default(0)
+
+  // Classification
+  verticalSlug  String   // Reference to vertical (e.g., "landscapers")
+  vertical      Vertical @relation(fields: [verticalSlug], references: [slug])
+
+  // Flags
+  hasWebsite    Boolean  @default(false)
+  isFeatured    Boolean  @default(false)
+  isClaimed     Boolean  @default(false)
+  isVerified    Boolean  @default(false)
+  isWomenOwned  Boolean  @default(false)
+
+  // Featured listing details
+  featuredSince DateTime?
+  featuredTier  String?   // "basic", "premium" - for future pricing tiers
+
+  // Claim details
+  claimedAt     DateTime?
+  claimedBy     String?   // Email of person who claimed
+
+  // Extended profile (unlocked when claimed/featured)
+  logo          String?   // URL to logo image
+  photos        String[]  // Array of photo URLs
+  description   String?   // Extended business description
+
+  // Source tracking
+  source        String?   // "outscraper", "manual", etc.
+  sourceId      String?   // Original ID from source
+
+  // Timestamps
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  @@index([state, city])
+  @@index([verticalSlug])
+  @@index([isFeatured])
+  @@index([state, city, verticalSlug])
+}
+
+model Vertical {
+  id          String   @id @default(cuid())
+  name        String   // Display name: "Landscapers"
+  slug        String   @unique // URL slug: "landscapers"
+  nameSingular String  // Singular form: "Landscaper"
+  icon        String?  // Icon name or emoji
+  description String?  // SEO description
+  isActive    Boolean  @default(true)
+  sortOrder   Int      @default(0)
+
+  // Relations
+  businesses  Business[]
+
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model State {
+  id           String   @id @default(cuid())
+  name         String   // Full name: "Ohio"
+  slug         String   @unique // URL slug: "ohio"
+  abbreviation String   @unique // Two-letter: "OH"
+  isActive     Boolean  @default(true)
+
+  // Relations
+  cities       City[]
+
+  // Denormalized counts (updated via triggers or periodic jobs)
+  businessCount Int     @default(0)
+
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model City {
+  id            String   @id @default(cuid())
+  name          String   // Display name: "Lancaster"
+  slug          String   // URL slug: "lancaster"
+
+  // State relation
+  stateId       String
+  state         State    @relation(fields: [stateId], references: [id])
+
+  // Denormalized counts
+  businessCount Int      @default(0)
+
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  // Unique constraint: city slug must be unique within a state
+  @@unique([stateId, slug])
+  @@index([stateId])
+}
+
+// ============================================================================
+// CLAIM & VERIFICATION
+// ============================================================================
+
+model ClaimRequest {
+  id           String   @id @default(cuid())
+  businessId   String
+
+  // Contact info provided
+  email        String?
+  phone        String?
+
+  // Verification
+  verificationCode String?
+  verifiedAt   DateTime?
+
+  // Status: "pending", "verified", "approved", "rejected"
+  status       String   @default("pending")
+
+  // Admin notes
+  notes        String?
+
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  @@index([businessId])
+  @@index([status])
+}
+
+// ============================================================================
+// SUBSCRIPTIONS (Stripe integration)
+// ============================================================================
+
+model Subscription {
+  id                   String   @id @default(cuid())
+  businessId           String   @unique
+
+  // Stripe IDs
+  stripeCustomerId     String?
+  stripeSubscriptionId String?
+  stripePriceId        String?
+
+  // Status: "active", "canceled", "past_due", "trialing"
+  status               String   @default("active")
+
+  // Billing
+  currentPeriodStart   DateTime?
+  currentPeriodEnd     DateTime?
+  cancelAtPeriodEnd    Boolean  @default(false)
+
+  createdAt            DateTime @default(now())
+  updatedAt            DateTime @updatedAt
+
+  @@index([stripeCustomerId])
+  @@index([stripeSubscriptionId])
+}
+
+// ============================================================================
+// ANALYTICS (optional - for tracking listing views)
+// ============================================================================
+
+model PageView {
+  id         String   @id @default(cuid())
+  businessId String?
+  path       String
+  referrer   String?
+  userAgent  String?
+  ip         String?
+
+  createdAt  DateTime @default(now())
+
+  @@index([businessId])
+  @@index([createdAt])
+}

@@ -1,41 +1,66 @@
 import Link from "next/link";
-import { getAllPlumbers } from "@/lib/data";
-import HeaderSearch from "./HeaderSearch";
+import Image from "next/image";
 
 export default function Header() {
-  const plumbers = getAllPlumbers();
-
   return (
-    <header className="bg-[#1a1a2e] text-white shadow-lg">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-18">
-          <Link href="/" className="flex flex-col">
-            <span className="text-2xl font-bold tracking-tight">
-              <span className="text-[#e5a527]">MN</span> Plumbers Directory
-            </span>
-            <span className="text-xs text-gray-400 font-normal">Minnesota&apos;s #1 Resource for Trusted Plumbers</span>
+    <header className="bg-[#1a1a2e] text-white shadow-lg sticky top-0 z-50">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+        <div className="flex items-center justify-between h-16 md:h-18">
+          {/* Logo */}
+          <Link href="/" className="flex items-center gap-2 md:gap-3">
+            <Image
+              src="/mascot.png"
+              alt="Here's My Guy mascot"
+              width={44}
+              height={44}
+              className="w-10 h-10 md:w-11 md:h-11"
+            />
+            <div className="flex flex-col">
+              <span className="text-lg md:text-xl font-bold tracking-tight leading-tight">
+                Here&apos;s My <span className="text-[#d4a853]">Guy</span>
+              </span>
+              <span className="text-[10px] md:text-xs text-gray-400 font-normal hidden sm:block">
+                The contractor your neighbor swears by
+              </span>
+            </div>
           </Link>
-          <nav className="hidden md:flex items-center space-x-8">
-            <Link href="/" className="font-medium hover:text-[#e5a527] transition-colors">
+
+          {/* Desktop Nav */}
+          <nav className="hidden md:flex items-center space-x-6">
+            <Link
+              href="/"
+              className="text-sm font-medium hover:text-[#d4a853] transition-colors"
+            >
               Home
             </Link>
-            <Link href="/#cities" className="font-medium hover:text-[#e5a527] transition-colors">
-              Cities
+            <Link
+              href="/landscapers"
+              className="text-sm font-medium hover:text-[#d4a853] transition-colors"
+            >
+              Landscapers
             </Link>
-            <Link href="/#services" className="font-medium hover:text-[#e5a527] transition-colors">
-              Services
-            </Link>
-            <Link href="/blog" className="font-medium hover:text-[#e5a527] transition-colors">
-              Blog
-            </Link>
-            <HeaderSearch plumbers={plumbers} />
             <Link
               href="/claim-listing"
-              className="bg-gradient-to-r from-[#e85d04] to-[#f77f3a] text-white px-5 py-2.5 rounded-lg font-bold hover:shadow-lg hover:shadow-orange-500/30 transition-all duration-200"
+              className="bg-[#d4a853] text-[#1a1a2e] px-4 py-2 rounded-lg font-bold text-sm hover:bg-[#e5b863] transition-colors"
             >
-              Claim Your Listing
+              Claim Listing
             </Link>
           </nav>
+
+          {/* Mobile Menu Button */}
+          <button
+            className="md:hidden p-2 text-gray-300 hover:text-white"
+            aria-label="Open menu"
+          >
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            </svg>
+          </button>
         </div>
       </div>
     </header>
