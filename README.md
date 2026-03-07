@@ -1,94 +1,87 @@
-# MN Plumbers Directory
+# Here's My Guy
 
-A directory of 676+ licensed plumbers across Minnesota with an AI-powered chat concierge. Built with Next.js, deployed on Cloudflare Pages.
+A national contractor directory with 5,400+ verified contractors across multiple trades. Find the contractor your neighbor swears by.
 
-**Live:** [mnplumb.com](https://mnplumb.com)
+**Live:** [heresmyguy.com](https://heresmyguy.com)
 
 ## Features
 
-### AI Chat Concierge
-The homepage features a conversational chat interface that helps users find the right plumber:
+### Multi-Vertical Directory
+Browse contractors across 9 trade categories:
+- Plumbers
+- Electricians
+- HVAC
+- Roofers
+- Landscapers
+- Painters
+- Pool Contractors
+- General Contractors
+- Pest Control
 
-- **Natural conversation flow** - Users describe their problem in their own words
-- **Empathetic responses** - Context-aware replies based on the issue (leaks, floods, clogs, etc.)
-- **Smart location matching** - Supports city names, abbreviations (mpls, st paul), and zip codes
-- **Emergency filtering** - Prioritizes plumbers with 24/7 service for urgent issues
-- **Ranked results** - Sorted by Google reviews
+### Geographic Coverage
+- **18 states** with contractor listings
+- **500+ cities** with dedicated landing pages
+- State → City → Vertical drill-down navigation
 
-### Header Search
-A search icon in the header allows plumbers to quickly look up their own listing:
+### Listing Cards
+- **Free listings**: Business name, phone, rating, location, claim CTA
+- **Featured listings**: Logo, description, website link, premium placement
+- Avatar placeholders with business initials (navy/gold color scheme)
 
-- Click the magnifying glass icon in the navigation
-- Type at least 2 characters to search by business name
-- Results show plumber name, city, and rating
-- Click a result to go directly to that profile page
+### Badge System
+Visual trust indicators on all listings:
+- **Unclaimed** - Gray badge for unclaimed listings
+- **Verified Owner** - Gold badge for claimed & verified businesses
+- Custom mascot badge images
 
-### Claim & Verify Your Listing
-Business owners can claim and verify their listing at `/claim-listing`:
+### Profile Pages
+Full contractor profiles with:
+- Contact information (phone, address, website)
+- Google rating and review count
+- Claim CTA sidebar with benefits list
+- Photos and Services sections (placeholder for unclaimed)
+- About This Listing section
+- Structured data for SEO
 
-- **100% free** for plumbers to claim and verify
-- Submit business information and contact details
-- Select services offered
-- Benefits highlighted: priority placement, verified badge, accurate info, more customers
-- Clear public/private info disclosure (email is private, used for contact only)
-- Email notifications sent via Resend through Cloudflare Pages Functions
-- New businesses not in the directory can also submit to be added
-
-### Directory Pages
-- **City pages** - 86 cities across Minnesota
-- **Neighborhood pages** - Minneapolis and St. Paul split into neighborhoods
-- **City + Service pages** - 500 long-tail pages (e.g., `/minneapolis/drain-cleaning`)
-- **Service pages** - 10 service categories (`/services/drain-cleaning`, etc.)
-- **Plumber profiles** - Individual pages for all 676 plumbers
-
-### Blog
-Content marketing hub at `/blog`:
-
-- **Seasonal guides** - "How to Thaw Frozen Pipes in Minnesota"
-- **Cost guides** - "Minneapolis Sewer Line Repair Costs 2026"
-- **Local insights** - "Minnesota Plumber Hourly Rates by City"
-- **Maintenance checklists** - "Spring Plumbing Checklist"
-- Full markdown rendering with tables, lists, code blocks
-- BlogPosting schema on all articles
-
-### Verified Badge System
-Plumbers can get a free badge to display on their website at `/badge`:
-
-- **3 badge styles**: Standard (200×70), Compact (150×50), Minimal (120×40)
-- **3 color themes**: Dark, Light, Gold
-- **Embed code generator** with automatic backlink to plumber's profile
-- Verified/Featured plumbers display badge on their profile pages
+### Claim Your Listing
+Business owners can claim their free listing:
+- Verify ownership
+- Add photos and services
+- Display website
+- Get Verified Owner badge
+- Respond to reviews
 
 ### SEO & Structured Data
+- BreadcrumbList schema on all pages
+- LocalBusiness schema on profiles
+- ItemList schema on listing pages
+- Dynamic meta titles and descriptions
+- Canonical URLs
 
-**Schema markup on all pages:**
+## Tech Stack
 
-| Page Type | Schemas |
-|-----------|---------|
-| Profile | BreadcrumbList, LocalBusiness/Plumber (enhanced), FAQPage |
-| City | BreadcrumbList, ItemList, FAQPage |
-| City + Service | BreadcrumbList, ItemList, Service, FAQPage |
-| Service | BreadcrumbList, Service, ItemList, FAQPage |
-| Blog | BlogPosting, BreadcrumbList |
-| Layout | Organization, WebSite |
-
-**LocalBusiness schema includes:**
-- `priceRange`, `areaServed`, `paymentAccepted`
-- `aggregateRating` with `ratingCount`
-- `hasOfferCatalog` for services
-- `knowsAbout` for expertise
-
-**ItemList schema** enables Google carousel features on listing pages.
-
-### ZIP-Based City Resolution
-Plumber locations are determined by ZIP code extracted from their address:
-- Minneapolis/St. Paul proper ZIPs → Neighborhood pages
-- Suburban ZIPs → Corrected city pages (e.g., 55426 → St. Louis Park)
+- **Framework**: Next.js 16 (App Router)
+- **Database**: PostgreSQL (Neon serverless)
+- **ORM**: Prisma
+- **Styling**: Tailwind CSS 4
+- **Language**: TypeScript 5
+- **Hosting**: Vercel
+- **Static Generation**: 6,900+ pre-rendered pages
 
 ## Getting Started
 
 ```bash
+# Install dependencies
 npm install
+
+# Set up environment variables
+cp .env.example .env.local
+# Add your DATABASE_URL
+
+# Generate Prisma client
+npx prisma generate
+
+# Run development server
 npm run dev
 ```
 
@@ -99,122 +92,113 @@ Open [http://localhost:3000](http://localhost:3000)
 Create a `.env.local` file:
 
 ```
-RESEND_API_KEY=re_xxxxxxxxxxxxx
-NOTIFICATION_EMAIL=your-email@example.com
+DATABASE_URL=postgresql://user:pass@host/db?sslmode=require
 ```
 
-Get your Resend API key at [resend.com](https://resend.com)
+## Database
 
-## Admin
+### Prisma Commands
 
-Manage featured and verified plumbers at `/admin`
+```bash
+# Generate client after schema changes
+npx prisma generate
 
-**Password:** `mnplumbers2024`
+# Push schema to database
+npx prisma db push
 
-### To feature/verify a plumber:
+# Seed initial data
+npx prisma db seed
 
-1. Go to `mnplumb.com/admin`
-2. Search for the plumber
-3. Click "Feature" or "Verify"
-4. Click "Copy JSON"
-5. Paste into `src/data/featured.json` or `src/data/verified.json`
-6. Commit and push
+# Open Prisma Studio
+npx prisma studio
+```
+
+### Import Scripts
+
+```bash
+# Import Minnesota contractors
+npx tsx scripts/import-mn-contractors.ts plumbers
+npx tsx scripts/import-mn-contractors.ts all
+
+# Preview without importing
+npx tsx scripts/import-mn-contractors.ts plumbers --dry-run
+```
 
 ## Project Structure
 
 ```
-functions/
-└── api/
-    └── claim-listing.ts    # Cloudflare Pages Function for form submissions
-
 src/
 ├── app/
-│   ├── admin/              # Admin dashboard
-│   ├── badge/              # Verified badge generator
-│   ├── blog/               # Blog listing and posts
-│   ├── claim-listing/      # Claim your listing page
-│   ├── [city]/             # City pages
-│   │   └── [service]/      # City + Service combo pages
-│   ├── profile/            # Plumber profile pages
-│   └── services/           # Service category pages
+│   ├── [state]/              # State pages
+│   │   └── [city]/           # City pages
+│   │       └── [vertical]/   # City + Vertical pages
+│   ├── trade/
+│   │   └── [vertical]/       # Trade/vertical browse pages
+│   ├── profile/
+│   │   └── [slug]/           # Contractor profile pages
+│   ├── admin/                # Admin dashboard
+│   ├── claim-listing/        # Claim listing page
+│   └── page.tsx              # Homepage
 ├── components/
-│   ├── Chat.tsx            # Main chat interface
-│   ├── ChatMessage.tsx     # Chat message bubbles
-│   ├── ChatResults.tsx     # Plumber results in chat
-│   ├── HeaderSearch.tsx    # Header search dropdown
-│   └── ...
-├── data/
-│   ├── plumbers.csv        # All plumber data
-│   ├── featured.json       # Featured plumber slugs
-│   └── verified.json       # Verified plumber slugs
-└── lib/
-    ├── blog.ts             # Blog posts and helpers
-    ├── chatFlow.ts         # Conversation state machine
-    ├── data.ts             # Data loading functions
-    ├── matcher.ts          # Plumber matching algorithm
-    ├── types.ts            # TypeScript types
-    └── zipConfig.ts        # ZIP to neighborhood/city mapping
+│   ├── ContractorCard.tsx    # Listing card component
+│   ├── StarRating.tsx        # Star rating display
+│   ├── Breadcrumbs.tsx       # Navigation breadcrumbs
+│   ├── Header.tsx            # Site header
+│   └── Footer.tsx            # Site footer
+├── lib/
+│   └── db.ts                 # Database queries & types
+└── data/
+    ├── featured.json         # Featured business slugs
+    └── verified.json         # Verified business slugs
+
+prisma/
+├── schema.prisma             # Database schema
+└── seed.ts                   # Seed script
+
+scripts/
+├── import-mn-contractors.ts  # MN CSV import
+├── import-landscapers.ts     # XLSX import
+└── recategorize-businesses.ts # Data cleanup
 ```
 
-## Page Count
+## Page Counts
 
 | Page Type | Count |
 |-----------|-------|
 | Homepage | 1 |
-| City pages | 86 |
-| City + Service pages | 500 |
-| Service pages | 10 |
-| Plumber profiles | 676 |
-| Blog posts | 4 |
-| Static pages | 4 |
-| **Total** | **~1,280** |
+| State pages | 18 |
+| City pages | 500+ |
+| City + Vertical pages | 880+ |
+| Trade pages | 9 |
+| Contractor profiles | 5,400+ |
+| **Total** | **~6,900** |
 
-## Chat Flow
+## Data Sources
 
-1. User describes their plumbing issue
-2. Bot responds with empathy and asks about urgency
-3. User indicates if it's an emergency
-4. Bot asks for location (city or zip code)
-5. Bot shows top 8 matched plumbers with contact info
+- Google Places API (via Outscraper)
+- Manual CSV imports
 
 ## Deployment
 
-Deploys automatically to Cloudflare Pages on push to `main`.
-
-Build command: `npm run build`
-Output directory: `out`
-
-The site uses static export (`output: "export"`) for the Next.js pages, with Cloudflare Pages Functions handling server-side functionality (form submissions). The `functions/` directory is automatically detected and deployed by Cloudflare.
-
-### Environment Variables on Cloudflare
-
-Add these in Cloudflare Pages > Settings > Variables and Secrets:
-- `RESEND_API_KEY` - API key from resend.com (encrypt this)
-- `NOTIFICATION_EMAIL` - Email address to receive claim form submissions
-
-### Local Development with Functions
-
-To test Cloudflare Pages Functions locally:
+Deployed on Vercel with automatic deploys on push to `main`.
 
 ```bash
-npm run build
-npx wrangler pages dev out
+# Manual deploy
+npx vercel --prod
 ```
 
-Create a `.dev.vars` file for local environment variables (not committed to git).
+### Environment Variables on Vercel
 
-### Manual Deployment
+Add in Vercel Dashboard > Settings > Environment Variables:
+- `DATABASE_URL` - Neon PostgreSQL connection string
 
-```bash
-npm run build
-npx wrangler pages deploy out --project-name=mn-plumbers
-```
+## Admin
 
-## Tech Stack
+Admin panel at `/admin` for:
+- Viewing all businesses with filters
+- Managing featured/verified status
+- Data cleanup and categorization
 
-- **Framework**: Next.js 16 with React 19
-- **Styling**: Tailwind CSS 4
-- **Language**: TypeScript 5
-- **Hosting**: Cloudflare Pages
-- **Functions**: Cloudflare Pages Functions
-- **Email**: Resend API
+## License
+
+Private - All rights reserved
