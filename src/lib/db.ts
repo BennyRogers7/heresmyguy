@@ -28,6 +28,8 @@ export type Business = {
   isClaimed: boolean;
   isVerified: boolean;
   isWomenOwned: boolean;
+  rank: number;
+  claimedAt: Date | null;
   logo: string | null;
   description: string | null;
 };
@@ -75,8 +77,13 @@ export async function getBusinessesByCityAndVertical(
       verticalSlug,
     },
     orderBy: [
-      { isFeatured: "desc" },
-      { rating: "desc" },
+      { isFeatured: "desc" },      // 1. Featured (paid) first
+      { isClaimed: "desc" },       // 2. Verified (claimed) before unclaimed
+      { claimedAt: "asc" },        // 3. First come, first served for verified
+      { rank: "desc" },            // 4. User rank (future feature)
+      { rating: "desc" },          // 5. Google rating
+      { reviewCount: "desc" },     // 6. More reviews = more trusted
+      { name: "asc" },             // 7. Alphabetical tiebreaker
     ],
   });
 

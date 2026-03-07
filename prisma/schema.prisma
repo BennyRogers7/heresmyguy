@@ -41,6 +41,9 @@ model Business {
   isVerified    Boolean  @default(false)
   isWomenOwned  Boolean  @default(false)
 
+  // Ranking
+  rank          Int      @default(0) // User voting rank (future feature)
+
   // Featured listing details
   featuredSince DateTime?
   featuredTier  String?   // "basic", "premium" - for future pricing tiers
