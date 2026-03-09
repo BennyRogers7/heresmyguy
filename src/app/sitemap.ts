@@ -1,91 +1,125 @@
 import { MetadataRoute } from "next";
-import { getAllPlumbers, getAllCities } from "@/lib/data";
-import { SERVICES } from "@/lib/types";
-import { getAllBlogPosts } from "@/lib/blog";
+import { prisma } from "@/lib/db";
 
-export const dynamic = "force-static";
+const BASE_URL = "https://heresmyguy.com";
 
-export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://mnplumb.com";
-
-  const plumbers = getAllPlumbers();
-  const cities = getAllCities();
-  const blogPosts = getAllBlogPosts();
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const now = new Date();
 
   // Static pages
   const staticPages: MetadataRoute.Sitemap = [
     {
-      url: baseUrl,
-      lastModified: new Date(),
+      url: BASE_URL,
+      lastModified: now,
       changeFrequency: "daily",
       priority: 1,
     },
     {
-      url: `${baseUrl}/claim-listing`,
-      lastModified: new Date(),
+      url: `${BASE_URL}/claim-listing`,
+      lastModified: now,
       changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/blog`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.8,
+      priority: 0.7,
     },
   ];
 
-  // Blog posts
-  const blogPages: MetadataRoute.Sitemap = blogPosts.map((post) => ({
-    url: `${baseUrl}/blog/${post.slug}`,
-    lastModified: new Date(post.updatedAt || post.publishedAt),
-    changeFrequency: "monthly" as const,
-    priority: 0.7,
-  }));
+  // Get all states
+  const states = await prisma.state.findMany({
+    where: { businessCount: { gt: 0 } },
+    select: { slug: true, updatedAt: true },
+  });
 
-  // City pages
-  const cityPages: MetadataRoute.Sitemap = cities.map((city) => ({
-    url: `${baseUrl}/${city.slug}`,
-    lastModified: new Date(),
-    changeFrequency: "weekly" as const,
+  const statePages: MetadataRoute.Sitemap = states.map((state) => ({
+    url: `${BASE_URL}/${state.slug}`,
+    lastModified: state.updatedAt,
+    changeFrequency: "daily" as const,
     priority: 0.9,
   }));
 
-  // Service pages
-  const servicePages: MetadataRoute.Sitemap = SERVICES.map((service) => ({
-    url: `${baseUrl}/services/${service.slug}`,
-    lastModified: new Date(),
+  // Get all verticals
+  const verticals = await prisma.vertical.findMany({
+    where: { isActive: true },
+    select: { slug: true, updatedAt: true },
+  });
+
+  const verticalPages: MetadataRoute.Sitemap = verticals.map((vertical) => ({
+    url: `${BASE_URL}/trade/${vertical.slug}`,
+    lastModified: vertical.updatedAt,
     changeFrequency: "weekly" as const,
     priority: 0.8,
   }));
 
-  // City + Service combo pages (top 50 cities)
-  const topCities = cities.slice(0, 50);
-  const cityServicePages: MetadataRoute.Sitemap = [];
-  for (const city of topCities) {
-    for (const service of SERVICES) {
-      cityServicePages.push({
-        url: `${baseUrl}/${city.slug}/${service.slug}`,
-        lastModified: new Date(),
-        changeFrequency: "weekly" as const,
-        priority: 0.85,
-      });
-    }
+  // Get all cities with businesses
+  const cities = await prisma.city.findMany({
+    where: { businessCount: { gt: 0 } },
+    include: { state: { select: { slug: true } } },
+  });
+
+  const cityPages: MetadataRoute.Sitemap = cities.map((city) => ({
+    url: `${BASE_URL}/${city.state.slug}/${city.slug}`,
+    lastModified: city.updatedAt,
+    changeFrequency: "daily" as const,
+    priority: 0.85,
+  }));
+
+  // Get city + vertical combinations (for pages that exist)
+  // This is more efficient than generating all combinations
+  const cityVerticalCounts = await prisma.business.groupBy({
+    by: ["state", "city", "verticalSlug"],
+    _count: { id: true },
+  });
+
+  // Build lookup map for cities
+  const cityLookup = new Map<string, { stateSlug: string; citySlug: string }>();
+  for (const city of cities) {
+    const key = `${city.state.slug}|${city.name.toLowerCase()}`;
+    cityLookup.set(key, { stateSlug: city.state.slug, citySlug: city.slug });
   }
 
-  // Plumber profile pages
-  const plumberPages: MetadataRoute.Sitemap = plumbers.map((plumber) => ({
-    url: `${baseUrl}/profile/${plumber.slug}`,
-    lastModified: new Date(),
-    changeFrequency: "monthly" as const,
-    priority: 0.7,
+  // Get state abbreviation to slug mapping
+  const stateAbbrevToSlug = new Map<string, string>();
+  const allStates = await prisma.state.findMany({
+    select: { abbreviation: true, slug: true },
+  });
+  for (const s of allStates) {
+    stateAbbrevToSlug.set(s.abbreviation, s.slug);
+  }
+
+  const cityVerticalPages: MetadataRoute.Sitemap = [];
+  for (const combo of cityVerticalCounts) {
+    const stateSlug = stateAbbrevToSlug.get(combo.state);
+    if (!stateSlug) continue;
+
+    const cityKey = `${stateSlug}|${combo.city.toLowerCase()}`;
+    const cityInfo = cityLookup.get(cityKey);
+    if (!cityInfo) continue;
+
+    cityVerticalPages.push({
+      url: `${BASE_URL}/${cityInfo.stateSlug}/${cityInfo.citySlug}/${combo.verticalSlug}`,
+      lastModified: now,
+      changeFrequency: "daily" as const,
+      priority: 0.8,
+    });
+  }
+
+  // Get all business profile pages
+  const businesses = await prisma.business.findMany({
+    select: { slug: true, updatedAt: true },
+    orderBy: { updatedAt: "desc" },
+  });
+
+  const businessPages: MetadataRoute.Sitemap = businesses.map((business) => ({
+    url: `${BASE_URL}/profile/${business.slug}`,
+    lastModified: business.updatedAt,
+    changeFrequency: "weekly" as const,
+    priority: 0.6,
   }));
 
   return [
     ...staticPages,
-    ...blogPages,
+    ...statePages,
+    ...verticalPages,
     ...cityPages,
-    ...servicePages,
-    ...cityServicePages,
-    ...plumberPages,
+    ...cityVerticalPages,
+    ...businessPages,
   ];
 }

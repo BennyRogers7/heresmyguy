@@ -5,15 +5,16 @@ import { getBusinessBySlug, getVerticalBySlug, prisma } from "@/lib/db";
 import StarRating from "@/components/StarRating";
 import Breadcrumbs from "@/components/Breadcrumbs";
 
+// ISR: Revalidate every hour, generate pages on-demand
+export const revalidate = 3600;
+
 interface ProfilePageProps {
   params: Promise<{ slug: string }>;
 }
 
+// Return empty array - all pages generated on first request (ISR)
 export async function generateStaticParams() {
-  const businesses = await prisma.business.findMany({
-    select: { slug: true },
-  });
-  return businesses.map((b) => ({ slug: b.slug }));
+  return [];
 }
 
 export async function generateMetadata({ params }: ProfilePageProps): Promise<Metadata> {

@@ -11,13 +11,16 @@ import {
 import ContractorCard from "@/components/ContractorCard";
 import Breadcrumbs from "@/components/Breadcrumbs";
 
+// ISR: Revalidate every hour, generate pages on-demand
+export const revalidate = 3600;
+
 interface PageProps {
   params: Promise<{ state: string; city: string; vertical: string }>;
 }
 
+// Return empty array - all pages generated on first request (ISR)
 export async function generateStaticParams() {
-  const paths = await getAllCityVerticalPaths();
-  return paths;
+  return [];
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {

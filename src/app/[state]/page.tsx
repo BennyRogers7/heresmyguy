@@ -10,10 +10,14 @@ import {
 } from "@/lib/db";
 import Breadcrumbs from "@/components/Breadcrumbs";
 
+// ISR: Revalidate every hour
+export const revalidate = 3600;
+
 interface PageProps {
   params: Promise<{ state: string }>;
 }
 
+// Pre-generate all 50 state pages (small number)
 export async function generateStaticParams() {
   const states = await getAllStates();
   return states.map((state) => ({ state: state.slug }));

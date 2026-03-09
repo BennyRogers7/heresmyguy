@@ -9,20 +9,16 @@ import {
 } from "@/lib/db";
 import Breadcrumbs from "@/components/Breadcrumbs";
 
+// ISR: Revalidate every hour, generate pages on-demand
+export const revalidate = 3600;
+
 interface PageProps {
   params: Promise<{ state: string; city: string }>;
 }
 
+// Return empty array - all pages generated on first request (ISR)
 export async function generateStaticParams() {
-  const cities = await prisma.city.findMany({
-    where: { businessCount: { gt: 0 } },
-    include: { state: true },
-  });
-
-  return cities.map((city) => ({
-    state: city.state.slug,
-    city: city.slug,
-  }));
+  return [];
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {

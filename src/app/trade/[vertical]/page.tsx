@@ -4,10 +4,14 @@ import Link from "next/link";
 import { prisma } from "@/lib/db";
 import Breadcrumbs from "@/components/Breadcrumbs";
 
+// ISR: Revalidate every hour
+export const revalidate = 3600;
+
 interface VerticalPageProps {
   params: Promise<{ vertical: string }>;
 }
 
+// Pre-generate all vertical pages (small number)
 export async function generateStaticParams() {
   const verticals = await prisma.vertical.findMany({
     select: { slug: true },
