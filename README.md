@@ -51,6 +51,18 @@ Business owners can claim their free listing:
 - Get Verified Owner badge
 - Respond to reviews
 
+### Ranking System
+Listings are sorted by a fair, merit-based ranking:
+
+| Priority | Criteria | Description |
+|----------|----------|-------------|
+| 1 | Featured | Paid premium placement |
+| 2 | Verified | Claimed listings (first come, first served) |
+| 3 | User Rank | Community voting (future feature) |
+| 4 | Google Rating | Higher ratings rank first |
+| 5 | Review Count | More reviews = more trusted |
+| 6 | Alphabetical | Tiebreaker |
+
 ### SEO & Structured Data
 - BreadcrumbList schema on all pages
 - LocalBusiness schema on profiles
