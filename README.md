@@ -1,6 +1,6 @@
 # Here's My Guy
 
-A national contractor directory with 5,400+ verified contractors across multiple trades. Find the contractor your neighbor swears by.
+A national contractor directory with 35,000+ verified contractors across multiple trades. Find the contractor your neighbor swears by.
 
 **Live:** [heresmyguy.com](https://heresmyguy.com)
 
@@ -8,20 +8,21 @@ A national contractor directory with 5,400+ verified contractors across multiple
 
 ### Multi-Vertical Directory
 Browse contractors across 9 trade categories:
-- Plumbers
-- Electricians
-- HVAC
-- Roofers
 - Landscapers
+- Roofers
+- Electricians
+- Plumbers
+- HVAC
 - Painters
-- Pool Contractors
 - General Contractors
 - Pest Control
+- Pool Contractors
 
 ### Geographic Coverage
-- **18 states** with contractor listings
-- **500+ cities** with dedicated landing pages
+- **21 states** with contractor listings
+- **730+ cities** with dedicated landing pages
 - State → City → Vertical drill-down navigation
+- Midwest focus: OH, IL, MI, WI, IN, MN, IA, SD, ND
 
 ### Listing Cards
 - **Free listings**: Business name, phone, rating, location, claim CTA
@@ -69,6 +70,7 @@ Listings are sorted by a fair, merit-based ranking:
 - ItemList schema on listing pages
 - Dynamic meta titles and descriptions
 - Canonical URLs
+- Dynamic sitemap with 35,000+ URLs
 
 ## Tech Stack
 
@@ -78,7 +80,7 @@ Listings are sorted by a fair, merit-based ranking:
 - **Styling**: Tailwind CSS 4
 - **Language**: TypeScript 5
 - **Hosting**: Vercel
-- **Static Generation**: 6,900+ pre-rendered pages
+- **Rendering**: ISR (Incremental Static Regeneration) - 1 hour revalidation
 
 ## Getting Started
 
@@ -128,13 +130,29 @@ npx prisma studio
 ### Import Scripts
 
 ```bash
-# Import Minnesota contractors
-npx tsx scripts/import-mn-contractors.ts plumbers
-npx tsx scripts/import-mn-contractors.ts all
+# Import Midwest contractors (all 9 verticals)
+npx tsx scripts/import-midwest-contractors.ts
 
 # Preview without importing
-npx tsx scripts/import-mn-contractors.ts plumbers --dry-run
+npx tsx scripts/import-midwest-contractors.ts --dry-run
+
+# Skip database import (just generate CSV files)
+npx tsx scripts/import-midwest-contractors.ts --skip-import
+
+# Import Minnesota contractors (legacy)
+npx tsx scripts/import-mn-contractors.ts all
 ```
+
+### Midwest Import Features
+The midwest import script:
+- Combines multiple CSV files into one dataset
+- Deduplicates by phone (primary) and name+city (fallback)
+- Removes records already in database
+- Cleans data: standardizes phone format `(XXX) XXX-XXXX`, strips UTM params
+- Removes CLOSED_PERMANENTLY businesses
+- Outputs two files:
+  - `midwest_import_ready.csv` - all clean records
+  - `midwest_no_website_leads.csv` - leads for outreach
 
 ## Project Structure
 
@@ -146,16 +164,18 @@ src/
 │   │       └── [vertical]/   # City + Vertical pages
 │   ├── trade/
 │   │   └── [vertical]/       # Trade/vertical browse pages
+│   │       └── [state]/      # Trade + State pages (maintains vertical context)
 │   ├── profile/
 │   │   └── [slug]/           # Contractor profile pages
 │   ├── admin/                # Admin dashboard
 │   ├── claim-listing/        # Claim listing page
+│   ├── sitemap.ts            # Dynamic sitemap (35k+ URLs)
 │   └── page.tsx              # Homepage
 ├── components/
 │   ├── ContractorCard.tsx    # Listing card component
 │   ├── StarRating.tsx        # Star rating display
 │   ├── Breadcrumbs.tsx       # Navigation breadcrumbs
-│   ├── Header.tsx            # Site header
+│   ├── Header.tsx            # Site header with Find Pros dropdown
 │   └── Footer.tsx            # Site footer
 ├── lib/
 │   └── db.ts                 # Database queries & types
@@ -168,9 +188,10 @@ prisma/
 └── seed.ts                   # Seed script
 
 scripts/
-├── import-mn-contractors.ts  # MN CSV import
-├── import-landscapers.ts     # XLSX import
-└── recategorize-businesses.ts # Data cleanup
+├── import-midwest-contractors.ts  # Midwest CSV import (9 verticals)
+├── import-mn-contractors.ts       # MN CSV import (legacy)
+├── import-landscapers.ts          # XLSX import
+└── recategorize-businesses.ts     # Data cleanup
 ```
 
 ## Page Counts
@@ -178,12 +199,21 @@ scripts/
 | Page Type | Count |
 |-----------|-------|
 | Homepage | 1 |
-| State pages | 18 |
-| City pages | 500+ |
-| City + Vertical pages | 880+ |
+| State pages | 21 |
+| City pages | 730+ |
+| City + Vertical pages | 2,500+ |
 | Trade pages | 9 |
-| Contractor profiles | 5,400+ |
-| **Total** | **~6,900** |
+| Trade + State pages | 100+ |
+| Contractor profiles | 35,000+ |
+| **Total** | **~38,000+** |
+
+## ISR (Incremental Static Regeneration)
+
+Pages are generated on-demand and cached for 1 hour:
+- First visit generates the page
+- Subsequent visits serve cached version
+- After 1 hour, next visit triggers background regeneration
+- No need to redeploy for new data to appear
 
 ## Data Sources
 
