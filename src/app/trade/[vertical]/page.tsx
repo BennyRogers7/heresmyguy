@@ -111,7 +111,7 @@ export default async function VerticalPage({ params }: VerticalPageProps) {
             {statesData.map((state) => (
               <Link
                 key={state.abbreviation}
-                href={`/${state.slug}`}
+                href={`/trade/${verticalSlug}/${state.slug}`}
                 className="bg-white border border-gray-200 rounded-lg px-4 py-3 hover:border-[#d4a853] hover:shadow-sm transition-all flex justify-between items-center group"
               >
                 <span className="font-medium text-[#1a1a2e] group-hover:text-[#d4a853] transition-colors">
