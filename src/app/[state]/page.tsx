@@ -176,7 +176,7 @@ export default async function StatePage({ params }: PageProps) {
                   return (
                     <Link
                       key={vertical.slug}
-                      href={`/${vertical.slug}`}
+                      href={`/trade/${vertical.slug}`}
                       className="flex justify-between items-center py-2 px-3 rounded-lg hover:bg-[#f8f7f4] transition-colors group"
                     >
                       <span className="flex items-center gap-2">

@@ -173,6 +173,37 @@ export default async function VerticalStatePage({ params }: PageProps) {
           </Link>
         </div>
       </section>
+
+      {/* Schema Markup */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              {
+                "@type": "ListItem",
+                position: 1,
+                name: "Home",
+                item: "https://heresmyguy.com",
+              },
+              {
+                "@type": "ListItem",
+                position: 2,
+                name: vertical.name,
+                item: `https://heresmyguy.com/trade/${verticalSlug}`,
+              },
+              {
+                "@type": "ListItem",
+                position: 3,
+                name: state.name,
+                item: `https://heresmyguy.com/trade/${verticalSlug}/${stateSlug}`,
+              },
+            ],
+          }),
+        }}
+      />
     </div>
   );
 }

@@ -84,6 +84,25 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     stateAbbrevToSlug.set(s.abbreviation, s.slug);
   }
 
+  // Get trade + state combinations (e.g., /trade/landscapers/minnesota)
+  const verticalStateCounts = await prisma.business.groupBy({
+    by: ["verticalSlug", "state"],
+    _count: { id: true },
+  });
+
+  const verticalStatePages: MetadataRoute.Sitemap = [];
+  for (const combo of verticalStateCounts) {
+    const stateSlug = stateAbbrevToSlug.get(combo.state);
+    if (!stateSlug) continue;
+
+    verticalStatePages.push({
+      url: `${BASE_URL}/trade/${combo.verticalSlug}/${stateSlug}`,
+      lastModified: now,
+      changeFrequency: "weekly" as const,
+      priority: 0.75,
+    });
+  }
+
   const cityVerticalPages: MetadataRoute.Sitemap = [];
   for (const combo of cityVerticalCounts) {
     const stateSlug = stateAbbrevToSlug.get(combo.state);
@@ -118,6 +137,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...staticPages,
     ...statePages,
     ...verticalPages,
+    ...verticalStatePages,
     ...cityPages,
     ...cityVerticalPages,
     ...businessPages,
