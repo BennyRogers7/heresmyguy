@@ -6,6 +6,31 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
+  // Rewrite .xml sitemap URLs to route handlers
+  async rewrites() {
+    return [
+      {
+        source: "/sitemap-static.xml",
+        destination: "/sitemap-static",
+      },
+      {
+        source: "/sitemap-states.xml",
+        destination: "/sitemap-states",
+      },
+      {
+        source: "/sitemap-verticals.xml",
+        destination: "/sitemap-verticals",
+      },
+      {
+        source: "/sitemap-cities.xml",
+        destination: "/sitemap-cities",
+      },
+      {
+        source: "/sitemap-businesses/:page.xml",
+        destination: "/sitemap-businesses/:page",
+      },
+    ];
+  },
   // Redirect old MN-only city URLs to new state/city structure
   async redirects() {
     return [

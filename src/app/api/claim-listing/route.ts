@@ -1,17 +1,25 @@
 import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
+import { prisma } from "@/lib/db";
 
 interface ClaimFormData {
+  businessId: string;
   businessName: string;
   ownerName: string;
   email: string;
   phone: string;
   city: string;
+  state: string;
+  verticalSlug: string;
   address: string;
   website: string;
   services: string[];
   otherServices: string;
   message: string;
+}
+
+function generateVerificationCode(): string {
+  return Math.random().toString(36).substring(2, 8).toUpperCase();
 }
 
 export async function POST(request: NextRequest) {
@@ -20,9 +28,17 @@ export async function POST(request: NextRequest) {
     const data: ClaimFormData = await request.json();
 
     // Validate required fields
-    if (!data.businessName || !data.ownerName || !data.email || !data.phone || !data.city) {
+    if (!data.businessName || !data.ownerName || !data.email || !data.phone) {
       return NextResponse.json(
         { error: "Missing required fields" },
+        { status: 400 }
+      );
+    }
+
+    // For new listings, require city, state, and vertical
+    if (!data.businessId && (!data.city || !data.state || !data.verticalSlug)) {
+      return NextResponse.json(
+        { error: "City, state, and trade are required for new listings" },
         { status: 400 }
       );
     }
@@ -36,14 +52,39 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    // Create ClaimRequest in database
+    const claimRequest = await prisma.claimRequest.create({
+      data: {
+        businessId: data.businessId || null,
+        email: data.email,
+        phone: data.phone,
+        ownerName: data.ownerName,
+        businessName: data.businessName,
+        city: data.city,
+        state: data.state,
+        verticalSlug: data.verticalSlug,
+        address: data.address || null,
+        website: data.website || null,
+        services: data.services || [],
+        otherServices: data.otherServices || null,
+        message: data.message || null,
+        verificationCode: generateVerificationCode(),
+        status: "pending",
+      },
+    });
+
+    // Determine the type of claim for the email
+    const claimType = data.businessId ? "Existing Listing Claim" : "New Listing Request";
+    const location = data.city && data.state ? `${data.city}, ${data.state}` : "Not specified";
+
     // Send notification email
     const { error } = await resend.emails.send({
-      from: "MN Plumbers Directory <onboarding@resend.dev>",
-      to: process.env.NOTIFICATION_EMAIL || "hello@mnplumbers.com",
-      subject: `New Listing Claim: ${data.businessName}`,
+      from: "Here's My Guy <onboarding@resend.dev>",
+      to: process.env.NOTIFICATION_EMAIL || "hello@heresmyguy.com",
+      subject: `${claimType}: ${data.businessName}`,
       html: `
-        <h2>New Listing Claim Request</h2>
-        <p>A new claim has been submitted for the MN Plumbers Directory.</p>
+        <h2>${claimType}</h2>
+        <p>A new claim has been submitted on Here's My Guy.</p>
 
         <h3>Business Information</h3>
         <table style="border-collapse: collapse; width: 100%; max-width: 600px;">
@@ -64,8 +105,12 @@ export async function POST(request: NextRequest) {
             <td style="padding: 8px; border: 1px solid #ddd;"><a href="tel:${data.phone}">${data.phone}</a></td>
           </tr>
           <tr>
-            <td style="padding: 8px; border: 1px solid #ddd; font-weight: bold;">City</td>
-            <td style="padding: 8px; border: 1px solid #ddd;">${data.city}</td>
+            <td style="padding: 8px; border: 1px solid #ddd; font-weight: bold;">Location</td>
+            <td style="padding: 8px; border: 1px solid #ddd;">${location}</td>
+          </tr>
+          <tr>
+            <td style="padding: 8px; border: 1px solid #ddd; font-weight: bold;">Trade</td>
+            <td style="padding: 8px; border: 1px solid #ddd;">${data.verticalSlug || "Not specified"}</td>
           </tr>
           <tr>
             <td style="padding: 8px; border: 1px solid #ddd; font-weight: bold;">Address</td>
@@ -74,6 +119,16 @@ export async function POST(request: NextRequest) {
           <tr>
             <td style="padding: 8px; border: 1px solid #ddd; font-weight: bold;">Website</td>
             <td style="padding: 8px; border: 1px solid #ddd;">${data.website ? `<a href="${data.website}">${data.website}</a>` : "Not provided"}</td>
+          </tr>
+          ${data.businessId ? `
+          <tr>
+            <td style="padding: 8px; border: 1px solid #ddd; font-weight: bold;">Business ID</td>
+            <td style="padding: 8px; border: 1px solid #ddd;">${data.businessId}</td>
+          </tr>
+          ` : ""}
+          <tr>
+            <td style="padding: 8px; border: 1px solid #ddd; font-weight: bold;">Claim ID</td>
+            <td style="padding: 8px; border: 1px solid #ddd;">${claimRequest.id}</td>
           </tr>
         </table>
 
@@ -91,19 +146,21 @@ export async function POST(request: NextRequest) {
         ` : ""}
 
         <hr style="margin: 24px 0; border: none; border-top: 1px solid #ddd;">
-        <p style="color: #666; font-size: 12px;">This email was sent from the MN Plumbers Directory claim form.</p>
+        <p style="color: #666; font-size: 12px;">This email was sent from the Here's My Guy claim form.</p>
       `,
     });
 
     if (error) {
       console.error("Resend error:", error);
-      return NextResponse.json(
-        { error: "Failed to send notification email" },
-        { status: 500 }
-      );
+      // Still return success since we saved to database
+      // Just log the email error
     }
 
-    return NextResponse.json({ success: true });
+    return NextResponse.json({
+      success: true,
+      claimId: claimRequest.id,
+      businessName: data.businessName,
+    });
   } catch (error) {
     console.error("Claim submission error:", error);
     return NextResponse.json(

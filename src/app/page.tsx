@@ -157,14 +157,12 @@ export default async function HomePage() {
             >
               Claim Your Free Listing
             </Link>
-            {/* TODO: Re-enable when /featured page exists
             <Link
               href="/featured"
               className="border-2 border-[#d4a853] text-[#d4a853] px-8 py-3.5 rounded-lg font-bold hover:bg-[#d4a853] hover:text-[#1a1a2e] transition-colors"
             >
               Get Featured
             </Link>
-            */}
           </div>
         </div>
       </section>

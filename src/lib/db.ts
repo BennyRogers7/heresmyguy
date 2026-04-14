@@ -161,6 +161,21 @@ export async function getBusinessBySlug(slug: string): Promise<Business | null> 
   });
 }
 
+export async function getBusinessById(id: string): Promise<Business | null> {
+  return prisma.business.findUnique({
+    where: { id },
+  });
+}
+
+export async function getClaimedCountByState(stateAbbreviation: string): Promise<number> {
+  return prisma.business.count({
+    where: {
+      state: stateAbbreviation,
+      isClaimed: true,
+    },
+  });
+}
+
 // For static generation
 export async function getAllCityVerticalPaths(): Promise<
   { state: string; city: string; vertical: string }[]

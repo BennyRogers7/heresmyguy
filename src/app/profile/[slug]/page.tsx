@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { getBusinessBySlug, getVerticalBySlug, prisma } from "@/lib/db";
+import { getBusinessBySlug, getVerticalBySlug, getClaimedCountByState, prisma } from "@/lib/db";
 import StarRating from "@/components/StarRating";
 import Breadcrumbs from "@/components/Breadcrumbs";
 
@@ -49,9 +49,10 @@ export default async function ProfilePage({ params }: ProfilePageProps) {
     notFound();
   }
 
-  const [vertical, stateInfo] = await Promise.all([
+  const [vertical, stateInfo, claimedCount] = await Promise.all([
     getVerticalBySlug(business.verticalSlug),
     prisma.state.findFirst({ where: { abbreviation: business.state } }),
+    getClaimedCountByState(business.state),
   ]);
 
   const verticalName = vertical?.nameSingular || "Contractor";
@@ -368,6 +369,11 @@ export default async function ProfilePage({ params }: ProfilePageProps) {
                 >
                   Claim This Listing
                 </Link>
+                {claimedCount > 0 && (
+                  <p className="text-sm text-gray-400 mt-3 text-center">
+                    Join {claimedCount.toLocaleString()} claimed contractors in {stateInfo?.name || business.state}
+                  </p>
+                )}
               </div>
             )}
 
