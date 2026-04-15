@@ -19,14 +19,13 @@ export default async function HomePage() {
             {/* Left Column - Copy */}
             <div className="flex-1 text-center md:text-left">
               <h1 className="text-3xl md:text-5xl font-extrabold mb-4 tracking-tight">
-                Find the contractor your
+                Find a contractor you can
                 <br />
-                <span className="text-[#d4a853]">neighbor swears by</span>
+                <span className="text-[#d4a853]">actually trust</span>
               </h1>
 
               <p className="text-lg text-gray-300 max-w-xl mb-8">
-                Browse {totalBusinesses.toLocaleString()}+ local contractors across{" "}
-                {totalCities} cities. Read reviews, compare ratings, and hire with confidence.
+                Built as a better alternative to lead-gen platforms — Here&rsquo;s My Guy is launching state by state to create a more trusted way to hire and be hired.
               </p>
 
               {/* Search / Browse CTAs */}
@@ -49,11 +48,11 @@ export default async function HomePage() {
               <div className="flex flex-wrap justify-center md:justify-start gap-6 text-sm">
                 <div className="flex items-center gap-2">
                   <CheckIcon />
-                  <span>{totalBusinesses.toLocaleString()}+ Contractors</span>
+                  <span>No spam. No recycled leads. Just real local contractors.</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <CheckIcon />
-                  <span>{totalCities} Cities</span>
+                  <span>Launching state by state</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <CheckIcon />
@@ -73,6 +72,63 @@ export default async function HomePage() {
                 priority
               />
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Different */}
+      <section className="py-16 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6">
+          <h2 className="text-2xl md:text-3xl font-bold text-[#1a1a2e] mb-4">
+            Why Here&rsquo;s My Guy is different
+          </h2>
+          <div className="text-gray-600 space-y-4">
+            <p>
+              After 15 years working around the lead-generation industry, I saw how broken it had become.
+            </p>
+            <p>
+              Contractors pay for weak leads. Homeowners get overwhelmed with options they don&rsquo;t trust.
+            </p>
+            <p>
+              Here&rsquo;s My Guy is being built to fix that — starting market by market, with a focus on trust, quality, and real local presence.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Launching */}
+      <section className="py-16 bg-[#f8f7f4]">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6">
+          <h2 className="text-2xl md:text-3xl font-bold text-[#1a1a2e] mb-4">
+            Launching one state at a time
+          </h2>
+          <div className="text-gray-600 space-y-4">
+            <p>
+              We&rsquo;re building Here&rsquo;s My Guy into a national contractor directory — but we&rsquo;re launching state by state based on demand.
+            </p>
+            <p>
+              We&rsquo;d rather build each market the right way than rush a nationwide rollout.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Contractor Focus */}
+      <section className="py-16 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6">
+          <h2 className="text-2xl md:text-3xl font-bold text-[#1a1a2e] mb-4">
+            Built for contractors tired of paying for leads
+          </h2>
+          <div className="text-gray-600 space-y-4">
+            <p>
+              If you&rsquo;ve used platforms like Angi or HomeAdvisor, you already know the problem.
+            </p>
+            <p>
+              Shared leads. Low intent. High cost.
+            </p>
+            <p>
+              Here&rsquo;s My Guy is being built to give you a stronger, more trusted presence — not just another lead marketplace.
+            </p>
           </div>
         </div>
       </section>
