@@ -9,6 +9,8 @@ export const prisma = globalForPrisma.prisma ?? new PrismaClient();
 if (process.env.NODE_ENV !== "production") globalForPrisma.prisma = prisma;
 
 // Types matching Prisma schema
+export type MembershipTier = "free" | "claimed" | "founding_member";
+
 export type Business = {
   id: string;
   name: string;
@@ -32,6 +34,7 @@ export type Business = {
   claimedAt: Date | null;
   logo: string | null;
   description: string | null;
+  membershipTier: string; // "free" | "claimed" | "founding_member"
 };
 
 export type StateInfo = {

@@ -61,6 +61,28 @@ model Business {
   source        String?   // "outscraper", "manual", etc.
   sourceId      String?   // Original ID from source
 
+  // Additional emails from enrichment
+  email2        String?
+  email3        String?
+
+  // Social media links
+  facebook      String?
+  instagram     String?
+  linkedin      String?
+  tiktok        String?
+  youtube       String?
+  twitter       String?
+
+  // Claim token for direct outreach
+  claimToken    String?   @unique
+
+  // Membership
+  membershipTier      String    @default("free") // "free", "claimed", "founding_member"
+  membershipStartedAt DateTime?
+  stripeCustomerId    String?
+  stripeSubscriptionId String?
+  showOnRoster        Boolean   @default(true) // Show on founding members roster
+
   // Timestamps
   createdAt     DateTime @default(now())
   updatedAt     DateTime @updatedAt
@@ -69,6 +91,9 @@ model Business {
   @@index([verticalSlug])
   @@index([isFeatured])
   @@index([state, city, verticalSlug])
+  @@index([claimToken])
+  @@index([stripeCustomerId])
+  @@index([membershipTier])
 }
 
 model Vertical {
@@ -151,9 +176,10 @@ model ClaimRequest {
 
   // Verification
   verificationCode String?
+  verificationCodeExpiresAt DateTime?
   verifiedAt   DateTime?
 
-  // Status: "pending", "verified", "approved", "rejected"
+  // Status: "pending", "pending_verification", "pending_review", "verified", "approved", "rejected"
   status       String   @default("pending")
 
   // Admin notes
@@ -213,6 +239,22 @@ model Subscription {
 
   @@index([stripeCustomerId])
   @@index([stripeSubscriptionId])
+}
+
+// ============================================================================
+// LAUNCH NOTIFICATIONS
+// ============================================================================
+
+model LaunchNotification {
+  id        String   @id @default(cuid())
+  email     String
+  state     String   // State abbreviation (e.g., "CA")
+  vertical  String?  // Optional vertical filter
+
+  createdAt DateTime @default(now())
+
+  @@unique([email, state])
+  @@index([state])
 }
 
 // ============================================================================

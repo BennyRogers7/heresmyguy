@@ -1,419 +1,196 @@
+/**
+ * Blog Posts Configuration
+ * Add new posts here - they will appear on the blog index and be accessible at /blog/[slug]
+ */
+
 export interface BlogPost {
   slug: string;
   title: string;
   description: string;
-  content: string;
-  publishedAt: string;
-  updatedAt?: string;
+  date: string; // ISO date string
   author: string;
-  category: "guides" | "costs" | "emergency" | "seasonal" | "local";
-  tags: string[];
-  featuredImage?: string;
-  readingTime: number;
+  category: "guides" | "news" | "tips";
+  featured?: boolean;
+  content: string; // Markdown content
 }
 
-// Blog posts data - in production, this could come from a CMS
-export const BLOG_POSTS: BlogPost[] = [
+// Blog posts data
+export const blogPosts: BlogPost[] = [
   {
-    slug: "how-to-thaw-frozen-pipes-minnesota",
-    title: "How to Thaw Frozen Pipes in Minnesota (-20°F Weather Guide)",
+    slug: "welcome-to-heresmyguy",
+    title: "Welcome to Here's My Guy",
     description:
-      "Learn how to safely thaw frozen pipes during Minnesota's brutal winters. Step-by-step guide for homeowners, plus when to call a professional plumber.",
+      "We're building the contractor directory we wished existed. Here's what we're about and why we started.",
+    date: "2026-04-14",
+    author: "The Here's My Guy Team",
+    category: "news",
+    featured: true,
     content: `
-## Why Frozen Pipes Are a Minnesota Reality
+# Welcome to Here's My Guy
 
-When temperatures drop below -20°F—common during Minnesota winters—water pipes in poorly insulated areas can freeze within hours. A frozen pipe isn't just an inconvenience; if the ice expands enough, the pipe can burst, causing thousands of dollars in water damage.
+We're thrilled to officially launch Here's My Guy — the contractor directory built on trust, not ads.
 
-## Signs Your Pipes Are Frozen
+## Why We Built This
 
-- **No water flow** from faucets or reduced pressure
-- **Frost visible** on exposed pipes
-- **Strange smells** from drains (sewage backing up)
-- **Bulging pipes** (dangerous—call a plumber immediately)
+Every homeowner knows the feeling: you need a plumber, a roofer, an electrician. You ask around, search online, and hope for the best. Too often, the results are contractors who pay for placement, not the ones your neighbor actually recommends.
 
-## How to Safely Thaw Frozen Pipes
+We built Here's My Guy to change that.
 
-### Step 1: Locate the Frozen Section
-Check exposed pipes in basements, crawl spaces, garages, and along exterior walls. The frozen section often feels ice-cold and may have visible frost.
+## How It Works
 
-### Step 2: Open Faucets
-Turn on both hot and cold water at the affected faucet. This relieves pressure and lets you know when water starts flowing again.
+1. **Browse local contractors** - Find pros in your area across multiple trades
+2. **See who's verified** - Claimed listings have verified owners
+3. **Choose with confidence** - Real ratings, real businesses
 
-### Step 3: Apply Heat Safely
+## For Contractors
 
-**Safe methods:**
-- Hair dryer (most common)
-- Heat lamp or portable space heater (keep away from flammables)
-- Wrap pipes with towels soaked in hot water
-- Electric heating pad wrapped around the pipe
+If you're a contractor, we want you here. Claiming your listing is free and takes 2 minutes. You'll get:
 
-**NEVER use:**
-- Open flames (torch, lighter)
-- Propane heaters
-- Charcoal stoves
+- A verified owner badge
+- Higher placement in search results
+- Stand out from unclaimed competitors
 
-### Step 4: Work From Faucet Toward Frozen Area
-Always thaw starting at the faucet and work back toward the frozen section. This allows water and steam to escape safely.
+[Claim your listing now](/claim-listing)
 
-## When to Call a Professional
+## What's Next
 
-Call a licensed Minnesota plumber if:
-- You can't locate the frozen section
-- The frozen pipe is inside a wall
-- You see bulging or cracking
-- Multiple pipes are frozen
-- You're not comfortable doing it yourself
+We're starting in Ohio, Illinois, and Minnesota, with plans to expand nationwide. Follow along as we grow, and let us know how we can make Here's My Guy better for you.
 
-**Average cost for emergency pipe thawing in Minnesota: $150–$400**
+Here's to finding great contractors the way it should be — through trust.
 
-## Preventing Frozen Pipes
-
-1. **Insulate pipes** in unheated areas with foam sleeves
-2. **Let faucets drip** during extreme cold snaps
-3. **Open cabinet doors** to let warm air reach pipes
-4. **Keep thermostat at 55°F minimum** even when away
-5. **Seal air leaks** near pipes with caulk or insulation
-
-## Minnesota-Specific Tips
-
-- Know where your main water shutoff is (usually in basement)
-- Keep a plumber's number saved for emergencies
-- Consider pipe heating cables for chronically cold areas
-- If leaving for vacation in winter, have someone check your home
-
----
-
-*Need a plumber for frozen pipes? [Find licensed Minnesota plumbers](/services/emergency-plumbing) available 24/7.*
+*— The Here's My Guy Team*
     `,
-    publishedAt: "2026-01-15",
-    author: "MN Plumbers Directory",
-    category: "seasonal",
-    tags: ["frozen pipes", "winter", "emergency", "DIY", "prevention"],
-    readingTime: 6,
   },
   {
-    slug: "minneapolis-sewer-line-repair-costs-2026",
-    title: "Minneapolis Sewer Line Repair Costs in 2026 (Complete Guide)",
+    slug: "how-to-choose-a-contractor",
+    title: "5 Tips for Choosing the Right Contractor",
     description:
-      "What does sewer line repair cost in Minneapolis? We break down prices for different repair methods, permits, and how to save money.",
+      "Not sure how to pick a contractor? Here are 5 proven tips to help you hire with confidence.",
+    date: "2026-04-14",
+    author: "The Here's My Guy Team",
+    category: "tips",
     content: `
-## Minneapolis Sewer Line Repair: What You'll Pay in 2026
+# 5 Tips for Choosing the Right Contractor
 
-Sewer line problems are every homeowner's nightmare. In Minneapolis, repair costs vary widely based on the damage extent, repair method, and your property's specifics.
+Hiring a contractor can feel overwhelming. Here are 5 tips to help you make the right choice.
 
-## Average Costs by Repair Type
+## 1. Get Multiple Quotes
 
-| Repair Type | Cost Range | Best For |
-|-------------|------------|----------|
-| **Spot repair** | $500–$1,500 | Single crack or root intrusion |
-| **Pipe lining (trenchless)** | $4,000–$8,000 | Older pipes with multiple issues |
-| **Pipe bursting (trenchless)** | $5,000–$10,000 | Complete replacement without digging |
-| **Traditional replacement** | $3,000–$15,000 | Collapsed pipes, severe damage |
+Always get at least 3 quotes for any significant project. This helps you understand the fair market rate and compare approaches.
 
-## What Affects Your Cost
+**Pro tip:** The cheapest quote isn't always the best. Look for value, not just price.
 
-### 1. Pipe Location and Depth
-Minneapolis sewer lines typically run 6–10 feet deep. Deeper pipes = higher costs.
+## 2. Check Reviews and References
 
-### 2. Pipe Material
-- **Clay/terracotta** (pre-1970s homes): Most prone to root intrusion
-- **Cast iron** (1950s–1980s): Corrodes over time
-- **PVC** (modern): Most durable, cheapest to repair
+Look for contractors with genuine reviews from real customers. On Here's My Guy, verified listings mean the business owner has confirmed their identity.
 
-### 3. Length of Damaged Section
-Most repairs involve 10–50 feet of pipe. Full replacements can exceed 100 feet from house to street.
+Ask for references and actually call them. Past customers can tell you what to expect.
 
-### 4. Landscaping Impact
-Traditional excavation may require:
-- Driveway removal/replacement: $2,000–$5,000
-- Landscaping restoration: $500–$2,000
+## 3. Verify Licenses and Insurance
 
-## Minneapolis Permit Requirements
+Before hiring, confirm that the contractor is properly licensed for your state and carries liability insurance. This protects you if something goes wrong.
 
-**Yes, you need a permit.** The City of Minneapolis requires permits for all sewer line work.
+## 4. Get Everything in Writing
 
-- **Permit cost:** $100–$200
-- **Inspection required:** Yes, before backfill
-- **Licensed contractor required:** Yes, for any work past the cleanout
+A detailed written contract protects both you and the contractor. It should include:
 
-Your plumber should handle the permit process. If they don't mention permits, ask—unpermitted work can cause problems when selling.
+- Scope of work
+- Timeline
+- Payment schedule
+- Materials to be used
+- Warranty information
 
-## Signs You Need Sewer Line Repair
+## 5. Trust Your Gut
 
-- Multiple drains backing up simultaneously
-- Gurgling sounds from toilets
-- Sewage smells in yard or basement
-- Unusually green patches of grass
-- Foundation cracks (severe cases)
-
-## How to Save Money
-
-1. **Get a camera inspection first** ($150–$300) to diagnose the exact problem
-2. **Get 3 quotes minimum** from licensed plumbers
-3. **Ask about trenchless options**—often cheaper than excavation when factoring in restoration
-4. **Check if Minneapolis offers assistance programs** for low-income homeowners
-5. **Don't wait**—small problems become big (expensive) ones
-
-## Trenchless vs. Traditional: Minneapolis Considerations
-
-**Choose trenchless if:**
-- Pipe is under a driveway or patio
-- You have mature landscaping
-- Pipe material allows it (most do)
-
-**Choose traditional if:**
-- Pipe has completely collapsed
-- Trenchless isn't structurally possible
-- Cost difference is significant
-
-## Finding a Reliable Minneapolis Plumber
-
-Look for:
-- Minnesota state plumbing license
-- Experience with sewer line specifically
-- Camera inspection included in quote
-- Clear warranty terms (1–2 years minimum on labor)
+After meeting with a contractor, ask yourself: Do I trust this person in my home? Good communication and professionalism matter.
 
 ---
 
-*Ready to get quotes? [Find sewer line repair specialists in Minneapolis](/minneapolis/sewer-line-repair)*
+Ready to find your contractor? [Browse local pros on Here's My Guy](/)
     `,
-    publishedAt: "2026-02-01",
-    updatedAt: "2026-03-01",
-    author: "MN Plumbers Directory",
-    category: "costs",
-    tags: ["sewer line", "Minneapolis", "costs", "permits", "trenchless"],
-    readingTime: 7,
   },
   {
-    slug: "minnesota-plumber-hourly-rates-2026",
-    title: "Minnesota Plumber Hourly Rates in 2026: City-by-City Breakdown",
+    slug: "why-claim-your-listing",
+    title: "Why Every Contractor Should Claim Their Listing",
     description:
-      "What do plumbers charge per hour in Minnesota? Compare rates across Minneapolis, St. Paul, Rochester, Duluth, and more.",
+      "Claiming your free listing on Here's My Guy takes 2 minutes and helps you stand out. Here's why you should do it today.",
+    date: "2026-04-14",
+    author: "The Here's My Guy Team",
+    category: "guides",
     content: `
-## Minnesota Plumber Rates: What to Expect in 2026
+# Why Every Contractor Should Claim Their Listing
 
-Plumber hourly rates in Minnesota vary by location, with Twin Cities metro rates running highest. Here's what you'll pay across the state.
+If you're a contractor, your business might already be listed on Here's My Guy. Here's why claiming it is worth 2 minutes of your time.
 
-## Hourly Rates by City
+## You're Already Listed
 
-| City | Standard Rate | Emergency Rate |
-|------|---------------|----------------|
-| **Minneapolis** | $95–$150/hr | $150–$250/hr |
-| **St. Paul** | $90–$145/hr | $140–$240/hr |
-| **Rochester** | $85–$130/hr | $130–$200/hr |
-| **Duluth** | $80–$120/hr | $120–$180/hr |
-| **Bloomington** | $90–$140/hr | $140–$220/hr |
-| **Brooklyn Park** | $85–$135/hr | $130–$210/hr |
-| **St. Cloud** | $75–$115/hr | $115–$175/hr |
-| **Mankato** | $70–$110/hr | $110–$170/hr |
+We've built our directory from public business records. If you're a licensed contractor, you're probably already here. But unclaimed listings are grayed out and appear lower in search results.
 
-## What's Included in Hourly Rates
+## Claiming is Free
 
-**Typically included:**
-- Labor and expertise
-- Basic tools and equipment
-- Travel time (within service area)
-- Diagnosis and assessment
+It costs nothing to claim your listing. No credit card required. No hidden fees. Free.
 
-**Usually extra:**
-- Parts and materials
-- Permit fees
-- After-hours/weekend premiums
-- Specialized equipment (camera, jetter)
+## Stand Out from Competitors
 
-## Flat Rate vs. Hourly: Which Is Better?
+When you claim your listing, you get:
 
-Many plumbers now use **flat-rate pricing** for common jobs:
+- **Verified Owner badge** - Shows customers you're legitimate
+- **Green highlighted listing** - Catches the eye in search results
+- **Higher placement** - Appear above unclaimed competitors
 
-| Service | Typical Flat Rate |
-|---------|-------------------|
-| Unclog drain | $100–$250 |
-| Replace faucet | $150–$350 |
-| Toilet repair | $100–$250 |
-| Water heater install | $800–$1,500 |
+## It Takes 2 Minutes
 
-**Flat rate is better when:** You know exactly what's needed
-**Hourly is better when:** Diagnosis is unclear or job is complex
+The claim process is simple:
 
-## Why Metro Rates Are Higher
+1. Find your business
+2. Verify your email
+3. Done!
 
-1. **Higher cost of living** = higher wages
-2. **More competition for skilled trades**
-3. **Stricter licensing requirements**
-4. **Higher insurance and overhead costs**
+If your email matches our records, you're verified instantly. Otherwise, our team reviews within 24-48 hours.
 
-## How to Get the Best Rate
+## Want Even More?
 
-1. **Get multiple quotes** (at least 3)
-2. **Ask about flat-rate options** for defined work
-3. **Schedule during business hours** when possible
-4. **Bundle multiple repairs** into one visit
-5. **Be a repeat customer**—many plumbers offer loyalty discounts
+For contractors who want maximum visibility, our [Founding Member](/founding-members) tier offers:
 
-## Red Flags on Pricing
+- Gold badge
+- Top placement
+- Featured on our Founders page
+- $25/month locked forever
 
-Watch out for:
-- Refusing to give any estimate
-- Extremely low quotes (bait and switch)
-- Charging for estimates (unusual for most work)
-- Pressure to decide immediately
-- No written quote or invoice
+But even the free claimed listing is a significant upgrade over unclaimed.
 
 ---
 
-*Compare plumbers in your city: [Browse Minnesota plumbers by city](/#cities)*
+Ready to claim? [Start here](/claim-listing)
     `,
-    publishedAt: "2026-02-15",
-    author: "MN Plumbers Directory",
-    category: "costs",
-    tags: ["costs", "hourly rates", "Minnesota", "pricing"],
-    readingTime: 5,
-  },
-  {
-    slug: "spring-plumbing-checklist-minnesota",
-    title: "Spring Plumbing Checklist for Minnesota Homeowners (2026)",
-    description:
-      "After a harsh Minnesota winter, your plumbing needs attention. Use this checklist to prevent costly repairs and catch problems early.",
-    content: `
-## Why Spring Plumbing Maintenance Matters in Minnesota
-
-Minnesota winters are brutal on plumbing. Freeze-thaw cycles, ground shifting, and months of disuse for outdoor systems can create problems that show up in spring. Catching issues now prevents expensive emergencies later.
-
-## Your Spring Plumbing Checklist
-
-### Outdoor Systems
-
-**[ ] Inspect outdoor faucets (hose bibs)**
-- Turn on and check for leaks or drips
-- Look for cracks in the fixture or pipe
-- Freeze damage often shows up as slow leaks
-
-**[ ] Check sprinkler systems**
-- Inspect heads for damage from snow removal
-- Run each zone and look for broken lines
-- Have backflow preventer tested (required in many MN cities)
-
-**[ ] Clean gutters and downspouts**
-- Clear debris that accumulated over winter
-- Ensure downspouts direct water away from foundation
-- Check for ice damage to gutter connections
-
-**[ ] Inspect sump pump**
-- Pour water in pit to test activation
-- Clean the inlet screen
-- Test backup battery if equipped
-- Spring snowmelt = heavy sump pump use
-
-### Indoor Systems
-
-**[ ] Check all faucets and toilets**
-- Run each faucet and check for leaks
-- Listen for running toilets
-- Test water pressure (should feel consistent)
-
-**[ ] Inspect water heater**
-- Look for rust or corrosion
-- Check temperature setting (120°F recommended)
-- Flush sediment if not done recently
-- Note age—replace if 10+ years old
-
-**[ ] Test sump pump and backup**
-- Pour water in pit to trigger pump
-- Verify discharge is clear of debris
-- Check battery backup function
-
-**[ ] Look for water damage signs**
-- Stains on ceilings (bathroom above?)
-- Musty smells in basement
-- Warped flooring near fixtures
-- Mold growth around pipes
-
-### Water Quality
-
-**[ ] Test water if on well**
-- Annual testing recommended
-- Check for bacteria, nitrates, hardness
-- Spring runoff can affect well water
-
-**[ ] Check water softener**
-- Ensure salt level is adequate
-- Clean brine tank if needed
-- Regenerate manually if issues suspected
-
-## Common Spring Plumbing Problems
-
-### 1. Burst Pipes That Didn't Show in Winter
-Sometimes frozen pipes crack but don't leak until thawing. A small drip can go unnoticed for months.
-
-**Watch for:** Unexplained water bills, damp spots, mold
-
-### 2. Sewer Line Issues
-Winter ground movement can crack old sewer lines. Tree roots become active in spring.
-
-**Watch for:** Slow drains, gurgling, sewage smells outside
-
-### 3. Sump Pump Failure
-After sitting idle, sump pumps may fail exactly when spring melt arrives.
-
-**Test now:** Don't wait for a wet basement
-
-### 4. Water Heater Sediment
-Hard Minnesota water builds sediment all winter. Spring is perfect for flushing.
-
-**Signs of buildup:** Popping sounds, reduced hot water, higher bills
-
-## When to Call a Professional
-
-Handle these yourself:
-- Visual inspections
-- Cleaning aerators and showerheads
-- Testing sump pump
-- Checking outdoor faucets
-
-Call a plumber for:
-- Water heater flushing (if unfamiliar)
-- Sewer line camera inspection
-- Any leaks you discover
-- Low water pressure issues
-- Water quality concerns
-
-## Spring Plumbing Specials
-
-Many Minnesota plumbers offer spring maintenance packages. A typical inspection runs $75–$150 and can catch problems before they become emergencies.
-
----
-
-*Find a plumber for your spring maintenance: [Browse licensed Minnesota plumbers](/)*
-    `,
-    publishedAt: "2026-03-01",
-    author: "MN Plumbers Directory",
-    category: "seasonal",
-    tags: ["spring", "maintenance", "checklist", "prevention"],
-    readingTime: 6,
   },
 ];
 
+// Helper functions
 export function getAllBlogPosts(): BlogPost[] {
-  return BLOG_POSTS.sort(
-    (a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
+  return blogPosts.sort(
+    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
   );
 }
 
 export function getBlogPostBySlug(slug: string): BlogPost | undefined {
-  return BLOG_POSTS.find((post) => post.slug === slug);
+  return blogPosts.find((post) => post.slug === slug);
 }
 
-export function getBlogPostsByCategory(category: BlogPost["category"]): BlogPost[] {
-  return BLOG_POSTS.filter((post) => post.category === category).sort(
-    (a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
-  );
+export function getFeaturedPosts(): BlogPost[] {
+  return blogPosts.filter((post) => post.featured);
 }
 
-export function getBlogPostsByTag(tag: string): BlogPost[] {
-  return BLOG_POSTS.filter((post) =>
-    post.tags.some((t) => t.toLowerCase() === tag.toLowerCase())
-  ).sort(
-    (a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
-  );
+export function getPostsByCategory(category: BlogPost["category"]): BlogPost[] {
+  return blogPosts
+    .filter((post) => post.category === category)
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+}
+
+export function formatDate(dateString: string): string {
+  return new Date(dateString).toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
 }
