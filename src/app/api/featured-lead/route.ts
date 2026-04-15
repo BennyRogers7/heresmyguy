@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
 import { prisma } from "@/lib/db";
+import { escapeHtml, safeMailtoHref, safeTelHref } from "@/lib/html";
 
 interface FeaturedLeadData {
   businessName: string;
@@ -44,6 +45,12 @@ export async function POST(request: NextRequest) {
       },
     });
 
+    const businessName = escapeHtml(data.businessName);
+    const email = escapeHtml(data.email);
+    const phone = escapeHtml(data.phone);
+    const state = escapeHtml(data.state || "Not specified");
+    const verticalSlug = escapeHtml(data.verticalSlug || "Not specified");
+
     // Send notification email
     const { error } = await resend.emails.send({
       from: "Here's My Guy <onboarding@resend.dev>",
@@ -57,23 +64,23 @@ export async function POST(request: NextRequest) {
         <table style="border-collapse: collapse; width: 100%; max-width: 600px;">
           <tr>
             <td style="padding: 8px; border: 1px solid #ddd; font-weight: bold;">Business Name</td>
-            <td style="padding: 8px; border: 1px solid #ddd;">${data.businessName}</td>
+            <td style="padding: 8px; border: 1px solid #ddd;">${businessName}</td>
           </tr>
           <tr>
             <td style="padding: 8px; border: 1px solid #ddd; font-weight: bold;">Email</td>
-            <td style="padding: 8px; border: 1px solid #ddd;"><a href="mailto:${data.email}">${data.email}</a></td>
+            <td style="padding: 8px; border: 1px solid #ddd;"><a href="${safeMailtoHref(data.email)}">${email}</a></td>
           </tr>
           <tr>
             <td style="padding: 8px; border: 1px solid #ddd; font-weight: bold;">Phone</td>
-            <td style="padding: 8px; border: 1px solid #ddd;"><a href="tel:${data.phone}">${data.phone}</a></td>
+            <td style="padding: 8px; border: 1px solid #ddd;"><a href="${safeTelHref(data.phone)}">${phone}</a></td>
           </tr>
           <tr>
             <td style="padding: 8px; border: 1px solid #ddd; font-weight: bold;">State</td>
-            <td style="padding: 8px; border: 1px solid #ddd;">${data.state || "Not specified"}</td>
+            <td style="padding: 8px; border: 1px solid #ddd;">${state}</td>
           </tr>
           <tr>
             <td style="padding: 8px; border: 1px solid #ddd; font-weight: bold;">Trade</td>
-            <td style="padding: 8px; border: 1px solid #ddd;">${data.verticalSlug || "Not specified"}</td>
+            <td style="padding: 8px; border: 1px solid #ddd;">${verticalSlug}</td>
           </tr>
           <tr>
             <td style="padding: 8px; border: 1px solid #ddd; font-weight: bold;">Lead ID</td>

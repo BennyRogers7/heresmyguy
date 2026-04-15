@@ -5,7 +5,7 @@
  */
 
 import { PrismaClient } from "@prisma/client";
-import * as XLSX from "xlsx";
+import ExcelJS from "exceljs";
 import * as path from "path";
 
 const prisma = new PrismaClient();
@@ -15,25 +15,6 @@ const XLSX_PATH = path.join(__dirname, "../../data/Outscraper-20260305033036s56.
 
 // Vertical slug for this import
 const VERTICAL_SLUG = "landscapers";
-
-interface OutscraperRow {
-  name: string;
-  phone: string | null;
-  email: string | null;
-  website: string | null;
-  address: string | null;
-  city: string | null;
-  state: string | null;
-  state_code: string | null;
-  postal_code: string | null;
-  rating: number | null;
-  reviews: number | null;
-  logo: string | null;
-  photo: string | null;
-  description: string | null;
-  about: string | null;
-  place_id: string | null;
-}
 
 function slugify(text: string): string {
   return text
@@ -110,15 +91,67 @@ function cleanWebsite(website: unknown): string | null {
   return str;
 }
 
+function cellValueToPrimitive(value: ExcelJS.CellValue): unknown {
+  if (value === null || value === undefined) return null;
+
+  if (value instanceof Date) {
+    return value.toISOString();
+  }
+
+  if (typeof value !== "object") {
+    return value;
+  }
+
+  if ("text" in value) {
+    return value.text;
+  }
+
+  if ("result" in value) {
+    return value.result;
+  }
+
+  if ("richText" in value) {
+    return value.richText.map((part) => part.text).join("");
+  }
+
+  return String(value);
+}
+
+async function readSpreadsheetRows(filePath: string): Promise<Record<string, unknown>[]> {
+  const workbook = new ExcelJS.Workbook();
+  await workbook.xlsx.readFile(filePath);
+
+  const worksheet = workbook.worksheets[0];
+  if (!worksheet) return [];
+
+  const headers: string[] = [];
+  worksheet.getRow(1).eachCell((cell, columnNumber) => {
+    headers[columnNumber] = String(cellValueToPrimitive(cell.value) || "").trim();
+  });
+
+  const rows: Record<string, unknown>[] = [];
+  worksheet.eachRow((row, rowNumber) => {
+    if (rowNumber === 1) return;
+
+    const item: Record<string, unknown> = {};
+    headers.forEach((header, columnNumber) => {
+      if (!header) return;
+      item[header] = cellValueToPrimitive(row.getCell(columnNumber).value);
+    });
+
+    if (Object.values(item).some((value) => value !== null && String(value).trim() !== "")) {
+      rows.push(item);
+    }
+  });
+
+  return rows;
+}
+
 async function importLandscapers() {
   console.log("Starting landscaper import...");
   console.log(`Reading file: ${XLSX_PATH}`);
 
-  // Read XLSX file
-  const workbook = XLSX.readFile(XLSX_PATH);
-  const sheetName = workbook.SheetNames[0];
-  const sheet = workbook.Sheets[sheetName];
-  const rows = XLSX.utils.sheet_to_json<Record<string, unknown>>(sheet);
+  const rows = await readSpreadsheetRows(XLSX_PATH);
 
   console.log(`Found ${rows.length} rows in spreadsheet`);
 
