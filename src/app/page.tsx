@@ -1,6 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
 import { getAllStates, getAllVerticals, prisma } from "@/lib/db";
+import USHeatmap from "@/components/USHeatmap";
+import { getStateLaunchStatus, formatLaunchDate } from "@/lib/state-launch-config";
 
 export default async function HomePage() {
   const [states, verticals, totalBusinesses, totalCities] = await Promise.all([
@@ -103,20 +105,19 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* Launching */}
-      <section className="py-16 bg-[#f8f7f4]">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6">
-          <h2 className="text-2xl md:text-3xl font-bold text-[#1a1a2e] mb-4">
-            Launching one state at a time
-          </h2>
-          <div className="text-gray-600 space-y-4">
-            <p>
-              We&rsquo;re building Here&rsquo;s My Guy into a national contractor directory — but we&rsquo;re launching state by state based on demand.
-            </p>
-            <p>
-              We&rsquo;d rather build each market the right way than rush a nationwide rollout.
+      {/* Heatmap Section */}
+      <section id="vote-for-state" className="py-16 bg-[#f8f7f4]">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          <div className="text-center mb-10">
+            <h2 className="text-2xl md:text-3xl font-bold text-[#1a1a2e] mb-3">
+              You decide where we go next.
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              We&rsquo;re launching state by state based on demand. Vote to bring Here&rsquo;s My Guy to your state.
             </p>
           </div>
+
+          <USHeatmap />
         </div>
       </section>
 
@@ -185,20 +186,50 @@ export default async function HomePage() {
           </div>
 
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
-            {states.map((state) => (
-              <Link
-                key={state.slug}
-                href={`/${state.slug}`}
-                className="bg-white border border-gray-200 rounded-lg px-4 py-3 hover:border-[#d4a853] hover:shadow-sm transition-all flex justify-between items-center group"
-              >
-                <span className="font-medium text-[#1a1a2e] group-hover:text-[#d4a853] transition-colors">
-                  {state.name}
-                </span>
-                <span className="text-sm text-gray-400">
-                  {state.businessCount}
-                </span>
-              </Link>
-            ))}
+            {states.map((state) => {
+              const launchInfo = getStateLaunchStatus(state.abbreviation);
+              const isLive = launchInfo.status === "live";
+              const isLaunching = launchInfo.status === "launching";
+
+              return (
+                <Link
+                  key={state.slug}
+                  href={`/${state.slug}`}
+                  className={`relative rounded-lg px-4 py-3 hover:shadow-sm transition-all flex justify-between items-center group ${
+                    isLive
+                      ? "bg-white border border-gray-200 hover:border-[#d4a853]"
+                      : isLaunching
+                      ? "bg-amber-50 border border-amber-200 hover:border-amber-400"
+                      : "bg-gray-50 border border-gray-200 hover:border-gray-300 opacity-80"
+                  }`}
+                >
+                  {/* Badge */}
+                  {isLaunching && (
+                    <span className="absolute -top-2 -right-2 bg-[#d4a853] text-[#1a1a2e] text-[10px] font-bold px-2 py-0.5 rounded-full">
+                      {formatLaunchDate(launchInfo.launchDate!)}
+                    </span>
+                  )}
+                  {!isLive && !isLaunching && (
+                    <span className="absolute -top-2 -right-2 bg-gray-400 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">
+                      Soon
+                    </span>
+                  )}
+
+                  <span className={`font-medium transition-colors ${
+                    isLive
+                      ? "text-[#1a1a2e] group-hover:text-[#d4a853]"
+                      : isLaunching
+                      ? "text-amber-800"
+                      : "text-gray-500"
+                  }`}>
+                    {state.name}
+                  </span>
+                  <span className="text-sm text-gray-400">
+                    {state.businessCount}
+                  </span>
+                </Link>
+              );
+            })}
           </div>
         </div>
       </section>

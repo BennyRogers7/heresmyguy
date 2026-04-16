@@ -258,6 +258,46 @@ model LaunchNotification {
 }
 
 // ============================================================================
+// STATE POLLS (Coming Soon state demand signals)
+// ============================================================================
+
+model StatePoll {
+  id                          String   @id @default(cuid())
+  state                       String   // State abbreviation (e.g., "CA")
+
+  // Step 1: City vote
+  cityVote                    String?
+
+  // Step 2: Projects (multi-select, stored as JSON array)
+  projects                    String[] // ["Roofing", "Plumbing", etc.]
+
+  // Step 3: Budget
+  budget                      String?
+
+  // Step 4: Hiring priorities (multi-select, up to 2)
+  hiringPriorities            String[] // ["Local reputation", "Price", etc.]
+
+  // Step 5: Contractor recommendation
+  recommendedContractorName   String?
+  recommendedContractorCity   String?
+  recommendedContractorWork   String?
+
+  // Step 6: Email (optional but encouraged)
+  email                       String?
+
+  // Tracking
+  completedSteps              Int      @default(0) // 0-6, how far they got
+  ipHash                      String?  // Hashed IP for rate limiting
+
+  createdAt                   DateTime @default(now())
+  updatedAt                   DateTime @updatedAt
+
+  @@index([state])
+  @@index([state, createdAt])
+  @@index([email])
+}
+
+// ============================================================================
 // ANALYTICS (optional - for tracking listing views)
 // ============================================================================
 

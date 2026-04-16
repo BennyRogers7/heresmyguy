@@ -8,9 +8,13 @@ import {
   getAllVerticals,
   prisma,
 } from "@/lib/db";
-import { isStateLaunched } from "@/lib/state-launch-config";
+import {
+  getStateLaunchStatus,
+  getStateMajorCities,
+  formatLaunchDate,
+} from "@/lib/state-launch-config";
 import Breadcrumbs from "@/components/Breadcrumbs";
-import LaunchNotifyForm from "@/components/LaunchNotifyForm";
+import StatePollOverlay from "@/components/StatePollOverlay";
 
 // Valid US state slugs - prevents this route from catching static pages like /featured
 const VALID_STATE_SLUGS = new Set([
@@ -51,8 +55,16 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     return { title: "Not Found" };
   }
 
-  const title = `Local Contractors in ${state.name} | Here's My Guy`;
-  const description = `Find trusted contractors in ${state.name}. Browse ${state.businessCount}+ landscapers, roofers, electricians, and more. Read reviews and hire local pros.`;
+  const launchInfo = getStateLaunchStatus(state.abbreviation);
+  const isLive = launchInfo.status === "live";
+
+  const title = isLive
+    ? `Local Contractors in ${state.name} | Here's My Guy`
+    : `${state.name} Coming Soon | Here's My Guy`;
+
+  const description = isLive
+    ? `Find trusted contractors in ${state.name}. Browse ${state.businessCount}+ landscapers, roofers, electricians, and more. Read reviews and hire local pros.`
+    : `Here's My Guy is launching in ${state.name} soon. Vote to bring us to your city and be the first to find trusted local contractors.`;
 
   return {
     title,
@@ -82,7 +94,16 @@ export default async function StatePage({ params }: PageProps) {
     notFound();
   }
 
-  const isLaunched = isStateLaunched(state.abbreviation);
+  const launchInfo = getStateLaunchStatus(state.abbreviation);
+  const isLive = launchInfo.status === "live";
+  const isLaunching = launchInfo.status === "launching";
+  const isComingSoon = launchInfo.status === "coming_soon";
+  const showPollOverlay = !isLive;
+
+  // Get poll vote count for threshold display
+  const voteCount = showPollOverlay
+    ? await prisma.statePoll.count({ where: { state: state.abbreviation } })
+    : 0;
 
   // Get vertical counts for this state
   const verticalCounts = await prisma.business.groupBy({
@@ -99,36 +120,17 @@ export default async function StatePage({ params }: PageProps) {
   const topCities = cities.slice(0, 20);
   const remainingCities = cities.slice(20);
 
-  return (
-    <div className="bg-[#f8f7f4] min-h-screen">
-      {/* Coming Soon Banner - shows for unlaunched states */}
-      {!isLaunched && (
-        <section className="bg-gradient-to-r from-[#1a1a2e] to-[#2d2d44] border-b-4 border-[#d4a853]">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 py-10 md:py-12">
-            <div className="text-center">
-              <span className="inline-block bg-[#d4a853]/20 text-[#d4a853] text-sm font-semibold px-4 py-1.5 rounded-full mb-4">
-                Coming Soon
-              </span>
+  // Major cities for poll dropdown
+  const majorCities = getStateMajorCities(state.abbreviation);
 
-              <h2 className="text-2xl md:text-3xl font-bold text-white">
-                Coming Soon to{" "}
-                <span className="text-[#d4a853]">{state.name}</span>
-              </h2>
+  // Format launch date if launching
+  const formattedLaunchDate = isLaunching && launchInfo.launchDate
+    ? formatLaunchDate(launchInfo.launchDate)
+    : undefined;
 
-              <p className="text-gray-300 mt-3 max-w-2xl mx-auto">
-                We&apos;re building each market the right way — with verified contractors,
-                real reviews, and a commitment to trust. Be the first to know when
-                Here&apos;s My Guy launches in {state.name}.
-              </p>
-
-              <div className="mt-6 max-w-md mx-auto">
-                <LaunchNotifyForm state={state.abbreviation} stateName={state.name} />
-              </div>
-            </div>
-          </div>
-        </section>
-      )}
-
+  // State page content (same for both live and coming soon, but greyed out for coming soon)
+  const StateContent = (
+    <>
       {/* Hero */}
       <section className="bg-gradient-to-br from-[#1a1a2e] to-[#2d2d44] text-white py-10 md:py-14">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
@@ -179,7 +181,7 @@ export default async function StatePage({ params }: PageProps) {
               {topCities.map((city) => (
                 <Link
                   key={city.id}
-                  href={`/${stateSlug}/${city.slug}`}
+                  href={isLive ? `/${stateSlug}/${city.slug}` : "#"}
                   className="bg-white border border-gray-200 rounded-lg px-4 py-3 hover:border-[#d4a853] hover:shadow-sm transition-all flex justify-between items-center group"
                 >
                   <span className="font-medium text-[#1a1a2e] group-hover:text-[#d4a853] transition-colors truncate">
@@ -201,7 +203,7 @@ export default async function StatePage({ params }: PageProps) {
                   {remainingCities.map((city) => (
                     <Link
                       key={city.id}
-                      href={`/${stateSlug}/${city.slug}`}
+                      href={isLive ? `/${stateSlug}/${city.slug}` : "#"}
                       className="bg-white border border-gray-200 rounded-lg px-4 py-3 hover:border-[#d4a853] hover:shadow-sm transition-all flex justify-between items-center group"
                     >
                       <span className="font-medium text-[#1a1a2e] group-hover:text-[#d4a853] transition-colors truncate">
@@ -231,7 +233,7 @@ export default async function StatePage({ params }: PageProps) {
                   return (
                     <Link
                       key={vertical.slug}
-                      href={`/trade/${vertical.slug}`}
+                      href={isLive ? `/trade/${vertical.slug}` : "#"}
                       className="flex justify-between items-center py-2 px-3 rounded-lg hover:bg-[#f8f7f4] transition-colors group"
                     >
                       <span className="flex items-center gap-2">
@@ -263,6 +265,53 @@ export default async function StatePage({ params }: PageProps) {
           </div>
         </div>
       </div>
+    </>
+  );
+
+  return (
+    <div className="bg-[#f8f7f4] min-h-screen relative">
+      {/* Coming Soon / Launching overlay */}
+      {showPollOverlay && (
+        <>
+          {/* Diagonal banner */}
+          <div className="fixed top-20 -left-16 z-40 rotate-[-45deg] pointer-events-none">
+            <div className={`px-20 py-2 text-center font-bold text-sm uppercase tracking-wider shadow-lg ${
+              isLaunching ? "bg-[#d4a853] text-[#1a1a2e]" : "bg-[#d4a853] text-[#1a1a2e]"
+            }`}>
+              {isLaunching ? `Launching ${formattedLaunchDate}` : "Coming Soon"}
+            </div>
+          </div>
+
+          {/* Greyed out content layer */}
+          <div
+            className="pointer-events-none select-none"
+            style={{
+              filter: "grayscale(80%) brightness(0.7)",
+              opacity: 0.4,
+            }}
+            aria-hidden="true"
+          >
+            {StateContent}
+          </div>
+
+          {/* Poll overlay */}
+          <div className="fixed inset-0 z-30 flex items-center justify-center p-4 overflow-y-auto">
+            <div className="my-8 w-full max-w-lg">
+              <StatePollOverlay
+                stateName={state.name}
+                stateAbbreviation={state.abbreviation}
+                majorCities={majorCities}
+                launchDate={formattedLaunchDate}
+                initialVoteCount={voteCount}
+                threshold={launchInfo.launchThreshold}
+              />
+            </div>
+          </div>
+        </>
+      )}
+
+      {/* Live state content */}
+      {isLive && StateContent}
 
       {/* Schema Markup */}
       <script
