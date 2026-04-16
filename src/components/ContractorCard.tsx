@@ -24,28 +24,69 @@ function FreeCard({
   business: Business;
   verticalDisplay: string;
 }) {
+  const isClaimed = business.isClaimed;
+  const isFoundingMember = business.membershipTier === "founding_member";
+
   return (
-    <div className="bg-white rounded-xl border border-gray-200 p-5 hover:border-[#d4a853] hover:shadow-md transition-all duration-200">
-      {/* Header with Avatar */}
+    <div
+      className={`bg-white rounded-xl p-5 transition-all duration-200 ${
+        isFoundingMember
+          ? "border-2 border-[#d4a853] hover:shadow-lg hover:shadow-[#d4a853]/20 bg-gradient-to-br from-[#fffdf7] to-white"
+          : isClaimed
+          ? "border-2 border-green-500 hover:shadow-lg hover:shadow-green-500/10"
+          : "border border-gray-200 hover:border-gray-300 opacity-85"
+      }`}
+    >
+      {/* Header with Avatar/Thumbnail */}
       <div className="flex gap-3 mb-3">
-        {/* Avatar */}
-        <div className="w-12 h-12 rounded-lg bg-[#1a1a2e] flex items-center justify-center shrink-0">
-          <span className="text-xl font-bold text-[#d4a853]">
-            {business.name.charAt(0).toUpperCase()}
-          </span>
-        </div>
+        {/* Avatar - show thumbnail for claimed with logo, green for claimed, gray for unclaimed */}
+        {(isClaimed || isFoundingMember) && business.logo ? (
+          <div className="w-12 h-12 rounded-lg overflow-hidden shrink-0">
+            <img
+              src={business.logo}
+              alt={`${business.name} logo`}
+              className="w-full h-full object-cover"
+            />
+          </div>
+        ) : (
+          <div
+            className={`w-12 h-12 rounded-lg flex items-center justify-center shrink-0 ${
+              isFoundingMember
+                ? "bg-gradient-to-br from-[#d4a853] to-[#b8922e]"
+                : isClaimed
+                ? "bg-green-600"
+                : "bg-gray-400"
+            }`}
+          >
+            <span className="text-xl font-bold text-white">
+              {business.name.charAt(0).toUpperCase()}
+            </span>
+          </div>
+        )}
 
         <div className="flex-1 min-w-0">
           <div className="flex justify-between items-start gap-2">
             <Link href={`/profile/${business.slug}`} className="flex-1 min-w-0">
-              <h3 className="text-lg font-bold text-[#1a1a2e] hover:text-[#d4a853] transition-colors truncate">
+              <h3
+                className={`text-lg font-bold truncate transition-colors ${
+                  isFoundingMember
+                    ? "text-[#1a1a2e] hover:text-[#d4a853]"
+                    : isClaimed
+                    ? "text-[#1a1a2e] hover:text-green-600"
+                    : "text-gray-500 hover:text-gray-700"
+                }`}
+              >
                 {business.name}
               </h3>
             </Link>
             {business.rating && (
               <div className="flex items-center gap-1 shrink-0">
                 <StarRating rating={business.rating} showNumber={false} />
-                <span className="text-sm font-medium text-gray-700">
+                <span
+                  className={`text-sm font-medium ${
+                    isClaimed ? "text-gray-700" : "text-gray-500"
+                  }`}
+                >
                   {business.rating.toFixed(1)}
                 </span>
                 {business.reviewCount > 0 && (
@@ -59,24 +100,46 @@ function FreeCard({
 
           {/* Location + Badge */}
           <div className="flex items-center gap-2 flex-wrap mt-1">
-            <p className="text-sm text-gray-600 capitalize">
+            <p
+              className={`text-sm capitalize ${
+                isClaimed ? "text-gray-600" : "text-gray-400"
+              }`}
+            >
               {verticalDisplay} · {business.city}, {business.state}
             </p>
-            {business.isClaimed ? (
-              <img
-                src="/VerifiedBadge.png"
-                alt="Verified Owner"
-                className="h-8 w-auto"
-              />
+            {isFoundingMember ? (
+              <span className="inline-flex items-center gap-1 bg-gradient-to-r from-[#d4a853] to-[#e5b863] text-[#1a1a2e] text-xs font-bold px-2.5 py-0.5 rounded-full shadow-sm">
+                <svg
+                  className="w-3 h-3"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+                Founding Member
+              </span>
+            ) : isClaimed ? (
+              <span className="inline-flex items-center gap-1 bg-green-100 text-green-700 text-xs font-semibold px-2 py-0.5 rounded-full">
+                <svg
+                  className="w-3 h-3"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+                Verified
+              </span>
             ) : (
-              <img
-                src="/UnclaimedBadge.png"
-                alt="Unclaimed"
-                className="h-8 w-auto"
-              />
+              <span className="inline-flex items-center text-xs font-medium px-2 py-0.5 rounded-full bg-gray-100 text-gray-400">
+                Unclaimed
+              </span>
             )}
             {!business.hasWebsite && (
-              <span className="inline-flex items-center text-xs font-medium px-2 py-0.5 rounded-full bg-gray-100 text-gray-500">
+              <span className="inline-flex items-center text-xs font-medium px-2 py-0.5 rounded-full bg-gray-100 text-gray-400">
                 No website
               </span>
             )}
@@ -88,7 +151,13 @@ function FreeCard({
       {business.phone && (
         <a
           href={`tel:${business.phone}`}
-          className="flex items-center gap-2 text-[#1a1a2e] font-semibold mb-4 hover:text-[#d4a853] transition-colors"
+          className={`flex items-center gap-2 font-semibold mb-4 transition-colors ${
+            isFoundingMember
+              ? "text-[#1a1a2e] hover:text-[#d4a853]"
+              : isClaimed
+              ? "text-[#1a1a2e] hover:text-green-600"
+              : "text-gray-500 hover:text-gray-700"
+          }`}
         >
           <PhoneIcon />
           <span>{formatPhone(business.phone)}</span>
@@ -100,25 +169,37 @@ function FreeCard({
         {business.phone && (
           <a
             href={`tel:${business.phone}`}
-            className="flex-1 bg-[#1a1a2e] text-white text-center py-2.5 px-4 rounded-lg font-semibold hover:bg-[#2d2d44] transition-colors text-sm"
+            className={`flex-1 text-center py-2.5 px-4 rounded-lg font-semibold transition-colors text-sm ${
+              isFoundingMember
+                ? "bg-gradient-to-r from-[#d4a853] to-[#e5b863] text-[#1a1a2e] hover:shadow-lg hover:shadow-[#d4a853]/25"
+                : isClaimed
+                ? "bg-green-600 text-white hover:bg-green-700"
+                : "bg-gray-400 text-white hover:bg-gray-500"
+            }`}
           >
             Call Now
           </a>
         )}
         <Link
           href={`/profile/${business.slug}`}
-          className="flex-1 border border-[#d4a853] text-[#1a1a2e] text-center py-2.5 px-4 rounded-lg font-semibold hover:bg-[#d4a853] hover:text-white transition-colors text-sm"
+          className={`flex-1 text-center py-2.5 px-4 rounded-lg font-semibold transition-colors text-sm ${
+            isFoundingMember
+              ? "border-2 border-[#d4a853] text-[#d4a853] hover:bg-[#fffdf7]"
+              : isClaimed
+              ? "border-2 border-green-500 text-green-700 hover:bg-green-50"
+              : "border border-gray-300 text-gray-500 hover:bg-gray-50"
+          }`}
         >
           View Profile
         </Link>
       </div>
 
-      {/* Claim CTA */}
-      {!business.isClaimed && (
+      {/* Claim CTA for unclaimed */}
+      {!isClaimed && (
         <div className="mt-3 pt-3 border-t border-gray-100">
           <Link
             href={`/claim-listing?id=${business.id}`}
-            className="text-xs text-gray-500 hover:text-[#d4a853] transition-colors"
+            className="text-xs text-gray-400 hover:text-[#d4a853] transition-colors"
           >
             Is this your business? Claim this listing
           </Link>
@@ -135,11 +216,13 @@ function FeaturedCard({
   business: Business;
   verticalDisplay: string;
 }) {
+  const isFoundingMember = business.membershipTier === "founding_member";
+
   return (
     <div className="bg-gradient-to-br from-[#fffdf7] to-white rounded-xl border-2 border-[#d4a853] p-5 shadow-[0_4px_20px_rgba(212,168,83,0.15)] relative overflow-hidden">
       {/* Featured Badge */}
       <div className="absolute top-0 right-0 bg-[#d4a853] text-white text-xs font-bold px-3 py-1 rounded-bl-lg">
-        HERE'S MY GUY
+        {isFoundingMember ? "FOUNDING MEMBER" : "HERE'S MY GUY"}
       </div>
 
       {/* Header with Logo */}

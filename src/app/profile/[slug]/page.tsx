@@ -96,9 +96,16 @@ export default async function ProfilePage({ params }: ProfilePageProps) {
               <div>
                 <div className="flex items-center gap-3 flex-wrap">
                   <h1 className="text-2xl md:text-3xl font-bold">{business.name}</h1>
-                  {business.isFeatured && (
-                    <span className="inline-flex items-center gap-1 bg-[#d4a853] text-[#1a1a2e] text-xs font-semibold px-2 py-0.5 rounded-full">
-                      Featured
+                  {business.membershipTier === "founding_member" && (
+                    <span className="inline-flex items-center gap-1.5 bg-gradient-to-r from-[#d4a853] to-[#e5b863] text-[#1a1a2e] text-sm font-bold px-3 py-1 rounded-full shadow-lg">
+                      <svg
+                        className="w-4 h-4"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                      >
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+                      Founding Member
                     </span>
                   )}
                 </div>
@@ -108,18 +115,40 @@ export default async function ProfilePage({ params }: ProfilePageProps) {
                   <p className="text-gray-300 capitalize">
                     {verticalName} · {business.city}, {business.state}
                   </p>
-                  {business.isClaimed ? (
-                    <img
-                      src="/VerifiedBadge.png"
-                      alt="Verified Owner"
-                      className="h-10 w-auto"
-                    />
+                  {business.membershipTier === "founding_member" ? (
+                    <span className="inline-flex items-center gap-1.5 bg-gradient-to-r from-[#d4a853] to-[#e5b863] text-[#1a1a2e] text-sm font-semibold px-3 py-1 rounded-full">
+                      <svg
+                        className="w-4 h-4"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                      Verified Owner
+                    </span>
+                  ) : business.isClaimed ? (
+                    <span className="inline-flex items-center gap-1.5 bg-green-500 text-white text-sm font-semibold px-3 py-1 rounded-full">
+                      <svg
+                        className="w-4 h-4"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                      Verified Owner
+                    </span>
                   ) : (
-                    <img
-                      src="/UnclaimedBadge.png"
-                      alt="Unclaimed"
-                      className="h-10 w-auto"
-                    />
+                    <span className="inline-flex items-center text-sm font-medium px-3 py-1 rounded-full bg-gray-600 text-gray-300">
+                      Unclaimed
+                    </span>
                   )}
                   {!business.hasWebsite && (
                     <span className="inline-flex items-center text-xs font-medium px-2 py-0.5 rounded-full bg-gray-600 text-gray-300">
@@ -168,6 +197,55 @@ export default async function ProfilePage({ params }: ProfilePageProps) {
 
       {/* Main Content */}
       <div className="max-w-6xl mx-auto px-4 sm:px-6 py-8">
+        {/* Enhanced Claim CTA Banner for Unclaimed */}
+        {!business.isClaimed && (
+          <div className="bg-gradient-to-r from-amber-50 to-orange-50 border-l-4 border-amber-500 p-6 mb-8 rounded-r-xl">
+            <div className="flex flex-col md:flex-row md:items-center gap-4">
+              <div className="flex-1">
+                <h3 className="text-lg font-bold text-[#1a1a2e]">
+                  Is this your business?
+                </h3>
+                <p className="text-gray-600 text-sm">
+                  Claim your free listing to get verified, appear higher in search results, and stand out from competitors.
+                </p>
+              </div>
+              <Link
+                href={`/claim-listing?id=${business.id}`}
+                className="bg-amber-500 text-white px-6 py-3 rounded-lg font-bold hover:bg-amber-600 transition-colors whitespace-nowrap text-center"
+              >
+                Claim Now - Free
+              </Link>
+            </div>
+          </div>
+        )}
+
+        {/* Upgrade CTA Banner for Claimed Non-Founding Members */}
+        {business.isClaimed && business.membershipTier !== "founding_member" && (
+          <div className="bg-gradient-to-r from-[#fffdf7] to-[#fff9e6] border-l-4 border-[#d4a853] p-6 mb-8 rounded-r-xl">
+            <div className="flex flex-col md:flex-row md:items-center gap-4">
+              <div className="flex-1">
+                <div className="flex items-center gap-2 mb-1">
+                  <svg className="w-5 h-5 text-[#d4a853]" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                  </svg>
+                  <h3 className="text-lg font-bold text-[#1a1a2e]">
+                    Become a Founding Member
+                  </h3>
+                </div>
+                <p className="text-gray-600 text-sm">
+                  Get a gold badge, priority placement, and lock in $25/month for life. Limited spots available.
+                </p>
+              </div>
+              <Link
+                href="/founding-members"
+                className="bg-gradient-to-r from-[#d4a853] to-[#e5b863] text-[#1a1a2e] px-6 py-3 rounded-lg font-bold hover:shadow-lg hover:shadow-[#d4a853]/25 transition-all whitespace-nowrap text-center"
+              >
+                Learn More
+              </Link>
+            </div>
+          </div>
+        )}
+
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Main Info */}
           <div className="lg:col-span-2 space-y-6">

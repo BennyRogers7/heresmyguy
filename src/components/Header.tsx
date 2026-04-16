@@ -73,6 +73,13 @@ export default function Header() {
             </div>
 
             <Link
+              href="/founding-members"
+              className="text-sm font-medium hover:text-[#d4a853] transition-colors"
+            >
+              Founding Members
+            </Link>
+
+            <Link
               href="/claim-listing"
               className="bg-[#d4a853] text-[#1a1a2e] px-4 py-2 rounded-lg font-bold text-sm hover:bg-[#e5b863] transition-colors"
             >
@@ -121,6 +128,18 @@ function MobileMenu() {
             className="block px-4 py-2 text-sm text-gray-700 hover:bg-[#f8f7f4]"
           >
             Home
+          </Link>
+          <Link
+            href="/founding-members"
+            className="block px-4 py-2 text-sm text-gray-700 hover:bg-[#f8f7f4]"
+          >
+            Founding Members
+          </Link>
+          <Link
+            href="/about"
+            className="block px-4 py-2 text-sm text-gray-700 hover:bg-[#f8f7f4]"
+          >
+            About
           </Link>
           <div className="border-t border-gray-100 my-2" />
           <p className="px-4 py-1 text-xs text-gray-400 font-medium">Find Pros</p>
