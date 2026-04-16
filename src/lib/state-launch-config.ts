@@ -12,18 +12,10 @@ export interface StateLaunchInfo {
 }
 
 // States that are fully launched
-const LAUNCHED_STATES = new Set(["OH", "IL", "MN"]);
+const LAUNCHED_STATES = new Set(["MN"]);
 
 // Default launch info for states
 const stateLaunchOverrides: Record<string, Partial<StateLaunchInfo>> = {
-  OH: {
-    status: "launched",
-    launchDate: "2026-04-14",
-  },
-  IL: {
-    status: "launched",
-    launchDate: "2026-04-14",
-  },
   MN: {
     status: "launched",
     launchDate: "2026-04-14",

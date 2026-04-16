@@ -84,103 +84,6 @@ export default async function StatePage({ params }: PageProps) {
 
   const isLaunched = isStateLaunched(state.abbreviation);
 
-  // If state is not launched, show coming soon page
-  if (!isLaunched) {
-    return (
-      <div className="bg-[#f8f7f4] min-h-screen">
-        {/* Hero */}
-        <section className="bg-gradient-to-br from-[#1a1a2e] to-[#2d2d44] text-white py-16 md:py-24">
-          <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
-            <Breadcrumbs
-              variant="light"
-              items={[
-                { label: "Home", href: "/" },
-                { label: state.name },
-              ]}
-            />
-
-            <div className="mt-8">
-              <span className="inline-block bg-[#d4a853]/20 text-[#d4a853] text-sm font-semibold px-4 py-1.5 rounded-full mb-4">
-                Coming Soon
-              </span>
-
-              <h1 className="text-3xl md:text-5xl font-bold">
-                We&apos;re launching in{" "}
-                <span className="text-[#d4a853]">{state.name}</span> soon!
-              </h1>
-
-              <p className="text-gray-300 mt-4 text-lg max-w-xl mx-auto">
-                Here&apos;s My Guy is expanding to {state.name}. Sign up to be notified
-                when we launch and be the first to find trusted local contractors.
-              </p>
-            </div>
-
-            {/* Notification Signup */}
-            <div className="mt-10 max-w-md mx-auto">
-              <LaunchNotifyForm state={state.abbreviation} stateName={state.name} />
-            </div>
-
-            {/* What You'll Get */}
-            <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
-              <div className="bg-white/10 rounded-xl p-5">
-                <div className="w-10 h-10 bg-[#d4a853] rounded-lg flex items-center justify-center mb-3">
-                  <svg className="w-5 h-5 text-[#1a1a2e]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                  </svg>
-                </div>
-                <h3 className="font-semibold mb-1">Find Local Pros</h3>
-                <p className="text-sm text-gray-300">
-                  Browse contractors recommended by your neighbors
-                </p>
-              </div>
-              <div className="bg-white/10 rounded-xl p-5">
-                <div className="w-10 h-10 bg-[#d4a853] rounded-lg flex items-center justify-center mb-3">
-                  <svg className="w-5 h-5 text-[#1a1a2e]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                </div>
-                <h3 className="font-semibold mb-1">Verified Listings</h3>
-                <p className="text-sm text-gray-300">
-                  See who&apos;s verified and trusted in your area
-                </p>
-              </div>
-              <div className="bg-white/10 rounded-xl p-5">
-                <div className="w-10 h-10 bg-[#d4a853] rounded-lg flex items-center justify-center mb-3">
-                  <svg className="w-5 h-5 text-[#1a1a2e]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
-                  </svg>
-                </div>
-                <h3 className="font-semibold mb-1">Real Reviews</h3>
-                <p className="text-sm text-gray-300">
-                  Read reviews from real customers
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Contractor CTA */}
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 py-12">
-          <div className="bg-gradient-to-r from-[#fffdf7] to-[#fff9e6] border-2 border-[#d4a853] rounded-xl p-8 text-center">
-            <h2 className="text-2xl font-bold text-[#1a1a2e] mb-3">
-              Are you a contractor in {state.name}?
-            </h2>
-            <p className="text-gray-600 mb-6">
-              Be among the first to claim your listing when we launch. Get verified
-              early and stand out from the competition.
-            </p>
-            <Link
-              href="/claim-listing"
-              className="inline-block bg-gradient-to-r from-[#d4a853] to-[#e5b863] text-[#1a1a2e] px-8 py-3 rounded-lg font-bold hover:shadow-lg hover:shadow-[#d4a853]/25 transition-all"
-            >
-              Pre-Register Your Business
-            </Link>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
   // Get vertical counts for this state
   const verticalCounts = await prisma.business.groupBy({
     by: ["verticalSlug"],
@@ -198,6 +101,34 @@ export default async function StatePage({ params }: PageProps) {
 
   return (
     <div className="bg-[#f8f7f4] min-h-screen">
+      {/* Coming Soon Banner - shows for unlaunched states */}
+      {!isLaunched && (
+        <section className="bg-gradient-to-r from-[#1a1a2e] to-[#2d2d44] border-b-4 border-[#d4a853]">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 py-10 md:py-12">
+            <div className="text-center">
+              <span className="inline-block bg-[#d4a853]/20 text-[#d4a853] text-sm font-semibold px-4 py-1.5 rounded-full mb-4">
+                Coming Soon
+              </span>
+
+              <h2 className="text-2xl md:text-3xl font-bold text-white">
+                Coming Soon to{" "}
+                <span className="text-[#d4a853]">{state.name}</span>
+              </h2>
+
+              <p className="text-gray-300 mt-3 max-w-2xl mx-auto">
+                We&apos;re building each market the right way — with verified contractors,
+                real reviews, and a commitment to trust. Be the first to know when
+                Here&apos;s My Guy launches in {state.name}.
+              </p>
+
+              <div className="mt-6 max-w-md mx-auto">
+                <LaunchNotifyForm state={state.abbreviation} stateName={state.name} />
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* Hero */}
       <section className="bg-gradient-to-br from-[#1a1a2e] to-[#2d2d44] text-white py-10 md:py-14">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
