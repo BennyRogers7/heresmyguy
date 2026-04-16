@@ -8,15 +8,15 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Brand */}
           <div>
-            <div className="flex items-center gap-2 mb-3">
+            <div className="flex items-center gap-3 mb-4">
               <Image
                 src="/mascot.png"
                 alt="Here's My Guy mascot"
-                width={36}
-                height={36}
-                className="w-9 h-9"
+                width={48}
+                height={48}
+                className="w-12 h-12"
               />
-              <h3 className="text-lg font-bold tracking-tight">
+              <h3 className="text-xl font-bold tracking-tight">
                 Here&apos;s My <span className="text-[#d4a853]">Guy</span>
               </h3>
             </div>
@@ -89,8 +89,28 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/featured" className="hover:text-[#d4a853] transition-colors">
-                  Get Featured
+                <Link href="/how-to-claim" className="hover:text-[#d4a853] transition-colors">
+                  How to Claim
+                </Link>
+              </li>
+              <li>
+                <Link href="/founding-members" className="hover:text-[#d4a853] transition-colors">
+                  Founding Members
+                </Link>
+              </li>
+            </ul>
+
+            {/* Company Links */}
+            <h4 className="font-bold mb-4 mt-6 text-[#d4a853]">Company</h4>
+            <ul className="space-y-2 text-sm text-gray-400">
+              <li>
+                <Link href="/about" className="hover:text-[#d4a853] transition-colors">
+                  About Us
+                </Link>
+              </li>
+              <li>
+                <Link href="/blog" className="hover:text-[#d4a853] transition-colors">
+                  Blog
                 </Link>
               </li>
             </ul>

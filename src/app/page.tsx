@@ -13,64 +13,61 @@ export default async function HomePage() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-[#1a1a2e] via-[#232340] to-[#2d2d44] text-white py-12 md:py-20">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6">
-          <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
-            {/* Left Column - Copy */}
-            <div className="flex-1 text-center md:text-left">
-              <h1 className="text-3xl md:text-5xl font-extrabold mb-4 tracking-tight">
-                Find a contractor you can
-                <br />
-                <span className="text-[#d4a853]">actually trust</span>
-              </h1>
+      <section className="bg-gradient-to-br from-[#1a1a2e] via-[#232340] to-[#2d2d44] text-white py-12 md:py-20 relative overflow-hidden">
+        {/* Decorative mascot - bottom right, low opacity */}
+        <div className="absolute bottom-0 right-0 opacity-30 pointer-events-none hidden md:block">
+          <Image
+            src="/mascot.png"
+            alt=""
+            width={200}
+            height={200}
+            className="w-40 h-40 lg:w-48 lg:h-48"
+            aria-hidden="true"
+          />
+        </div>
 
-              <p className="text-lg text-gray-300 max-w-xl mb-8">
-                Built as a better alternative to lead-gen platforms — Here&rsquo;s My Guy is launching state by state to create a more trusted way to hire and be hired.
-              </p>
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
+          <div className="max-w-2xl mx-auto md:mx-0">
+            <h1 className="text-3xl md:text-5xl font-extrabold mb-4 tracking-tight text-center md:text-left">
+              Find a contractor you can
+              <br />
+              <span className="text-[#d4a853]">actually trust</span>
+            </h1>
 
-              {/* Search / Browse CTAs */}
-              <div className="flex flex-col sm:flex-row justify-center md:justify-start gap-4 mb-8">
-                <Link
-                  href="#browse-states"
-                  className="bg-[#d4a853] text-[#1a1a2e] px-8 py-3.5 rounded-lg font-bold text-lg hover:bg-[#e5b863] transition-colors"
-                >
-                  Browse by State
-                </Link>
-                <Link
-                  href="#browse-trades"
-                  className="border-2 border-white/30 text-white px-8 py-3.5 rounded-lg font-bold text-lg hover:bg-white/10 transition-colors"
-                >
-                  Browse by Trade
-                </Link>
-              </div>
+            <p className="text-lg text-gray-300 max-w-xl mb-8 text-center md:text-left">
+              Built as a better alternative to lead-gen platforms — Here&rsquo;s My Guy is launching state by state to create a more trusted way to hire and be hired.
+            </p>
 
-              {/* Trust Signals */}
-              <div className="flex flex-wrap justify-center md:justify-start gap-6 text-sm">
-                <div className="flex items-center gap-2">
-                  <CheckIcon />
-                  <span>No spam. No recycled leads. Just real local contractors.</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckIcon />
-                  <span>Launching state by state</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckIcon />
-                  <span>Free to Use</span>
-                </div>
-              </div>
+            {/* Search / Browse CTAs */}
+            <div className="flex flex-col sm:flex-row justify-center md:justify-start gap-4 mb-8">
+              <Link
+                href="#browse-states"
+                className="bg-[#d4a853] text-[#1a1a2e] px-8 py-3.5 rounded-lg font-bold text-lg hover:bg-[#e5b863] transition-colors"
+              >
+                Browse by State
+              </Link>
+              <Link
+                href="#browse-trades"
+                className="border-2 border-white/30 text-white px-8 py-3.5 rounded-lg font-bold text-lg hover:bg-white/10 transition-colors"
+              >
+                Browse by Trade
+              </Link>
             </div>
 
-            {/* Right Column - Mascot */}
-            <div className="flex-shrink-0">
-              <Image
-                src="/mascot.png"
-                alt="Here's My Guy mascot"
-                width={380}
-                height={380}
-                className="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96"
-                priority
-              />
+            {/* Trust Signals */}
+            <div className="flex flex-wrap justify-center md:justify-start gap-6 text-sm">
+              <div className="flex items-center gap-2">
+                <CheckIcon />
+                <span>No spam. No recycled leads. Just real local contractors.</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckIcon />
+                <span>Launching state by state</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckIcon />
+                <span>Free to Use</span>
+              </div>
             </div>
           </div>
         </div>
@@ -79,9 +76,19 @@ export default async function HomePage() {
       {/* Why Different */}
       <section className="py-16 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
-          <h2 className="text-2xl md:text-3xl font-bold text-[#1a1a2e] mb-4">
-            Why Here&rsquo;s My Guy is different
-          </h2>
+          <div className="flex items-center gap-3 mb-4">
+            <Image
+              src="/mascot.png"
+              alt=""
+              width={32}
+              height={32}
+              className="w-8 h-8"
+              aria-hidden="true"
+            />
+            <h2 className="text-2xl md:text-3xl font-bold text-[#1a1a2e]">
+              Why Here&rsquo;s My Guy is different
+            </h2>
+          </div>
           <div className="text-gray-600 space-y-4">
             <p>
               After 15 years working around the lead-generation industry, I saw how broken it had become.
@@ -198,27 +205,40 @@ export default async function HomePage() {
 
       {/* CTA Section */}
       <section className="bg-[#1a1a2e] text-white py-16">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
-          <h2 className="text-2xl md:text-3xl font-bold mb-4">
-            Are you a contractor?
-          </h2>
-          <p className="text-gray-300 mb-8 max-w-xl mx-auto">
-            Claim your free listing and get found by customers in your area.
-            Upgrade to featured for top placement.
-          </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Link
-              href="/claim-listing"
-              className="bg-[#d4a853] text-[#1a1a2e] px-8 py-3.5 rounded-lg font-bold hover:bg-[#e5b863] transition-colors"
-            >
-              Claim Your Free Listing
-            </Link>
-            <Link
-              href="/founders"
-              className="border-2 border-[#d4a853] text-[#d4a853] px-8 py-3.5 rounded-lg font-bold hover:bg-[#d4a853] hover:text-[#1a1a2e] transition-colors"
-            >
-              Get Featured
-            </Link>
+        <div className="max-w-4xl mx-auto px-4 sm:px-6">
+          <div className="flex flex-col md:flex-row items-center gap-8">
+            <div className="flex-1 text-center md:text-left">
+              <h2 className="text-2xl md:text-3xl font-bold mb-4">
+                Are you a contractor?
+              </h2>
+              <p className="text-gray-300 mb-8 max-w-xl">
+                Claim your free listing and get found by customers in your area.
+                Upgrade to featured for top placement.
+              </p>
+              <div className="flex flex-col sm:flex-row justify-center md:justify-start gap-4">
+                <Link
+                  href="/claim-listing"
+                  className="bg-[#d4a853] text-[#1a1a2e] px-8 py-3.5 rounded-lg font-bold hover:bg-[#e5b863] transition-colors"
+                >
+                  Claim Your Free Listing
+                </Link>
+                <Link
+                  href="/founders"
+                  className="border-2 border-[#d4a853] text-[#d4a853] px-8 py-3.5 rounded-lg font-bold hover:bg-[#d4a853] hover:text-[#1a1a2e] transition-colors"
+                >
+                  Get Featured
+                </Link>
+              </div>
+            </div>
+            <div className="flex-shrink-0 hidden md:block">
+              <Image
+                src="/mascot.png"
+                alt="Here's My Guy mascot"
+                width={120}
+                height={120}
+                className="w-28 h-28 lg:w-32 lg:h-32"
+              />
+            </div>
           </div>
         </div>
       </section>
