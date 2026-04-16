@@ -181,12 +181,12 @@ const LAUNCH_CONFIG: Record<string, { status: LaunchStatus; launchDate?: string 
   MN: { status: "live" },
 
   // Launching May 15, 2026
-  IL: { status: "launching", launchDate: "2026-05-15" },
-  OH: { status: "launching", launchDate: "2026-05-15" },
+  IL: { status: "launching", launchDate: "May 15, 2026" },
+  OH: { status: "launching", launchDate: "May 15, 2026" },
 
   // Launching June 15, 2026
-  TX: { status: "launching", launchDate: "2026-06-15" },
-  FL: { status: "launching", launchDate: "2026-06-15" },
+  TX: { status: "launching", launchDate: "June 15, 2026" },
+  FL: { status: "launching", launchDate: "June 15, 2026" },
 };
 
 /**
@@ -282,10 +282,16 @@ export function getStateMajorCities(stateAbbreviation: string): string[] {
 
 /**
  * Format launch date for display
+ * Dates are now stored in "Month Day, Year" format, so this just returns the string.
+ * For short format (badges), extracts just "Month Day".
  */
-export function formatLaunchDate(dateString: string): string {
-  const date = new Date(dateString);
-  return date.toLocaleDateString("en-US", { month: "long", day: "numeric" });
+export function formatLaunchDate(dateString: string, short: boolean = true): string {
+  if (short) {
+    // Extract "May 15" from "May 15, 2026"
+    const match = dateString.match(/^(\w+ \d+)/);
+    return match ? match[1] : dateString;
+  }
+  return dateString;
 }
 
 // Legacy function for backwards compatibility
