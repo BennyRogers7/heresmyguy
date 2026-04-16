@@ -1,112 +1,128 @@
 import Link from "next/link";
 import Image from "next/image";
-import { getAllStates, getAllVerticals, prisma } from "@/lib/db";
+import { getAllStates, getAllVerticals } from "@/lib/db";
 import USHeatmap from "@/components/USHeatmap";
 import { getStateLaunchStatus, formatLaunchDate } from "@/lib/state-launch-config";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Here's My Guy | Find the Contractor Your Neighbor Swears By",
+  description:
+    "Sick of getting spammed by contractor directories? Same. Here's My Guy is a better way to find quality contractors. No lead-selling. No spam. Just quality work.",
+  openGraph: {
+    title: "Here's My Guy | Find the Contractor Your Neighbor Swears By",
+    description:
+      "Sick of getting spammed by contractor directories? Same. Here's My Guy is a better way to find quality contractors. No lead-selling. No spam. Just quality work.",
+  },
+};
 
 export default async function HomePage() {
-  const [states, verticals, totalBusinesses, totalCities] = await Promise.all([
+  const [states, verticals] = await Promise.all([
     getAllStates(),
     getAllVerticals(),
-    prisma.business.count(),
-    prisma.city.count({ where: { businessCount: { gt: 0 } } }),
   ]);
 
   return (
     <div>
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-[#1a1a2e] via-[#232340] to-[#2d2d44] text-white py-12 md:py-20 relative overflow-hidden">
-        {/* Decorative mascot - bottom right, low opacity */}
-        <div className="absolute bottom-0 right-0 opacity-30 pointer-events-none hidden md:block">
+      <section className="relative min-h-[600px] md:min-h-[700px] flex items-center">
+        {/* Background Images */}
+        <div className="absolute inset-0 z-0">
+          {/* Mobile Portrait Image */}
           <Image
-            src="/mascot.png"
-            alt=""
-            width={200}
-            height={200}
-            className="w-40 h-40 lg:w-48 lg:h-48"
-            aria-hidden="true"
+            src="/images/hero/hero-yard-signs-portrait.png"
+            alt="Here's My Guy yard signs in front of a home"
+            fill
+            priority
+            className="object-cover object-center md:hidden"
+            sizes="100vw"
           />
+          {/* Desktop Landscape Image */}
+          <Image
+            src="/images/hero/hero-yard-signs-landscape.png"
+            alt="Here's My Guy yard signs in front of a home"
+            fill
+            priority
+            className="object-cover object-center hidden md:block"
+            sizes="100vw"
+          />
+          {/* Dark gradient overlay - left to right */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent" />
         </div>
 
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
-          <div className="max-w-2xl mx-auto md:mx-0">
-            <h1 className="text-3xl md:text-5xl font-extrabold mb-4 tracking-tight text-center md:text-left">
-              Find a contractor you can
-              <br />
-              <span className="text-[#d4a853]">actually trust</span>
+        {/* Hero Content */}
+        <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 py-16 md:py-24">
+          <div className="max-w-xl">
+            <h1 className="text-3xl md:text-5xl lg:text-6xl font-extrabold text-white mb-6 leading-tight">
+              Find the contractor your neighbor swears by
             </h1>
 
-            <p className="text-lg text-gray-300 max-w-xl mb-8 text-center md:text-left">
-              Built as a better alternative to lead-gen platforms — Here&rsquo;s My Guy is launching state by state to create a more trusted way to hire and be hired.
+            <p className="text-lg md:text-xl text-gray-200 mb-8 leading-relaxed">
+              Sick of getting spammed every time you use other directories? Same. No lead-selling here. Just quality work.
             </p>
 
-            {/* Search / Browse CTAs */}
-            <div className="flex flex-col sm:flex-row justify-center md:justify-start gap-4 mb-8">
+            <div className="flex flex-col sm:flex-row gap-4 mb-6">
               <Link
                 href="#browse-states"
-                className="bg-[#d4a853] text-[#1a1a2e] px-8 py-3.5 rounded-lg font-bold text-lg hover:bg-[#e5b863] transition-colors"
+                className="bg-[#d4a853] text-[#1a1a2e] px-8 py-4 rounded-lg font-bold text-lg hover:bg-[#e5b863] transition-colors text-center"
               >
-                Browse by State
-              </Link>
-              <Link
-                href="#browse-trades"
-                className="border-2 border-white/30 text-white px-8 py-3.5 rounded-lg font-bold text-lg hover:bg-white/10 transition-colors"
-              >
-                Browse by Trade
+                Browse Contractors →
               </Link>
             </div>
 
-            {/* Trust Signals */}
-            <div className="flex flex-wrap justify-center md:justify-start gap-6 text-sm">
-              <div className="flex items-center gap-2">
-                <CheckIcon />
-                <span>No spam. No recycled leads. Just real local contractors.</span>
+            <Link
+              href="/founders"
+              className="text-gray-300 hover:text-white transition-colors text-sm inline-flex items-center gap-1"
+            >
+              Are you a contractor? Join as a founding member →
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* How It Works */}
+      <section className="py-16 md:py-20 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          <h2 className="text-2xl md:text-3xl font-bold text-[#1a1a2e] mb-12 text-center">
+            How It Works
+          </h2>
+
+          <div className="grid md:grid-cols-3 gap-8 md:gap-12">
+            <div className="text-center md:text-left">
+              <div className="w-12 h-12 bg-[#d4a853]/10 rounded-full flex items-center justify-center mx-auto md:mx-0 mb-4">
+                <span className="text-xl font-bold text-[#d4a853]">1</span>
               </div>
-              <div className="flex items-center gap-2">
-                <CheckIcon />
-                <span>Launching state by state</span>
+              <h3 className="text-xl font-bold text-[#1a1a2e] mb-3">Browse</h3>
+              <p className="text-gray-600">
+                Search by trade, city, or state. Real contractors, real information.
+              </p>
+            </div>
+
+            <div className="text-center md:text-left">
+              <div className="w-12 h-12 bg-[#d4a853]/10 rounded-full flex items-center justify-center mx-auto md:mx-0 mb-4">
+                <span className="text-xl font-bold text-[#d4a853]">2</span>
               </div>
-              <div className="flex items-center gap-2">
-                <CheckIcon />
-                <span>Free to Use</span>
+              <h3 className="text-xl font-bold text-[#1a1a2e] mb-3">Choose</h3>
+              <p className="text-gray-600">
+                Compare profiles, check reviews, see who your neighbors recommend.
+              </p>
+            </div>
+
+            <div className="text-center md:text-left">
+              <div className="w-12 h-12 bg-[#d4a853]/10 rounded-full flex items-center justify-center mx-auto md:mx-0 mb-4">
+                <span className="text-xl font-bold text-[#d4a853]">3</span>
               </div>
+              <h3 className="text-xl font-bold text-[#1a1a2e] mb-3">Call</h3>
+              <p className="text-gray-600">
+                Pick up the phone and call them directly. Tell them you found them on Here&rsquo;s My Guy.
+              </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Why Different */}
-      <section className="py-16 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6">
-          <div className="flex items-center gap-3 mb-4">
-            <Image
-              src="/mascot.png"
-              alt=""
-              width={32}
-              height={32}
-              className="w-8 h-8"
-              aria-hidden="true"
-            />
-            <h2 className="text-2xl md:text-3xl font-bold text-[#1a1a2e]">
-              Why Here&rsquo;s My Guy is different
-            </h2>
-          </div>
-          <div className="text-gray-600 space-y-4">
-            <p>
-              After 15 years working around the lead-generation industry, I saw how broken it had become.
-            </p>
-            <p>
-              Contractors pay for weak leads. Homeowners get overwhelmed with options they don&rsquo;t trust.
-            </p>
-            <p>
-              Here&rsquo;s My Guy is being built to fix that — starting market by market, with a focus on trust, quality, and real local presence.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Heatmap Section */}
-      <section id="vote-for-state" className="py-16 bg-[#f8f7f4]">
+      {/* Rollout Map Section */}
+      <section id="vote-for-state" className="py-16 md:py-20 bg-[#f8f7f4]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-10">
             <h2 className="text-2xl md:text-3xl font-bold text-[#1a1a2e] mb-3">
@@ -121,35 +137,59 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* Contractor Focus */}
-      <section className="py-16 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6">
-          <h2 className="text-2xl md:text-3xl font-bold text-[#1a1a2e] mb-4">
-            Built for contractors tired of paying for leads
-          </h2>
-          <div className="text-gray-600 space-y-4">
-            <p>
-              If you&rsquo;ve used platforms like Angi or HomeAdvisor, you already know the problem.
-            </p>
-            <p>
-              Shared leads. Low intent. High cost.
-            </p>
-            <p>
-              Here&rsquo;s My Guy is being built to give you a stronger, more trusted presence — not just another lead marketplace.
-            </p>
+      {/* For Homeowners / For Contractors */}
+      <section className="py-16 md:py-20 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          <div className="grid md:grid-cols-2 gap-8 md:gap-12">
+            {/* For Homeowners */}
+            <div className="bg-[#f8f7f4] rounded-2xl p-8 md:p-10">
+              <h3 className="text-xl md:text-2xl font-bold text-[#1a1a2e] mb-4">
+                For Homeowners
+              </h3>
+              <p className="text-gray-600 leading-relaxed">
+                You deserve better than filling out a form and getting ambushed by your phone. Here&rsquo;s My Guy is simple. Browse real contractors, see real information, make your own call. That&rsquo;s it.
+              </p>
+            </div>
+
+            {/* For Contractors */}
+            <div className="bg-[#1a1a2e] rounded-2xl p-8 md:p-10">
+              <h3 className="text-xl md:text-2xl font-bold text-white mb-4">
+                For Contractors
+              </h3>
+              <p className="text-gray-300 leading-relaxed mb-6">
+                Our goal is simple. Get you on page one of Google. A rising tide raises all ships, and together we make it happen. Own your profile. Show your work. Let the quality speak.
+              </p>
+              <Link
+                href="/founders"
+                className="inline-flex items-center text-[#d4a853] font-semibold hover:text-[#e5b863] transition-colors"
+              >
+                Become a founding member →
+              </Link>
+            </div>
           </div>
         </div>
       </section>
 
+      {/* The Promise */}
+      <section className="py-20 md:py-28 bg-[#f8f7f4]">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+          <p className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#1a1a2e] leading-relaxed">
+            The contractor is not a commodity.
+            <br />
+            <span className="text-gray-500">To the homeowner: you are not a lead.</span>
+          </p>
+        </div>
+      </section>
+
       {/* Browse by Trade */}
-      <section id="browse-trades" className="py-16 bg-white">
+      <section id="browse-trades" className="py-16 md:py-20 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-10">
             <h2 className="text-2xl md:text-3xl font-bold text-[#1a1a2e] mb-3">
-              What do you need help with?
+              Browse by Trade
             </h2>
             <p className="text-gray-600">
-              Browse contractors by trade type
+              Find contractors by specialty
             </p>
           </div>
 
@@ -174,7 +214,7 @@ export default async function HomePage() {
       </section>
 
       {/* Browse by State */}
-      <section id="browse-states" className="py-16 bg-[#f8f7f4]">
+      <section id="browse-states" className="py-16 md:py-20 bg-[#f8f7f4]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-10">
             <h2 className="text-2xl md:text-3xl font-bold text-[#1a1a2e] mb-3">
@@ -234,98 +274,30 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="bg-[#1a1a2e] text-white py-16">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6">
-          <div className="flex flex-col md:flex-row items-center gap-8">
-            <div className="flex-1 text-center md:text-left">
-              <h2 className="text-2xl md:text-3xl font-bold mb-4">
-                Are you a contractor?
-              </h2>
-              <p className="text-gray-300 mb-8 max-w-xl">
-                Claim your free listing and get found by customers in your area.
-                Upgrade to featured for top placement.
-              </p>
-              <div className="flex flex-col sm:flex-row justify-center md:justify-start gap-4">
-                <Link
-                  href="/claim-listing"
-                  className="bg-[#d4a853] text-[#1a1a2e] px-8 py-3.5 rounded-lg font-bold hover:bg-[#e5b863] transition-colors"
-                >
-                  Claim Your Free Listing
-                </Link>
-                <Link
-                  href="/founders"
-                  className="border-2 border-[#d4a853] text-[#d4a853] px-8 py-3.5 rounded-lg font-bold hover:bg-[#d4a853] hover:text-[#1a1a2e] transition-colors"
-                >
-                  Get Featured
-                </Link>
-              </div>
-            </div>
-            <div className="flex-shrink-0 hidden md:block">
-              <Image
-                src="/mascot.png"
-                alt="Here's My Guy mascot"
-                width={120}
-                height={120}
-                className="w-28 h-28 lg:w-32 lg:h-32"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Footer CTA */}
+      <section className="py-16 md:py-20 bg-[#1a1a2e]">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-8">
+            Everyone&rsquo;s got a guy. Find yours here.
+          </h2>
 
-      {/* How It Works */}
-      <section className="py-16 bg-white">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-2xl md:text-3xl font-bold text-[#1a1a2e] mb-3">
-              How It Works
-            </h2>
+          <div className="flex flex-col sm:flex-row justify-center gap-4 mb-6">
+            <Link
+              href="#browse-states"
+              className="bg-[#d4a853] text-[#1a1a2e] px-8 py-4 rounded-lg font-bold text-lg hover:bg-[#e5b863] transition-colors"
+            >
+              Browse Contractors →
+            </Link>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="text-center">
-              <div className="w-14 h-14 bg-[#d4a853]/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl font-bold text-[#d4a853]">1</span>
-              </div>
-              <h3 className="font-bold text-[#1a1a2e] mb-2">Browse</h3>
-              <p className="text-gray-600 text-sm">
-                Search by state, city, and trade to find contractors in your area
-              </p>
-            </div>
-            <div className="text-center">
-              <div className="w-14 h-14 bg-[#d4a853]/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl font-bold text-[#d4a853]">2</span>
-              </div>
-              <h3 className="font-bold text-[#1a1a2e] mb-2">Compare</h3>
-              <p className="text-gray-600 text-sm">
-                Read reviews, check ratings, and compare local contractors
-              </p>
-            </div>
-            <div className="text-center">
-              <div className="w-14 h-14 bg-[#d4a853]/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl font-bold text-[#d4a853]">3</span>
-              </div>
-              <h3 className="font-bold text-[#1a1a2e] mb-2">Hire</h3>
-              <p className="text-gray-600 text-sm">
-                Contact contractors directly — no middleman, no fees
-              </p>
-            </div>
-          </div>
+          <Link
+            href="/founders"
+            className="text-gray-400 hover:text-white transition-colors text-sm"
+          >
+            Are you a contractor? →
+          </Link>
         </div>
       </section>
     </div>
-  );
-}
-
-function CheckIcon() {
-  return (
-    <svg className="w-5 h-5 text-[#d4a853]" fill="currentColor" viewBox="0 0 20 20">
-      <path
-        fillRule="evenodd"
-        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-        clipRule="evenodd"
-      />
-    </svg>
   );
 }
